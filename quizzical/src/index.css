@@ -69,7 +69,7 @@ h1, h2 > .quizzical {
 .info-trigger, .start-quiz-btn,
 .info-dropdown {
   width: 100%;
-  font: 400 1rem/1 'Lato', sans-serif;
+  font: 400 1rem/1 'Wix Madefor Display', sans-serif;
 }
 
 .info-dropdown {
@@ -107,7 +107,7 @@ h1 {
 
 h2 {
   margin-bottom: .5rem;
-  font: 500 1.9rem/1.2 'Quicksand', sans-serif;
+  font: 400 1.9rem/1.2 'Quicksand', sans-serif;
 }
 
 .trivia {
@@ -124,7 +124,7 @@ h2 {
 
 .hero-subtext {
   margin-bottom: 1rem;
-  font: 400 1rem/1.5 'Lato', sans-serif;
+  font: 400 1rem/1.5 'Wix Madefor Display', sans-serif;
 }
 
 /*========== HERO OPTIONS ==========*/
