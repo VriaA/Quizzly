@@ -90,8 +90,14 @@ h1, h2 > .quizzical {
 }
 
 /*===================== HEADER =====================*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
 h1 {
-  padding: 1rem 0 0 1rem;
   font-size: 2rem;
 }
 
@@ -254,6 +260,10 @@ h2 {
 /*===================== MEDIA QUERIES =====================*/
 
 @media screen and (min-width: 768px) {
+  header {
+    padding: 2rem 5%;
+  }
+
   .left-col {
     max-width: 580px;
   }
@@ -275,10 +285,6 @@ h2 {
 }
 
 @media screen and (min-width: 1024px) {
-  h1 {
-    padding: 2rem 0 0 2rem;
-    font-size: 2rem;
-  }
 
   .hero-wrapper {  
     position: absolute;
