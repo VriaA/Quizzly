@@ -43,6 +43,12 @@ function App() {
         <div>
           <header>
             <h1>Quizzical</h1>
+            
+            <div className='theme-icon-cntr'>
+              <span class='theme-icon material-symbols-outlined'>
+                light_mode
+              </span>
+            </div>
           </header>
 
           <main>
