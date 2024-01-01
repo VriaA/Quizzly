@@ -1,0 +1,343 @@
+/*===================== GENERAL STYLES =====================*/
+*, h1, h2, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: .2px;
+}
+
+:root {
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D02F70;
+  border-radius: 4px;
+}
+
+button {
+  background: none; 
+  outline: none;
+  cursor: pointer;
+  /* color: #f6f6f6;
+  border: 1px solid #f6f6f6; */
+  color: #111;
+  border: 1px solid #111;
+}
+
+/*===================== BODY =====================*/
+body {
+  position: relative;
+  min-height: 100svh;
+  /* background: #111;
+  color: #f6f6f6; */
+  color: #111;
+  background-color: #f9f9f9;
+}
+
+/*===================== REPEATED STYLES =====================*/
+
+h1, h2 > .quizzical {
+  font-weight: 500;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.hero-wrapper, .left-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.info-trigger, .start-quiz-btn,
+.info-option-label {
+  height: 40px;
+}
+
+.info-trigger, .start-quiz-btn,
+.info-dropdown {
+  width: 100%;
+  font: 400 1rem/1 'Lato', sans-serif;
+}
+
+.info-dropdown {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.info-trigger, .start-quiz-btn,
+.info-dropdown, ::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+}
+
+.info-trigger, .info-option-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5% 0 12px;
+}
+
+/*===================== HEADER =====================*/
+h1 {
+  padding: 1rem 0 0 1rem;
+  font-size: 2rem;
+}
+
+/*===================== HERO =====================*/
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1em 0;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: .5rem;
+  font: 500 1.9rem/1.2 'Quicksand', sans-serif;
+}
+
+.trivia {
+  text-decoration: underline wavy #3710D6;
+}
+
+.quizzical {
+  color: transparent;
+  background: linear-gradient(45deg, #3710D6 30%, #D02F70);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.hero-subtext {
+  margin-bottom: 1rem;
+  font: 400 1rem/1.5 'Lato', sans-serif;
+}
+
+/*========== HERO OPTIONS ==========*/
+.quiz-info-cntr {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+  z-index: 12;
+}
+
+.selection {
+  position: relative;
+}
+
+.category-options {
+  grid-area: category-options;
+}
+
+.expand-arrow {
+  font-size: 2rem;
+  font-variation-settings: 'wght' 200
+}
+
+.info-dropdown {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  max-height: 200px;
+  margin-top: .5rem;
+  /* background: #11111197; */
+  background: #e8e8e897;
+  border: none;
+  overflow: auto;
+}
+
+.info-dropdown > li * {
+  cursor: pointer;
+}
+
+.info-option {
+  display: none;
+}
+
+.info-option-label {
+  text-align: left;
+}
+
+.info-option-label:hover {  
+  background: #3710D655;
+}
+
+.info-option:checked + .info-option-label {
+  color: #f6f6f6;
+  background: #3710D6;
+}
+
+.difficulty-options {
+  grid-area: difficulty-options;
+}
+
+.type-options {
+  grid-area: type-options;
+}
+
+
+/* START BTN */
+.start-quiz-btn {
+  grid-area: start-btn;
+  color: #fff;
+  background: linear-gradient(125deg, #3710D6, #3710D6, #D02F70);
+  border: none;
+  line-height: 0;
+  font-weight: 900;
+  transition: .1s transform ease-in-out;
+}
+
+.start-quiz-btn:hover {
+  background: linear-gradient(to bottom right, #4213fc, #3710D6, #290c9c, #190763, #190763);
+}
+
+.start-quiz-btn:active {
+  transform: translateY(3px);
+}
+
+/*===================== RIGHT COL =====================*/
+
+.right-col {
+  order: -1;
+}
+
+.right-col > img {
+  height: 300px;
+  object-fit: contain;
+  object-position: center;
+  image-rendering: optimizeQuality;
+  animation: 1.5s bounce alternate infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(6px);
+  }
+}
+
+/*===================== BLOBS =====================*/
+.blob1 {
+  position: absolute;
+  left: -14%;
+  bottom: 0px;
+  z-index: 1;
+  width: 300px;
+  height: 200px;
+}
+
+/*===================== UTILITY CLASSES =====================*/
+.hidden {
+  display: none;
+}
+
+/*===================== MEDIA QUERIES =====================*/
+
+@media screen and (min-width: 768px) {
+  .left-col {
+    max-width: 580px;
+  }
+
+  .blob1 {
+    width: 450px;
+    height: 300px;
+  }
+
+  .quiz-info-cntr {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, 40px);
+    grid-template-areas: "category-options difficulty-options"
+                         "type-options start-btn";
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    padding: 2rem 0 0 2rem;
+    font-size: 2rem;
+  }
+
+  .hero-wrapper {  
+    position: absolute;
+    inset: 0;
+    margin: auto;  
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: start;
+  }
+
+  .left-col {
+    display: block;
+    width: 70%;
+    align-items: flex-start;
+  }
+
+  .info-trigger, .start-quiz-btn,
+  .info-dropdown {
+    width: 280px;
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtext {
+    margin-bottom: 1.9rem;
+    font-size: 1.3rem;
+  }
+
+  .right-col {
+    display: grid;
+    place-content: center;
+    width: 30%;
+    order: 1;
+  }
+
+  .right-col > img {
+    height: 400px;
+  }
+
+  .blob1 {
+    width: 650px;
+    height: 500px;
+  }
+}
+
+/*===================== LIGHT THEME STYLES =====================*/
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #111;
+    background-color: #f6f6f6;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
