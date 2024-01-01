@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Header from './components/Header'
 import heroImg from './assets/hero_img_black.png'
 import blob from './assets/blob.svg'
 
@@ -41,15 +42,7 @@ function App() {
 
   return (
         <div>
-          <header>
-            <h1>Quizzical</h1>
-            
-            <div className='theme-icon-cntr'>
-              <span class='theme-icon material-symbols-outlined'>
-                light_mode
-              </span>
-            </div>
-          </header>
+          <Header />
 
           <main>
             <div className='hero-wrapper'>
