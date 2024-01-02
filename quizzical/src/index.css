@@ -312,13 +312,9 @@ h2 {
   }
 
   .right-col {
-    width: 350px;
-    height: 350px;
+    width: 500px;
+    height: 500px;
     order: 1;
-  }
-
-  .right-col > img {
-    height: 400px;
   }
 
   .blob1 {
