@@ -3,7 +3,17 @@ import Header from './components/Header'
 import blob from './assets/blob.svg'
 
 function App() {
-  
+  const savedTheme = JSON.parse(localStorage.getItem('theme'))
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
+  const [theme, setTheme] = useState(savedTheme || prefersDark.matches ? 'dark' : 'light')
+
+  useEffect(()=> {
+    prefersDark.addEventListener('change', (event)=> {
+      if(savedTheme) return
+      setTheme(event.matches ? 'dark' : 'light')
+    } )
+  }, [])
+
   // useEffect(async ()=>{
   //   const response = await fetch("https://opentdb.com/api.php?amount=5&category=17&difficulty=easy&type=multiple")
   //   const data = await response.json()
@@ -41,7 +51,7 @@ function App() {
 
   return (
         <div>
-          <Header />
+          <Header theme={theme} />
 
           <main>
             <div className='hero-wrapper'>
