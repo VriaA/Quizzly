@@ -22,7 +22,7 @@ export default function Hero(props) {
 
               </button>
 
-              <ul id='category-dropdown' className='info-dropdown hidden' role='listbox' aria-labelledby='category-trigger-name'>
+              <ul id='category-dropdown' className={`info-dropdown hidden ${theme === 'dark' && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='category-trigger-name'>
                 <li role='option' tabIndex={0}>
                   <input id='category-1' className='info-option' type='radio' name='category'/>
                   <label htmlFor='category-1' className='info-option-label'>
@@ -81,7 +81,7 @@ export default function Hero(props) {
 
               </button>
               
-            <ul id='difficulty-dropdown' className='info-dropdown hidden' role='listbox' aria-labelledby='difficulty-trigger-name'>
+            <ul id='difficulty-dropdown' className={`info-dropdown hidden ${theme === 'dark' && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='difficulty-trigger-name'>
                 <li role='option' tabIndex={0}>
                   <input id='difficulty-1' className='info-option' type='radio' name='difficulty'/>
                   <label htmlFor='difficulty-1' className='info-option-label'>
@@ -125,7 +125,7 @@ export default function Hero(props) {
                 </span>
               </button>
 
-              <ul id='type-dropdown' className='info-dropdown hidden' role='listbox' aria-labelledby='type-trigger-name'>
+              <ul id='type-dropdown' className={`info-dropdown hidden ${theme === 'dark' && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='type-trigger-name'>
                 
                 <li role='option' tabIndex={0}>
                   <input id='type-1' className='info-option' type='radio' name='type'/>
