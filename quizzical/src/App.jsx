@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
-import blob from './assets/blob.svg'
 
 function App() {
   const savedTheme = JSON.parse(localStorage.getItem('theme'))
