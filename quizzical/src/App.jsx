@@ -13,6 +13,11 @@ function App() {
     } )
   }, [])
 
+  useEffect(()=>{
+    theme === 'dark' ? document.body.classList.add('body-dark') : document.body.classList.remove('body-dark')
+    localStorage.setItem('theme', JSON.stringify(theme))
+  }, [theme])
+
   // useEffect(async ()=>{
   //   const response = await fetch("https://opentdb.com/api.php?amount=5&category=17&difficulty=easy&type=multiple")
   //   const data = await response.json()
@@ -38,6 +43,8 @@ function App() {
     })
   }, [])
 
+  const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
+
   function handleTriggerClick(event) {
     const dropdownMenus = document.querySelectorAll('.info-dropdown')
     dropdownMenus.forEach(menu=> toggleOptionsVisiblity(event.target, menu))
@@ -50,7 +57,7 @@ function App() {
 
   return (
         <div>
-          <Header theme={theme} />
+          <Header theme={theme} changeTheme={changeTheme} />
 
           <main>
             <div className='hero-wrapper'>
@@ -63,7 +70,7 @@ function App() {
                   
                   <div className='selection category-options'>
                     <button 
-                      id='category-trigger' className='info-trigger category-trigger' 
+                      id='category-trigger' className={`info-trigger category-trigger ${theme === 'dark' && 'button-dark info-trigger-dark'}`} 
                       aria-haspopup='listbox' aria-expanded='true' aria-controls='category-dropdown'
                       onClick={(e)=> handleTriggerClick(e)}>
 
@@ -122,7 +129,7 @@ function App() {
 
                   <div className='selection difficulty-options'>
                     <button 
-                      id='difficulty-trigger' className='info-trigger difficulty-trigger' 
+                      id='difficulty-trigger' className={`info-trigger difficulty-trigger ${theme === 'dark' && 'button-dark info-trigger-dark'}`}
                       aria-haspopup='listbox' aria-expanded='true' aria-controls='difficulty-dropdown'
                       onClick={(e)=> handleTriggerClick(e)}>
 
@@ -132,6 +139,7 @@ function App() {
                       </span>
 
                     </button>
+                    
                   <ul id='difficulty-dropdown' className='info-dropdown hidden' role='listbox' aria-labelledby='difficulty-trigger-name'>
                       <li role='option' tabIndex={0}>
                         <input id='difficulty-1' className='info-option' type='radio' name='difficulty'/>
@@ -166,7 +174,7 @@ function App() {
                   <div className='selection type-options'>
 
                     <button 
-                      id='type-trigger' className='info-trigger type-trigger' 
+                      id='type-trigger' className={`info-trigger type-trigger ${theme === 'dark' && 'button-dark info-trigger-dark'}`}
                       aria-haspopup='listbox' aria-expanded='true' aria-controls='type-dropdown'
                       onClick={(e)=> handleTriggerClick(e)}>
 
@@ -206,7 +214,7 @@ function App() {
 
               </section>
 
-              <div className='right-col'></div>
+              <div className={`right-col ${theme === 'dark' && 'right-col-dark'}`}></div>
             </div>
           </main>
         </div>

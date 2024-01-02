@@ -7,9 +7,6 @@
 }
 
 :root {
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -247,9 +244,31 @@ h2 {
   height: 200px;
 }
 
-/*===================== UTILITY CLASSES =====================*/
+/*===================== MODIFIERS =====================*/
 .hidden {
   display: none;
+}
+
+/* DARK THEME */
+.body-dark {
+  background: #111;
+  color: #f6f6f6;
+}
+
+.button-dark {
+  color: #f6f6f6;
+}
+
+.info-trigger-dark {
+  border: 1px solid #f6f6f6;
+}
+
+.info-dropdown-dark {
+  background: #11111197;
+}
+
+.right-col-dark {
+  background: #111 url(assets/hero_img_white.png) center/cover no-repeat;
 }
 
 /*===================== MEDIA QUERIES =====================*/
@@ -329,29 +348,5 @@ h2 {
   .blob1 {
     width: 650px;
     height: 500px;
-  }
-}
-
-/*===================== DARK THEME STYLES =====================*/
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #111;
-    color: #f6f6f6;
-  }
-
-  button {
-    color: #f6f6f6;
-  }
-
-  .info-trigger {
-    border: 1px solid #f6f6f6;
-  }
-
-  .info-dropdown {
-    background: #11111197;
-  }
-
-  .right-col {
-    background: #111 url(assets/hero_img_white.png) center/cover no-repeat;
   }
 }
