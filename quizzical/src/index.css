@@ -281,6 +281,10 @@ h2 {
 
 @media screen and (min-width: 1024px) {
 
+  .theme-icon {
+    font-size: 1.7rem;
+  }
+
   .hero-wrapper {  
     position: absolute;
     inset: 0;
