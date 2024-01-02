@@ -1,5 +1,7 @@
 export default function Hero(props) {
     const {theme, handleTriggerClick} = props
+    const isDarkTheme = theme === 'dark'
+    
     return (
         <div className='hero-wrapper'>
         <section className='left-col'>
@@ -11,7 +13,7 @@ export default function Hero(props) {
             
             <div className='selection category-options'>
               <button 
-                id='category-trigger' className={`info-trigger category-trigger ${theme === 'dark' && 'button-dark info-trigger-dark'}`} 
+                id='category-trigger' className={`info-trigger category-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`} 
                 aria-haspopup='listbox' aria-expanded='true' aria-controls='category-dropdown'
                 onClick={(e)=> handleTriggerClick(e)}>
 
@@ -22,7 +24,7 @@ export default function Hero(props) {
 
               </button>
 
-              <ul id='category-dropdown' className={`info-dropdown hidden ${theme === 'dark' && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='category-trigger-name'>
+              <ul id='category-dropdown' className={`info-dropdown hidden ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='category-trigger-name'>
                 <li role='option' tabIndex={0}>
                   <input id='category-1' className='info-option' type='radio' name='category'/>
                   <label htmlFor='category-1' className='info-option-label'>
@@ -70,7 +72,7 @@ export default function Hero(props) {
 
             <div className='selection difficulty-options'>
               <button 
-                id='difficulty-trigger' className={`info-trigger difficulty-trigger ${theme === 'dark' && 'button-dark info-trigger-dark'}`}
+                id='difficulty-trigger' className={`info-trigger difficulty-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`}
                 aria-haspopup='listbox' aria-expanded='true' aria-controls='difficulty-dropdown'
                 onClick={(e)=> handleTriggerClick(e)}>
 
@@ -81,7 +83,7 @@ export default function Hero(props) {
 
               </button>
               
-            <ul id='difficulty-dropdown' className={`info-dropdown hidden ${theme === 'dark' && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='difficulty-trigger-name'>
+            <ul id='difficulty-dropdown' className={`info-dropdown hidden ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='difficulty-trigger-name'>
                 <li role='option' tabIndex={0}>
                   <input id='difficulty-1' className='info-option' type='radio' name='difficulty'/>
                   <label htmlFor='difficulty-1' className='info-option-label'>
@@ -115,7 +117,7 @@ export default function Hero(props) {
             <div className='selection type-options'>
 
               <button 
-                id='type-trigger' className={`info-trigger type-trigger ${theme === 'dark' && 'button-dark info-trigger-dark'}`}
+                id='type-trigger' className={`info-trigger type-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`}
                 aria-haspopup='listbox' aria-expanded='true' aria-controls='type-dropdown'
                 onClick={(e)=> handleTriggerClick(e)}>
 
@@ -125,7 +127,7 @@ export default function Hero(props) {
                 </span>
               </button>
 
-              <ul id='type-dropdown' className={`info-dropdown hidden ${theme === 'dark' && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='type-trigger-name'>
+              <ul id='type-dropdown' className={`info-dropdown hidden ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='type-trigger-name'>
                 
                 <li role='option' tabIndex={0}>
                   <input id='type-1' className='info-option' type='radio' name='type'/>
@@ -155,7 +157,7 @@ export default function Hero(props) {
 
         </section>
 
-        <div className={`right-col ${theme === 'dark' && 'right-col-dark'}`}></div>
+        <div className={`right-col ${isDarkTheme && 'right-col-dark'}`}></div>
       </div>
     )
 }
