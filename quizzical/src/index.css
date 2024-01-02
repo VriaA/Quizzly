@@ -31,8 +31,6 @@ button {
   background: none; 
   outline: none;
   cursor: pointer;
-  /* color: #f6f6f6;
-  border: 1px solid #f6f6f6; */
   color: #111;
   border: 1px solid #111;
 }
@@ -41,8 +39,6 @@ button {
 body {
   position: relative;
   min-height: 100svh;
-  /* background: #111;
-  color: #f6f6f6; */
   color: #111;
   background-color: #FDFDFD;
 }
@@ -163,7 +159,6 @@ h2 {
   gap: .5rem;
   max-height: 200px;
   margin-top: .5rem;
-  /* background: #11111197; */
   background: #e8e8e897;
   border: none;
   overflow: auto;
@@ -222,13 +217,9 @@ h2 {
 
 .right-col {
   order: -1;
-}
-
-.right-col > img {
+  background: #FDFDFD url(assets/hero_img_black.png) center/cover no-repeat;
+  width: 300px;
   height: 300px;
-  object-fit: contain;
-  object-position: center;
-  image-rendering: optimizeQuality;
   animation: 1.5s bounce alternate infinite;
 }
 
@@ -317,9 +308,8 @@ h2 {
   }
 
   .right-col {
-    display: grid;
-    place-content: center;
-    width: 30%;
+    width: 350px;
+    height: 350px;
     order: 1;
   }
 
@@ -333,10 +323,23 @@ h2 {
   }
 }
 
-/*===================== LIGHT THEME STYLES =====================*/
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #111;
-    background-color: #FDFDFD;
+/*===================== DARK THEME STYLES =====================*/
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111;
+    color: #f6f6f6;
+  }
+
+  button {
+    color: #f6f6f6;
+    border: 1px solid #f6f6f6;
+  }
+
+  .info-dropdown {
+    background: #11111197;
+  }
+
+  .right-col {
+    background: #111 url(assets/hero_img_white.png) center/cover no-repeat;
   }
 }

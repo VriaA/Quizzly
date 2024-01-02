@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
-import heroImg from './assets/hero_img_black.png'
 import blob from './assets/blob.svg'
 
 function App() {
@@ -198,9 +197,7 @@ function App() {
 
               </section>
 
-              <div className='right-col'>
-                <img src={heroImg} />
-              </div>
+              <div className='right-col'></div>
             </div>
           </main>
         </div>
