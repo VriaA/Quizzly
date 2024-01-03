@@ -4,7 +4,7 @@ export default function Categories(props) {
 
     const {isDarkTheme} = props
     const [loading, setLoading] = useState(true)
-    const [categories, setCategories] = useState([])
+    const [categories, setCategories] = useState(()=> [])
 
     useEffect(()=> {
         async function getCategories() {
@@ -18,32 +18,43 @@ export default function Categories(props) {
                 setLoading(false)
             }
         }
-        getCategories()
+        if(categories.length === 0) {
+            getCategories()
+        }
     }, [])
 
-    function CategoriesHTML() {
-        if(Array.isArray(categories)) {
-            return categories.map( (category, i)=> {
-                const {id, name} = category
+    function getNewListItems() {
+        return categories.map( (category, i)=> {
+            const {id, name} = category
 
-                return  <li role='option' tabIndex={0} key={i}>
-                            <input id={`category-${i + 2}`} className='info-option' type='radio' name='category' value={id}/>
-                            <label htmlFor={`category-${i + 2}`} className='info-option-label'>
-                                {name}
-                            </label>
-                        </li>
-            })
+            return (
+                    <li role='option' tabIndex={0} key={i + 2}>
+                        <input id={`category-${i + 2}`} className='info-option' type='radio' name='category' value={id}/>
+                        <label htmlFor={`category-${i + 2}`} className='info-option-label'>
+                            {name}
+                        </label>
+                    </li>
+            )
+        })
+    }
+
+    function CategoriesHTML() {
+        if(categories.length > 0) {
+
+            return [
+                <li role='option' tabIndex={0} key={1}>
+                    <input id='category-1' className='info-option' type='radio' name='category'value={'random'} defaultChecked={true}/>
+                    <label htmlFor='category-1' className='info-option-label'>
+                    Random
+                    </label>
+                </li>,
+                ...getNewListItems()
+            ]
         }
     }
 
     return (
         <ul id='category-dropdown' className={`info-dropdown hidden ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='category-trigger-name'>
-            <li role='option' tabIndex={0}>
-                <input id='category-1' className='info-option' type='radio' name='category'value={'random'} defaultChecked={true}/>
-                <label htmlFor='category-1' className='info-option-label'>
-                    Random
-                </label>
-            </li>
             <CategoriesHTML />
         </ul>
     )
