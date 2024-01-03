@@ -54,8 +54,7 @@ h1, h2 > .quizzical {
   align-items: center;
 }
 
-.info-trigger, .start-quiz-btn,
-.info-option-label {
+.info-trigger, .start-quiz-btn {
   height: 40px;
 }
 
@@ -75,7 +74,7 @@ h1, h2 > .quizzical {
   border-radius: 5px;
 }
 
-.info-trigger, .info-option-label {
+.info-trigger {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -174,7 +173,10 @@ h2 {
 }
 
 .info-option-label {
+  display: block;
+  padding: .5rem 5% .5rem .75rem;
   text-align: left;
+  line-height: 1.2;
 }
 
 .info-option-label:hover {  
