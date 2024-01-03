@@ -39,7 +39,7 @@ export default function Categories(props) {
     return (
         <ul id='category-dropdown' className={`info-dropdown hidden ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='category-trigger-name'>
             <li role='option' tabIndex={0}>
-                <input id='category-1' className='info-option' type='radio' name='category'/>
+                <input id='category-1' className='info-option' type='radio' name='category'value={'random'} defaultChecked={true}/>
                 <label htmlFor='category-1' className='info-option-label'>
                     Random
                 </label>
