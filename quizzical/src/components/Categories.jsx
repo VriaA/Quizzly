@@ -27,8 +27,8 @@ export default function Categories(props) {
                 const {id, name} = category
 
                 return  <li role='option' tabIndex={0} key={i}>
-                            <input id={`category-${i+1}`} className='info-option' type='radio' name='category' value={id}/>
-                            <label htmlFor={`category-${i+1}`} className='info-option-label'>
+                            <input id={`category-${i + 2}`} className='info-option' type='radio' name='category' value={id}/>
+                            <label htmlFor={`category-${i + 2}`} className='info-option-label'>
                                 {name}
                             </label>
                         </li>
@@ -38,6 +38,12 @@ export default function Categories(props) {
 
     return (
         <ul id='category-dropdown' className={`info-dropdown hidden ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='category-trigger-name'>
+            <li role='option' tabIndex={0}>
+                <input id='category-1' className='info-option' type='radio' name='category'/>
+                <label htmlFor='category-1' className='info-option-label'>
+                    Random
+                </label>
+            </li>
             <CategoriesHTML />
         </ul>
     )
