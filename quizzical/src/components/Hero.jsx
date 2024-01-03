@@ -15,8 +15,8 @@ export default function Hero(props) {
             
             <div className='selection category-options'>
               <button 
-                id='category-trigger' className={`info-trigger category-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`} 
-                aria-haspopup='listbox' aria-expanded='true' aria-controls='category-dropdown'
+                id='category' className={`info-trigger category-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`} 
+                aria-haspopup='listbox' aria-expanded='false' aria-controls='category-dropdown'
                 onClick={(e)=> handleTriggerClick(e)}>
 
                 <span id='category-trigger-name' className="category-trigger-name">Category</span> 
@@ -31,8 +31,8 @@ export default function Hero(props) {
 
             <div className='selection difficulty-options'>
               <button 
-                id='difficulty-trigger' className={`info-trigger difficulty-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`}
-                aria-haspopup='listbox' aria-expanded='true' aria-controls='difficulty-dropdown'
+                id='difficulty' className={`info-trigger difficulty-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`}
+                aria-haspopup='listbox' aria-expanded='false' aria-controls='difficulty-dropdown'
                 onClick={(e)=> handleTriggerClick(e)}>
 
                 <span id='difficulty-trigger-name' className="difficulty-trigger-name">Difficulty</span> 
@@ -76,8 +76,8 @@ export default function Hero(props) {
             <div className='selection type-options'>
 
               <button 
-                id='type-trigger' className={`info-trigger type-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`}
-                aria-haspopup='listbox' aria-expanded='true' aria-controls='type-dropdown'
+                id='type' className={`info-trigger type-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`}
+                aria-haspopup='listbox' aria-expanded='false' aria-controls='type-dropdown'
                 onClick={(e)=> handleTriggerClick(e)}>
 
                 <span id='type-trigger-name' className="type-trigger-name">Type</span> 

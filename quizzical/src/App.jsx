@@ -47,8 +47,8 @@ function App() {
   const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
 
   function handleTriggerClick(event) {
-    const dropdownMenus = document.querySelectorAll('.info-dropdown')
-    dropdownMenus.forEach(menu=> toggleOptionsVisiblity(event.target, menu))
+    const menu = document.getElementById(`${event.currentTarget.id}-dropdown`)
+    toggleOptionsVisiblity(event.currentTarget, menu)
   }
 
   function toggleOptionsVisiblity(trigger, menu) {
