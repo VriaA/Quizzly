@@ -223,6 +223,7 @@ h2 {
   background: #FDFDFD url(assets/hero_img_black.png) center/cover no-repeat;
   width: 300px;
   height: 300px;
+  margin: 1rem 0;
   animation: 1.5s bounce alternate infinite;
 }
 
@@ -344,6 +345,7 @@ h2 {
   .right-col {
     width: 500px;
     height: 500px;
+    margin: 0;
     order: 1;
   }
 
