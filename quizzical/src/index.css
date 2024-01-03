@@ -99,7 +99,7 @@ h1 {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 1em 0;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -315,7 +315,7 @@ h2 {
   .hero-wrapper {  
     position: absolute;
     inset: 0;
-    margin: auto;  
+    margin: auto; 
     flex-direction: row;
     justify-content: space-evenly;
     text-align: start;
