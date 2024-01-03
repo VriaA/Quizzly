@@ -93,6 +93,12 @@ h1 {
   font-size: 2rem;
 }
 
+.theme-icon {
+  font-size: 1.7rem;
+  font-variation-settings: 
+  'wght' 400
+}
+
 /*===================== HERO =====================*/
 .hero-wrapper {
   display: flex;
@@ -310,7 +316,8 @@ h2 {
   }
 
   .theme-icon {
-    font-size: 1.7rem;
+    font-variation-settings: 
+    'wght' 300
   }
 
   .hero-wrapper {  
