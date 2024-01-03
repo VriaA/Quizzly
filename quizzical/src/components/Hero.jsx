@@ -1,7 +1,9 @@
+import Categories from "./Categories"
+
 export default function Hero(props) {
     const {theme, handleTriggerClick} = props
     const isDarkTheme = theme === 'dark'
-    
+ 
     return (
         <div className='hero-wrapper'>
         <section className='left-col'>
@@ -24,50 +26,7 @@ export default function Hero(props) {
 
               </button>
 
-              <ul id='category-dropdown' className={`info-dropdown hidden ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='category-trigger-name'>
-                <li role='option' tabIndex={0}>
-                  <input id='category-1' className='info-option' type='radio' name='category'/>
-                  <label htmlFor='category-1' className='info-option-label'>
-                    General Knowledge
-                  </label>
-                </li>
-                <li role='option' tabIndex={0}>
-                  <input id='category-2' className='info-option' type='radio' name='category'/>
-                  <label htmlFor='category-2' className='info-option-label'>
-                    Science & Nature
-                  </label>
-                </li>
-                <li role='option' tabIndex={0}>
-                  <input id='category-3' className='info-option' type='radio' name='category'/>
-                  <label htmlFor='category-3' className='info-option-label'>
-                    Art
-                  </label>
-                </li>
-                <li role='option' tabIndex={0}>
-                  <input id='category-4' className='info-option' type='radio' name='category'/>
-                  <label htmlFor='category-4' className='info-option-label'>
-                    Mythology
-                  </label>
-                </li>
-                <li role='option' tabIndex={0}>
-                  <input id='category-5' className='info-option' type='radio' name='category'/>
-                  <label htmlFor='category-5' className='info-option-label'>
-                    History
-                  </label>
-                </li>
-                <li role='option' tabIndex={0}>
-                  <input id='category-6' className='info-option' type='radio' name='category'/>
-                  <label htmlFor='category-6' className='info-option-label'>
-                    Science: Computers
-                  </label>
-                </li>
-                <li role='option' tabIndex={0}>
-                  <input id='category-7' className='info-option' type='radio' name='category'/>
-                  <label htmlFor='category-7' className='info-option-label'>
-                    Celebrities
-                  </label>
-                </li>
-              </ul>
+              <Categories isDarkTheme={isDarkTheme} />
             </div>
 
             <div className='selection difficulty-options'>
