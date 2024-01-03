@@ -51,21 +51,21 @@ export default function Hero(props) {
                 </li>
 
                 <li role='option' tabIndex={0}>
-                  <input id='difficulty-2' className='info-option' type='radio' name='difficulty'/>
+                  <input id='difficulty-2' className='info-option' type='radio' name='difficulty' value={easy}/>
                   <label htmlFor='difficulty-2' className='info-option-label'>
                     Easy
                   </label>
                 </li>
 
                 <li role='option' tabIndex={0}>
-                  <input id='difficulty-3' className='info-option' type='radio' name='difficulty'/>
+                  <input id='difficulty-3' className='info-option' type='radio' name='difficulty' value={medium}/>
                   <label htmlFor='difficulty-3' className='info-option-label'>
                     Medium
                   </label>
                 </li>
 
                 <li role='option' tabIndex={0}>
-                  <input id='difficulty-4' className='info-option' type='radio' name='difficulty'/>
+                  <input id='difficulty-4' className='info-option' type='radio' name='difficulty' value={hard}/>
                   <label htmlFor='difficulty-4' className='info-option-label'>
                     Hard
                   </label>
@@ -96,14 +96,14 @@ export default function Hero(props) {
                 </li>
 
                 <li role='option' tabIndex={0}>
-                  <input id='type-2' className='info-option' type='radio' name='type'/>
+                  <input id='type-2' className='info-option' type='radio' name='type' value={multiple}/>
                   <label htmlFor='type-2' className='info-option-label'>
                     Multiple Choice
                   </label>
                 </li>
 
                 <li role='option' tabIndex={0}>
-                  <input id='type-3' className='info-option' type='radio' name='type'/>
+                  <input id='type-3' className='info-option' type='radio' name='type' value={boolean}/>
                   <label htmlFor='type-3' className='info-option-label'>
                   True / False
                   </label>
