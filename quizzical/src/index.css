@@ -228,7 +228,7 @@ h2 {
 
 .right-col {
   order: -1;
-  background: #FDFDFD url(assets/hero_img_black.png) center/cover no-repeat;
+  background: transparent url(assets/hero_img_black.png) center/cover no-repeat;
   width: 300px;
   height: 300px;
   margin: 1.5rem 0;
@@ -279,7 +279,7 @@ h2 {
 }
 
 .right-col-dark {
-  background: #111 url(assets/hero_img_white.png) center/cover no-repeat;
+  background: transparent url(assets/hero_img_white.png) center/cover no-repeat;
 }
 
 /*===================== MEDIA QUERIES =====================*/
