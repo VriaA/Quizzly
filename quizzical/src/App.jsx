@@ -28,13 +28,13 @@ function App() {
       const triggers = document.querySelectorAll('.info-trigger')
       const arrows = document.querySelectorAll('.expand-arrow')
 
-      dropdownMenus.forEach((menu, i)=> {
+      dropdownMenus.forEach((dropdownMenu, i)=> {
         const isTriggerClicked = clickedElement === triggers[i] || clickedElement.parentElement === triggers[i]
-        const isMenuHidden = menu.classList.contains('hidden')
-        const isMenuClicked = menu.contains(clickedElement)
+        const isMenuHidden = dropdownMenu.classList.contains('hidden')
+        const isMenuClicked = dropdownMenu.contains(clickedElement)
 
         if(!isTriggerClicked && !isMenuHidden && !isMenuClicked) {
-          toggleOptionsVisiblity(triggers[i], menu, arrows[i])
+          toggleOptionsVisiblity(triggers[i], dropdownMenu, arrows[i])
         }
       })
     })
@@ -43,15 +43,21 @@ function App() {
   const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
 
   function handleTriggerClick(event) {
-    const menu = document.getElementById(`${event.currentTarget.id}-dropdown`)
+    const dropdownMenu = document.getElementById(`${event.currentTarget.id}-dropdown`)
     const triggerArrow = document.getElementById(`${event.currentTarget.id}-trigger-arrow`)
-    toggleOptionsVisiblity(event.currentTarget, menu, triggerArrow)
+    toggleOptionsVisiblity(event.currentTarget, dropdownMenu, triggerArrow)
   }
 
-  function toggleOptionsVisiblity(trigger, menu, arrow) {
-    menu.classList.toggle('hidden')
+  function toggleOptionsVisiblity(trigger, dropdownMenu, arrow) {
+    dropdownMenu.classList.toggle('hidden')
+    focusFirstOption(dropdownMenu)
     trigger.setAttribute('aria-expanded', trigger.ariaExpanded === 'true' ? 'false' : 'true')
     arrow.classList.toggle('rotate-arrow')
+  }
+
+  function focusFirstOption(dropdown) {
+    if(dropdown.classList.contains('hidden')) return
+    dropdown.children.item(0).focus()
   }
 
   function startQuiz(e) {
