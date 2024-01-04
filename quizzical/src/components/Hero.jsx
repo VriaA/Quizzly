@@ -24,7 +24,7 @@ export default function Hero(props) {
                 onClick={(e)=> handleTriggerClick(e)}>
 
                 <span id='category-trigger-name' className="category-trigger-name">Category</span> 
-                <span className="expand-arrow material-symbols-outlined">
+                <span id='category-trigger-arrow' className="expand-arrow material-symbols-outlined">
                   expand_more
                 </span>
 
@@ -44,7 +44,7 @@ export default function Hero(props) {
                 onClick={(e)=> handleTriggerClick(e)}>
 
                 <span id='difficulty-trigger-name' className="difficulty-trigger-name">Difficulty</span> 
-                <span className="expand-arrow material-symbols-outlined">
+                <span id='difficulty-trigger-arrow' className="expand-arrow material-symbols-outlined">
                   expand_more
                 </span>
 
@@ -93,7 +93,7 @@ export default function Hero(props) {
                 onClick={(e)=> handleTriggerClick(e)}>
 
                 <span id='type-trigger-name' className="type-trigger-name">Type</span> 
-                <span className="expand-arrow material-symbols-outlined">
+                <span id='type-trigger-arrow' className="expand-arrow material-symbols-outlined">
                   expand_more
                 </span>
               </button>

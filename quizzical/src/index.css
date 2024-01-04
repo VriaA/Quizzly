@@ -152,7 +152,8 @@ h2 {
 
 .expand-arrow {
   font-size: 2rem;
-  font-variation-settings: 'wght' 300
+  font-variation-settings: 'wght' 300;
+  transition: .3s transform ease;
 }
 
 .info-dropdown {
@@ -277,6 +278,10 @@ h2 {
 
 .right-col-dark {
   background: transparent url(assets/hero_img_white.png) center/cover no-repeat;
+}
+
+.rotate-arrow {
+  transform: rotate(180deg);
 }
 
 /*===================== MEDIA QUERIES =====================*/

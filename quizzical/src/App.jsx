@@ -26,6 +26,7 @@ function App() {
     document.addEventListener('click', event=> {
       const clickedElement = event.target
       const triggers = document.querySelectorAll('.info-trigger')
+      const arrows = document.querySelectorAll('.expand-arrow')
 
       dropdownMenus.forEach((menu, i)=> {
         const isTriggerClicked = clickedElement === triggers[i] || clickedElement.parentElement === triggers[i]
@@ -33,7 +34,7 @@ function App() {
         const isMenuClicked = menu.contains(clickedElement)
 
         if(!isTriggerClicked && !isMenuHidden && !isMenuClicked) {
-          toggleOptionsVisiblity(triggers[i], menu)
+          toggleOptionsVisiblity(triggers[i], menu, arrows[i])
         }
       })
     })
@@ -43,12 +44,14 @@ function App() {
 
   function handleTriggerClick(event) {
     const menu = document.getElementById(`${event.currentTarget.id}-dropdown`)
-    toggleOptionsVisiblity(event.currentTarget, menu)
+    const triggerArrow = document.getElementById(`${event.currentTarget.id}-trigger-arrow`)
+    toggleOptionsVisiblity(event.currentTarget, menu, triggerArrow)
   }
 
-  function toggleOptionsVisiblity(trigger, menu) {
+  function toggleOptionsVisiblity(trigger, menu, arrow) {
     menu.classList.toggle('hidden')
     trigger.setAttribute('aria-expanded', trigger.ariaExpanded === 'true' ? 'false' : 'true')
+    arrow.classList.toggle('rotate-arrow')
   }
 
   function startQuiz(e) {
