@@ -366,10 +366,11 @@ h2 {
     justify-content: flex-start;
   }
 
-  .right-col {
+  .right-col {  
+    flex: none;
     width: 400px;
     height: 400px;
-    margin: 0;
+    margin: 0 0 0 2.5rem;
     order: 1;
   }
 }
