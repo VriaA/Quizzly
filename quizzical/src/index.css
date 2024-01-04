@@ -162,7 +162,7 @@ h2 {
   flex-direction: column;
   gap: .5rem;
   max-height: 150px;
-  margin-bottom: .5rem;
+  margin: .2rem 0;
   background: #e8e8e897;
   overflow: auto;
   -webkit-backdrop-filter: blur(10px);
