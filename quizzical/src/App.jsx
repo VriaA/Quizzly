@@ -5,7 +5,7 @@ import Hero from './components/Hero'
 function App() {
   const savedTheme = JSON.parse(localStorage.getItem('theme'))
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
-  const [theme, setTheme] = useState(savedTheme || prefersDark.matches ? 'dark' : 'light')
+  const [theme, setTheme] = useState(savedTheme ? savedTheme : prefersDark.matches ? 'dark' : 'light')
   const [loading, setLoading] = useState(false)
 
   useEffect(()=> {
