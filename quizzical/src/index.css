@@ -32,8 +32,7 @@ button {
   color: #111;
 }
 
-a:focus-visible, button:focus-visible, 
-li:focus-visible {
+a:focus-visible, button:focus-visible {
   outline: 2px solid #3710D6;
   outline-offset: 1px;
 }
@@ -182,7 +181,7 @@ h2 {
 }
 
 .info-dropdown > li:focus-visible {
-  background: #3710D655;
+  outline: 2px solid #D02F70;
 }
 
 .info-option {
