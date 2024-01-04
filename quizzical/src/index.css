@@ -335,7 +335,7 @@ h2 {
 
   .info-trigger, .start-quiz-btn,
   .info-dropdown {
-    width: 280px;
+    width: 200px;
   }
 }
 
@@ -388,6 +388,11 @@ h2 {
   .info-trigger, .start-quiz-btn,
   .info-dropdown {
     font-size: 1.2rem;
+  }
+
+  .info-trigger, .start-quiz-btn,
+  .info-dropdown {
+    width: 250px;
   }
 
   .right-col {
