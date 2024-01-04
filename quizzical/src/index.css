@@ -96,7 +96,9 @@ h1 {
 .theme-icon {
   font-size: 1.7rem;
   font-variation-settings: 
-  'wght' 400
+  'wght' 400,
+  'FILL' 0,
+  'opsz' 24
 }
 
 /*===================== HERO =====================*/
