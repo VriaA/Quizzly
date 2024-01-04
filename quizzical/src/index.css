@@ -300,7 +300,6 @@ h2 {
   header, main {
     width: 100%;
     max-width: 1400px;
-    border: 1px solid green;
   }
 
   main {
