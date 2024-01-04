@@ -105,7 +105,7 @@ h1 {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   padding-bottom: 6rem;
   text-align: center;
 }
@@ -336,6 +336,7 @@ h2 {
     flex-direction: row;
     justify-content: space-evenly;
     text-align: start;
+    padding: 0 2.5rem;
   }
 
   .left-col {
