@@ -344,14 +344,18 @@ h2 {
     align-items: flex-start;
   }
 
-  .info-trigger, .start-quiz-btn,
-  .info-dropdown {
-    width: 280px;
-    font-size: 1.2rem;
+  .right-col {
+    width: 400px;
+    height: 400px;
+    margin: 0;
+    order: 1;
   }
+}
+
+@media screen and (min-width: 1280px) {
 
   h2 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
 
   .hero-subtext {
@@ -359,11 +363,15 @@ h2 {
     font-size: 1.3rem;
   }
 
+  .info-trigger, .start-quiz-btn,
+  .info-dropdown {
+    width: 280px;
+    font-size: 1.2rem;
+  }
+
   .right-col {
-    width: 500px;
-    height: 500px;
-    margin: 0;
-    order: 1;
+    width: 450px;
+    height: 450px;
   }
 
   .blob1 {
