@@ -40,6 +40,28 @@ function App() {
     })
   }, [])
 
+  useEffect(()=>{
+    document.addEventListener('keydown', e=> {
+      if(e.key === 'Escape') {
+        closeInfoDropdownMenuOnEscapeKeyPress()
+      }
+    })
+  }, [])
+
+  function closeInfoDropdownMenuOnEscapeKeyPress() {
+    const dropdownMenus = document.querySelectorAll('.info-dropdown') 
+    const triggers = document.querySelectorAll('.info-trigger')
+    const arrows = document.querySelectorAll('.expand-arrow')
+
+    dropdownMenus.forEach((dropdownMenu, i)=> {
+      if(!dropdownMenu.classList.contains('hidden')) {
+        dropdownMenu.classList.add('hidden')
+        arrows[i].classList.remove('rotate-arrow')
+        triggers[i].focus()
+      }
+    })
+  }
+
   const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
 
   function handleTriggerClick(event) {
