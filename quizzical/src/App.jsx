@@ -97,7 +97,7 @@ function App() {
   }
 
   return (
-        <div>
+        <div className='wrapper'>
           <Header theme={theme} changeTheme={changeTheme} />
 
           <main>
