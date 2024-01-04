@@ -316,7 +316,13 @@ h2 {
     grid-template-rows: repeat(2, 40px);
     grid-template-areas: "category-options difficulty-options"
                          "type-options start-btn";
+    justify-content: center;
     width: 80%;
+  }
+
+  .info-trigger, .start-quiz-btn,
+  .info-dropdown {
+    width: 280px;
   }
 }
 
@@ -342,7 +348,10 @@ h2 {
   .left-col {
     display: block;
     width: 70%;
-    align-items: flex-start;
+  }
+
+  .quiz-info-cntr {
+    justify-content: flex-start;
   }
 
   .right-col {
@@ -366,7 +375,6 @@ h2 {
 
   .info-trigger, .start-quiz-btn,
   .info-dropdown {
-    width: 280px;
     font-size: 1.2rem;
   }
 
