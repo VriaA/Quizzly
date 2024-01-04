@@ -288,8 +288,20 @@ h2 {
     padding: 2rem 5%;
   }
 
+  header, .hero-wrapper {
+    max-width: 1400px;
+  }
+
   .left-col {
     max-width: 580px;
+  }
+
+  .hero-wrapper {  
+    position: absolute;
+    inset: 0;
+    height: fit-content;
+    margin: auto; 
+    padding-bottom: 0;
   }
 
   .blob1 {
@@ -320,11 +332,7 @@ h2 {
     'wght' 300
   }
 
-  .hero-wrapper {  
-    position: absolute;
-    inset: 0;
-    margin: auto; 
-    padding-bottom: 0;
+  .hero-wrapper {
     flex-direction: row;
     justify-content: space-evenly;
     text-align: start;
