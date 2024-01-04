@@ -71,7 +71,8 @@ h1, h2 > .quizzical {
 }
 
 .info-trigger, .start-quiz-btn,
-.info-dropdown, ::-webkit-scrollbar-thumb {
+.info-dropdown, ::-webkit-scrollbar-thumb, 
+.change-theme-btn {
   border-radius: 5px;
 }
 
