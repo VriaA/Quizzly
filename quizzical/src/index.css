@@ -64,11 +64,6 @@ h1, h2 > .quizzical {
   font: 400 1rem/1 'Wix Madefor Display', sans-serif;
 }
 
-.info-dropdown {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
-
 .info-trigger, .start-quiz-btn,
 .info-dropdown, ::-webkit-scrollbar-thumb {
   border-radius: 5px;
@@ -170,6 +165,8 @@ h2 {
   margin-bottom: .5rem;
   background: #e8e8e897;
   overflow: auto;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .info-dropdown > li * {
