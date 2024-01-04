@@ -42,24 +42,23 @@ function App() {
 
   useEffect(()=>{
     document.addEventListener('keydown', e=> {
-      if(e.key === 'Escape') {
-        closeInfoDropdownMenuOnEscapeKeyPress()
-      }
+      const dropdownMenus = document.querySelectorAll('.info-dropdown') 
+      const triggers = document.querySelectorAll('.info-trigger')
+      const arrows = document.querySelectorAll('.expand-arrow')
+
+      dropdownMenus.forEach((dropdownMenu, i)=> {
+        if(dropdownMenu.classList.contains('hidden')) return
+        if(e.key === 'Escape') {
+          closeInfoDropdownMenuOnEscapeKeyPress(dropdownMenu, arrows[i], triggers[i])
+        }
+      })
     })
   }, [])
 
-  function closeInfoDropdownMenuOnEscapeKeyPress() {
-    const dropdownMenus = document.querySelectorAll('.info-dropdown') 
-    const triggers = document.querySelectorAll('.info-trigger')
-    const arrows = document.querySelectorAll('.expand-arrow')
-
-    dropdownMenus.forEach((dropdownMenu, i)=> {
-      if(!dropdownMenu.classList.contains('hidden')) {
+  function closeInfoDropdownMenuOnEscapeKeyPress(dropdownMenu, arrows, triggers) {
         dropdownMenu.classList.add('hidden')
-        arrows[i].classList.remove('rotate-arrow')
-        triggers[i].focus()
-      }
-    })
+        arrows.classList.remove('rotate-arrow')
+        triggers.focus()
   }
 
   const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
