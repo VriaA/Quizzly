@@ -1,9 +1,16 @@
 import Categories from "./Categories"
+import toggleOptionMenuVisiblity from '../utils/toggleOptionMenuVisiblity'
 import handleOptionsKeyUp from '../utils/handleOptionsKeyUp'
 
 export default function Hero(props) {
     const {theme, handleTriggerClick, startQuiz} = props
     const isDarkTheme = theme === 'dark'
+
+    function handleTriggerClick(event) {
+      const dropdownMenu = document.getElementById(`${event.currentTarget.id}-dropdown`)
+      const triggerArrow = document.getElementById(`${event.currentTarget.id}-trigger-arrow`)
+      toggleOptionMenuVisiblity(event.currentTarget, dropdownMenu, triggerArrow)
+    }
  
     return (
         <div className='hero-wrapper'>

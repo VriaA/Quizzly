@@ -42,12 +42,6 @@ function App() {
   const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
   const startQuiz = (e)=> handleStartQuizBtnClick(e, setLoading)
 
-  function handleTriggerClick(event) {
-    const dropdownMenu = document.getElementById(`${event.currentTarget.id}-dropdown`)
-    const triggerArrow = document.getElementById(`${event.currentTarget.id}-trigger-arrow`)
-    toggleOptionMenuVisiblity(event.currentTarget, dropdownMenu, triggerArrow)
-  }
-
   return (
         <div className='wrapper'>
           <Header theme={theme} changeTheme={changeTheme} />
@@ -55,7 +49,6 @@ function App() {
           <main>
             <Hero 
               theme={theme} 
-              handleTriggerClick={handleTriggerClick}
               startQuiz={startQuiz}
             />
           </main>
