@@ -46,11 +46,11 @@ function App() {
       const isDropdownMenuHidden = dropdownMenu.classList.contains('hidden')
 
       if(isDropdownMenuHidden) return
-        hideOptionsOnEscapeKeyPress(optionsCntr, dropdownMenu, event)
+        hideOptionsMenuOnEscapeKeyPress(optionsCntr, dropdownMenu, event)
         focusOptionOnKeyPress(optionsCntr, event)
   }
 
-  function hideOptionsOnEscapeKeyPress(optionsCntr, dropdownMenu, e) {
+  function hideOptionsMenuOnEscapeKeyPress(optionsCntr, dropdownMenu, e) {
     const trigger = optionsCntr.querySelector('.info-trigger')
     const arrow = optionsCntr.querySelector('.expand-arrow')
 
