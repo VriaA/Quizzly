@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import toggleOptionMenuVisiblity from './utils/toggleOptionMenuVisiblity'
 import handleStartQuizBtnClick from './utils/handleStartQuizBtnClick'
 
 function App() {
@@ -45,18 +46,6 @@ function App() {
     const dropdownMenu = document.getElementById(`${event.currentTarget.id}-dropdown`)
     const triggerArrow = document.getElementById(`${event.currentTarget.id}-trigger-arrow`)
     toggleOptionMenuVisiblity(event.currentTarget, dropdownMenu, triggerArrow)
-  }
-
-  function toggleOptionMenuVisiblity(trigger, dropdownMenu, arrow) {
-    dropdownMenu.classList.toggle('hidden')
-    focusFirstOption(dropdownMenu)
-    trigger.setAttribute('aria-expanded', trigger.ariaExpanded === 'true' ? 'false' : 'true')
-    arrow.classList.toggle('rotate-arrow')
-  }
-
-  function focusFirstOption(dropdown) {
-    if(dropdown.classList.contains('hidden')) return
-    dropdown.children.item(0).focus()
   }
 
   return (
