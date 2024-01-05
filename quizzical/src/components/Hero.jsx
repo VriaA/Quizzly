@@ -1,7 +1,7 @@
 import Categories from "./Categories"
 
 export default function Hero(props) {
-    const {theme, handleTriggerClick, startQuiz} = props
+    const {theme, handleTriggerClick, startQuiz, handleOptionsKeyUp} = props
     const isDarkTheme = theme === 'dark'
  
     return (
@@ -13,7 +13,7 @@ export default function Hero(props) {
 
           <form className='quiz-info-cntr' onSubmit={startQuiz}>
             
-            <div className='selection category-options'>
+            <div className='selection category-options' onKeyUp={handleOptionsKeyUp}>
               <button 
                 id='category'
                 className={`info-trigger category-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`} 
@@ -33,7 +33,7 @@ export default function Hero(props) {
               <Categories isDarkTheme={isDarkTheme} />
             </div>
 
-            <div className='selection difficulty-options'>
+            <div className='selection difficulty-options' onKeyUp={handleOptionsKeyUp}>
               <button 
                 id='difficulty'
                 className={`info-trigger difficulty-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`}
@@ -81,7 +81,7 @@ export default function Hero(props) {
               </ul>
             </div>
 
-            <div className='selection type-options'>
+            <div className='selection type-options' onKeyUp={handleOptionsKeyUp}>
 
               <button 
                 id='type' 
