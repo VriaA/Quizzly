@@ -33,7 +33,7 @@ function App() {
         const trigger = wrapper.querySelector('.info-trigger')
         const arrow = wrapper.querySelector('.expand-arrow')
 
-        toggleOptionsVisiblity(trigger, dropdownMenu, arrow)
+        toggleOptionMenuVisiblity(trigger, dropdownMenu, arrow)
       })
     })
   }, [])
@@ -44,10 +44,10 @@ function App() {
   function handleTriggerClick(event) {
     const dropdownMenu = document.getElementById(`${event.currentTarget.id}-dropdown`)
     const triggerArrow = document.getElementById(`${event.currentTarget.id}-trigger-arrow`)
-    toggleOptionsVisiblity(event.currentTarget, dropdownMenu, triggerArrow)
+    toggleOptionMenuVisiblity(event.currentTarget, dropdownMenu, triggerArrow)
   }
 
-  function toggleOptionsVisiblity(trigger, dropdownMenu, arrow) {
+  function toggleOptionMenuVisiblity(trigger, dropdownMenu, arrow) {
     dropdownMenu.classList.toggle('hidden')
     focusFirstOption(dropdownMenu)
     trigger.setAttribute('aria-expanded', trigger.ariaExpanded === 'true' ? 'false' : 'true')
