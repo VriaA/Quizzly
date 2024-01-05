@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import Categories from "./Categories"
 import toggleOptionMenuVisiblity from '../utils/toggleOptionMenuVisiblity'
 import handleOptionsKeyUp from '../utils/handleOptionsKeyUp'
@@ -5,6 +6,23 @@ import handleOptionsKeyUp from '../utils/handleOptionsKeyUp'
 export default function Hero(props) {
     const {theme, startQuiz} = props
     const isDarkTheme = theme === 'dark'
+
+    useEffect(()=>{
+      const optionsWrappers = document.querySelectorAll('.options-wrapper')
+  
+      document.addEventListener('click', event=> {
+        optionsWrappers.forEach(wrapper=> {
+          const isClickOutside = !wrapper.contains(event.target)
+          const dropdownMenu = wrapper.querySelector('.info-dropdown')
+          
+          if((dropdownMenu.classList.contains('hidden')) || (!isClickOutside)) return
+          const trigger = wrapper.querySelector('.info-trigger')
+          const arrow = wrapper.querySelector('.expand-arrow')
+  
+          toggleOptionMenuVisiblity(trigger, dropdownMenu, arrow)
+        })
+      })
+    }, [])
 
     function handleTriggerClick(event) {
       const dropdownMenu = document.getElementById(`${event.currentTarget.id}-dropdown`)

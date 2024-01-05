@@ -22,23 +22,6 @@ function App() {
     localStorage.setItem('theme', JSON.stringify(theme))
   }, [theme])
 
-  useEffect(()=>{
-    const optionsWrappers = document.querySelectorAll('.options-wrapper')
-
-    document.addEventListener('click', event=> {
-      optionsWrappers.forEach(wrapper=> {
-        const isClickOutside = !wrapper.contains(event.target)
-        const dropdownMenu = wrapper.querySelector('.info-dropdown')
-        
-        if((dropdownMenu.classList.contains('hidden')) || (!isClickOutside)) return
-        const trigger = wrapper.querySelector('.info-trigger')
-        const arrow = wrapper.querySelector('.expand-arrow')
-
-        toggleOptionMenuVisiblity(trigger, dropdownMenu, arrow)
-      })
-    })
-  }, [])
-
   const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
   const startQuiz = (e)=> handleStartQuizBtnClick(e, setLoading)
 
