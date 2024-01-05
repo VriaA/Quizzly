@@ -5,7 +5,7 @@ export default function handleOptionsKeyUp(event) {
 
     if(isDropdownMenuHidden) return
       hideOptionsMenuOnEscapeKeyPress(optionsCntr, dropdownMenu, event)
-      focusOptionOnKeyPress(optionsCntr, event)
+      checkOptionOnKeyPress(optionsCntr, event)
 }
 
 function hideOptionsMenuOnEscapeKeyPress(optionsCntr, dropdownMenu, e) {
@@ -19,7 +19,7 @@ function hideOptionsMenuOnEscapeKeyPress(optionsCntr, dropdownMenu, e) {
     trigger.focus()
 }
 
-function focusOptionOnKeyPress(optionsCntr, e) {
+function checkOptionOnKeyPress(optionsCntr) {
   const options = optionsCntr.querySelectorAll('li[role=option]')
 
   options.forEach((option, currentIndex)=> {
@@ -29,24 +29,36 @@ function focusOptionOnKeyPress(optionsCntr, e) {
       const isFocusPrevious = (e.key === 'ArrowLeft') || (e.key === 'ArrowUp')
 
         if(isFocusNext) {
-          focusNextOptionOnKeyPress(options, currentIndex)
+          checkNextOptionOnKeyPress(options, currentIndex)
         } else if (isFocusPrevious) {
-          focusPreviousOptionOnKeyPress(options, currentIndex)
+          checkPreviousOptionOnKeyPress(options, currentIndex)
         }
     })
   })
 }
 
-function focusNextOptionOnKeyPress(options, i) {
+function checkNextOptionOnKeyPress(options, i) {
     const nextOption = options[i + 1]
     const firstOption = options[0]
-
+    if(nextOption) {
+      nextOption.focus()
+      nextOption.querySelector('input[type=radio]').checked = 'true'
+    } else {
+      firstOption.querySelector('input[type=radio]').checked = 'true'
+      firstOption.focus()
+    }
     nextOption ? nextOption.focus() : firstOption.focus()
 }
 
-function focusPreviousOptionOnKeyPress(options, i) {
+function checkPreviousOptionOnKeyPress(options, i) {
     const previousOption = options[i - 1]
     const lastOption = [...options].pop()
 
-    previousOption ? previousOption.focus() : lastOption.focus()
+    if(previousOption) {
+      previousOption.focus()
+      previousOption.querySelector('input[type=radio]').checked = 'true'
+    } else {
+      lastOption.focus()
+      lastOption.querySelector('input[type=radio]').checked = 'true'
+    }
 }
