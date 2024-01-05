@@ -1,7 +1,8 @@
 import Categories from "./Categories"
+import handleOptionsKeyUp from '../utils/handleOptionsKeyUp'
 
 export default function Hero(props) {
-    const {theme, handleTriggerClick, startQuiz, handleOptionsKeyUp} = props
+    const {theme, handleTriggerClick, startQuiz} = props
     const isDarkTheme = theme === 'dark'
  
     return (
