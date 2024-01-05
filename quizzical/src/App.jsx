@@ -22,21 +22,18 @@ function App() {
   }, [theme])
 
   useEffect(()=>{
-    const dropdownMenus = document.querySelectorAll('.info-dropdown')
+    const optionsWrappers = document.querySelectorAll('.options-wrapper')
 
     document.addEventListener('click', event=> {
-      const clickedElement = event.target
-      const triggers = document.querySelectorAll('.info-trigger')
-      const arrows = document.querySelectorAll('.expand-arrow')
+      optionsWrappers.forEach(wrapper=> {
+        const isClickOutside = !wrapper.contains(event.target)
+        const dropdownMenu = wrapper.querySelector('.info-dropdown')
+        
+        if((dropdownMenu.classList.contains('hidden')) || (!isClickOutside)) return
+        const trigger = wrapper.querySelector('.info-trigger')
+        const arrow = wrapper.querySelector('.expand-arrow')
 
-      dropdownMenus.forEach((dropdownMenu, i)=> {
-        const isTriggerClicked = clickedElement === triggers[i] || clickedElement.parentElement === triggers[i]
-        const isMenuHidden = dropdownMenu.classList.contains('hidden')
-        const isMenuClicked = dropdownMenu.contains(clickedElement)
-
-        if(!isTriggerClicked && !isMenuHidden && !isMenuClicked) {
-          toggleOptionsVisiblity(triggers[i], dropdownMenu, arrows[i])
-        }
+        toggleOptionsVisiblity(trigger, dropdownMenu, arrow)
       })
     })
   }, [])
