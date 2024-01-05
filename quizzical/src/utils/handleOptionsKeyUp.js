@@ -4,15 +4,15 @@ export default function handleOptionsKeyUp(event) {
     const isDropdownMenuHidden = dropdownMenu.classList.contains('hidden')
 
     if(isDropdownMenuHidden) return
-      hideOptionsMenuOnEscapeKeyPress(optionsCntr, dropdownMenu, event)
+      hideOptionsMenuOnKeyPress(optionsCntr, dropdownMenu, event)
       checkOptionOnKeyPress(optionsCntr, event)
 }
 
-function hideOptionsMenuOnEscapeKeyPress(optionsCntr, dropdownMenu, e) {
+function hideOptionsMenuOnKeyPress(optionsCntr, dropdownMenu, e) {
   const trigger = optionsCntr.querySelector('.info-trigger')
   const arrow = optionsCntr.querySelector('.expand-arrow')
 
-  if(!(e.key === 'Escape')) return
+  if(!(e.key === 'Escape' || e.key === 'Tab')) return
     dropdownMenu.classList.add('hidden')
     arrow.classList.remove('rotate-arrow')
     trigger.setAttribute('aria-expanded', 'false')
