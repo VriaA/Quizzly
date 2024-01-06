@@ -14,12 +14,16 @@ export default function Hero(props) {
         optionsWrappers.forEach(wrapper=> {
           const isClickOutside = !wrapper.contains(event.target)
           const dropdownMenu = wrapper.querySelector('.info-dropdown')
-          
-          if((dropdownMenu.classList.contains('hidden')) || (!isClickOutside)) return
           const trigger = wrapper.querySelector('.info-trigger')
+          
+          if((!(trigger.ariaExpanded === 'true')) || (!isClickOutside)) return
           const arrow = wrapper.querySelector('.expand-arrow')
   
-          toggleOptionMenuVisiblity(trigger, dropdownMenu, arrow)
+          trigger.ariaExpanded = 'false'
+          arrow.classList.remove('rotate-arrow')
+
+          if(dropdownMenu.classList.contains('hidden')) return
+          dropdownMenu.classList.add('hidden')
         })
       })
     }, [])
