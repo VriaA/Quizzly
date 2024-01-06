@@ -29,7 +29,7 @@ export default function Categories(props) {
 
             return (
                     <li role='option' tabIndex={0} key={i + 2}>
-                        <input id={`category-${i + 2}`} className='info-option' type='radio' name='category' value={id}/>
+                        <input id={`category-${i + 2}`} className='info-option' type='radio' name='category' value={id} data-option={name}/>
                         <label htmlFor={`category-${i + 2}`} className='info-option-label'>
                             {name}
                         </label>
@@ -43,7 +43,7 @@ export default function Categories(props) {
 
             return [
                 <li role='option' tabIndex={0} key={1}>
-                    <input id='category-1' className='info-option' type='radio' name='category'value={'random'} defaultChecked={true}/>
+                    <input id='category-1' className='info-option' type='radio' name='category'value={'random'} defaultChecked={true} data-option='Random'/>
                     <label htmlFor='category-1' className='info-option-label'>
                     Random
                     </label>

@@ -33,6 +33,11 @@ export default function Hero(props) {
       const triggerArrow = document.getElementById(`${event.currentTarget.id}-trigger-arrow`)
       toggleOptionMenuVisiblity(event.currentTarget, dropdownMenu, triggerArrow)
     }
+
+    function updateTriggerName(event) {
+      const triggerName = event.currentTarget.querySelector('.trigger-name')
+      triggerName.textContent = event.target.dataset.option
+    }
  
     return (
         <div className='hero-wrapper'>
@@ -43,7 +48,7 @@ export default function Hero(props) {
 
           <form className='quiz-info-cntr' onSubmit={startQuiz}>
             
-            <div className='options-wrapper category-options' onKeyUp={handleOptionsKeyUp}>
+            <div className='options-wrapper category-options' onKeyUp={handleOptionsKeyUp} onChange={updateTriggerName}>
               <button 
                 id='category'
                 className={`info-trigger category-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`} 
@@ -53,7 +58,7 @@ export default function Hero(props) {
                 aria-controls='category-dropdown'
                 onClick={(e)=> handleTriggerClick(e)}>
 
-                <span id='category-trigger-name' className="category-trigger-name">Category</span> 
+                <span id='category-trigger-name' className="category-trigger-name trigger-name">Category</span> 
                 <span id='category-trigger-arrow' className="expand-arrow material-symbols-outlined">
                   expand_more
                 </span>
@@ -63,7 +68,7 @@ export default function Hero(props) {
               <Categories isDarkTheme={isDarkTheme} />
             </div>
 
-            <div className='options-wrapper difficulty-options' onKeyUp={handleOptionsKeyUp}>
+            <div className='options-wrapper difficulty-options' onKeyUp={handleOptionsKeyUp} onChange={updateTriggerName}>
               <button 
                 id='difficulty'
                 className={`info-trigger difficulty-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`}
@@ -73,7 +78,7 @@ export default function Hero(props) {
                 aria-controls='difficulty-dropdown'
                 onClick={(e)=> handleTriggerClick(e)}>
 
-                <span id='difficulty-trigger-name' className="difficulty-trigger-name">Difficulty</span> 
+                <span id='difficulty-trigger-name' className="difficulty-trigger-name trigger-name">Difficulty</span> 
                 <span id='difficulty-trigger-arrow' className="expand-arrow material-symbols-outlined">
                   expand_more
                 </span>
@@ -82,28 +87,28 @@ export default function Hero(props) {
               
             <ul id='difficulty-dropdown' className={`info-dropdown hidden ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='difficulty-trigger-name'>
                 <li role='option' tabIndex={0}>
-                  <input id='difficulty-1' className='info-option' type='radio' name='difficulty' value={'random'} defaultChecked={true}/>
+                  <input id='difficulty-1' className='info-option' type='radio' name='difficulty' value={'random'} defaultChecked={true} data-option='Random'/>
                   <label htmlFor='difficulty-1' className='info-option-label'>
                     Random
                   </label>
                 </li>
 
                 <li role='option' tabIndex={0}>
-                  <input id='difficulty-2' className='info-option' type='radio' name='difficulty' value={'easy'}/>
+                  <input id='difficulty-2' className='info-option' type='radio' name='difficulty' value={'easy'} data-option='Easy'/>
                   <label htmlFor='difficulty-2' className='info-option-label'>
                     Easy
                   </label>
                 </li>
 
                 <li role='option' tabIndex={0}>
-                  <input id='difficulty-3' className='info-option' type='radio' name='difficulty' value={'medium'}/>
+                  <input id='difficulty-3' className='info-option' type='radio' name='difficulty' value={'medium'} data-option='Medium'/>
                   <label htmlFor='difficulty-3' className='info-option-label'>
                     Medium
                   </label>
                 </li>
 
                 <li role='option' tabIndex={0}>
-                  <input id='difficulty-4' className='info-option' type='radio' name='difficulty' value={'hard'}/>
+                  <input id='difficulty-4' className='info-option' type='radio' name='difficulty' value={'hard'} data-option='Hard'/>
                   <label htmlFor='difficulty-4' className='info-option-label'>
                     Hard
                   </label>
@@ -111,7 +116,7 @@ export default function Hero(props) {
               </ul>
             </div>
 
-            <div className='options-wrapper type-options' onKeyUp={handleOptionsKeyUp}>
+            <div className='options-wrapper type-options' onKeyUp={handleOptionsKeyUp} onChange={updateTriggerName}>
 
               <button 
                 id='type' 
@@ -122,7 +127,7 @@ export default function Hero(props) {
                 aria-controls='type-dropdown'
                 onClick={(e)=> handleTriggerClick(e)}>
 
-                <span id='type-trigger-name' className="type-trigger-name">Type</span> 
+                <span id='type-trigger-name' className="type-trigger-name trigger-name">Type</span> 
                 <span id='type-trigger-arrow' className="expand-arrow material-symbols-outlined">
                   expand_more
                 </span>
@@ -131,21 +136,21 @@ export default function Hero(props) {
               <ul id='type-dropdown' className={`info-dropdown hidden ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby='type-trigger-name'>
                 
                 <li role='option' tabIndex={0}>
-                  <input id='type-1' className='info-option' type='radio' name='type' value={'random'} defaultChecked={true}/>
+                  <input id='type-1' className='info-option' type='radio' name='type' value={'random'} defaultChecked={true} data-option='Random'/>
                   <label htmlFor='type-1' className='info-option-label'>
                     Random
                   </label>
                 </li>
 
                 <li role='option' tabIndex={0}>
-                  <input id='type-2' className='info-option' type='radio' name='type' value={'multiple'}/>
+                  <input id='type-2' className='info-option' type='radio' name='type' value={'multiple'} data-option='Multiple'/>
                   <label htmlFor='type-2' className='info-option-label'>
                     Multiple Choice
                   </label>
                 </li>
 
                 <li role='option' tabIndex={0}>
-                  <input id='type-3' className='info-option' type='radio' name='type' value={'boolean'}/>
+                  <input id='type-3' className='info-option' type='radio' name='type' value={'boolean'} data-option='True / False'/>
                   <label htmlFor='type-3' className='info-option-label'>
                   True / False
                   </label>
