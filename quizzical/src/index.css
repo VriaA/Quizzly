@@ -152,6 +152,14 @@ h2 {
   border: 1px solid #111;
 }
 
+.trigger-name {
+  padding: .2em 0;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .category-options {
   grid-area: category-options;
 }
