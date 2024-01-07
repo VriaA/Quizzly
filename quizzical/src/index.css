@@ -153,6 +153,7 @@ h2 {
   padding: .2em 0;
   text-align: left;
   text-overflow: ellipsis;
+  text-transform: capitalize;
   overflow: hidden;
   white-space: nowrap;
 }
