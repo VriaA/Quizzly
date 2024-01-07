@@ -11,6 +11,30 @@ export default function Hero(props) {
       difficulty: 'Random',
       type: 'Random'
     })
+
+    const [isOpen, setIsOpen] = useState({
+      categoryDropdown: false,
+      difficultyDropdown: false,
+      typeDropdown: false
+    })
+
+    useEffect(()=>{
+      document.addEventListener('click', e=> {
+        const optionsWrappers = document.querySelectorAll('.options-wrapper')
+
+        optionsWrappers.forEach(wrapper=> {
+          const isWrapperClicked = wrapper.contains(e.target)
+          const optionsDropdownMenu = wrapper.querySelector('.info-dropdown')
+          const isDropdownHidden = optionsDropdownMenu.classList.contains('hidden')
+
+          if(!isWrapperClicked && !isDropdownHidden) {
+            setIsOpen(prev=> {
+              return {...prev, [`${optionsDropdownMenu.id.split('-')[0]}Dropdown`]: !prev[`${optionsDropdownMenu.id.split('-')[0]}Dropdown`]}
+            })
+          }
+        })
+      })
+    }, [])
  
     return (
         <div className='hero-wrapper'>
@@ -27,6 +51,8 @@ export default function Hero(props) {
               selectedOption={selectedOption}
               setSelectedOption={setSelectedOption}
               isDarkTheme={isDarkTheme}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
             />
 
             <OptionDropdownMenu 
@@ -35,6 +61,8 @@ export default function Hero(props) {
               selectedOption={selectedOption}
               setSelectedOption={setSelectedOption}
               isDarkTheme={isDarkTheme}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
             />
 
             <OptionDropdownMenu 
@@ -43,6 +71,8 @@ export default function Hero(props) {
               selectedOption={selectedOption}
               setSelectedOption={setSelectedOption}
               isDarkTheme={isDarkTheme}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
             />
 
             <button className='start-quiz-btn' type='submit'>Start Quiz</button>
