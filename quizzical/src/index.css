@@ -181,6 +181,10 @@ h2 {
   backdrop-filter: blur(10px);
 }
 
+.info-dropdown > li {
+  position: relative;
+}
+
 .info-dropdown > li * {
   cursor: pointer;
 }
@@ -190,7 +194,9 @@ h2 {
 }
 
 .info-option {
-  display: none;
+  /* display: none; */
+  position: absolute;
+  opacity: 0;
 }
 
 .info-option-label {

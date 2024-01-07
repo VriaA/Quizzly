@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import toggleOptionMenuVisiblity from './utils/toggleOptionMenuVisiblity'
 import handleStartQuizBtnClick from './utils/handleStartQuizBtnClick'
 
 function App() {
