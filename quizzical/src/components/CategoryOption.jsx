@@ -11,7 +11,7 @@ export default function CategoryOption(props) {
             try {
                 const response = await fetch('https://opentdb.com/api_category.php')
                 const categories = await response.json()
-                setCategories([{id:'', name: 'Random'}, ...categories.trivia_categories])
+                setCategories([{id: 'random', name: 'Random'}, ...categories.trivia_categories])
             } catch (error) {
                 alert('Error:' + error.message)
             } finally {

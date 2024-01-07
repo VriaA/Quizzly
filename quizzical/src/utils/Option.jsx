@@ -10,7 +10,7 @@ export default function Option(props) {
                     className='info-option' 
                     type='radio' 
                     name={name} 
-                    value={item}
+                    value={item.toLowerCase()}
                     checked={selectedOption[name] === item} 
                     onChange={handleSelectionChange}
                     data-option={item}
