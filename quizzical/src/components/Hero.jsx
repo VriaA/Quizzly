@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import OptionDropdownMenu from "./OptionDropDownMenu"
 import CategoryOption from "./CategoryOption"
-import Option from "../utils/Option"
+import Option from "./Option"
 
 export default function Hero(props) {
     const {theme, startQuiz} = props
