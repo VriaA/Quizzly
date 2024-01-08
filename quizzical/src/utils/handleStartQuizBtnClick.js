@@ -9,7 +9,7 @@ export default function handleStartQuizBtnClick(e, setLoading) {
   async function getQuestions(category, difficulty, type, setLoading) {
       try {
         setLoading(true)
-        const response = await fetch(`https://opentdb.com/api.php?amount=5${category !== 'random' ? `&category=${category}` : ''}${difficulty !== 'random' ? `&difficulty=${difficulty}` : ''}${type !== 'random' ? `&type=${type}` : ''}`)
+        const response = await fetch(`https://opentdb.com/api.php?amount=5${category !== 'category' ? `&category=${category}` : ''}${difficulty !== 'difficulty' ? `&difficulty=${difficulty}` : ''}${type !== 'type' ? `&type=${type}` : ''}`)
         handleResponseError(response)
 
         const data = await response.json()

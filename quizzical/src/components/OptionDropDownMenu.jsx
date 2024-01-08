@@ -5,9 +5,9 @@ export default function OptionDropdownMenu(props) {
       const {menuName, MenuOptions, isDarkTheme, isOpen, setIsOpen} = props
 
       const [selectedOption, setSelectedOption] = useState({
-        category: 'Random',
-        difficulty: 'Random',
-        type: 'Random'
+        category: 'Category',
+        difficulty: 'Difficulty',
+        type: 'Type'
       })
 
       function handleSelectionChange(e) {
