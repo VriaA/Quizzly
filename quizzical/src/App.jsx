@@ -8,6 +8,7 @@ function App() {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
   const [theme, setTheme] = useState(savedTheme ? savedTheme : prefersDark.matches ? 'dark' : 'light')
   const [loading, setLoading] = useState(false)
+  const [questions, setQuestions] = useState([])
 
   useEffect(()=> {
     prefersDark.addEventListener('change', (event)=> {
@@ -22,7 +23,7 @@ function App() {
   }, [theme])
 
   const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
-  const startQuiz = (e)=> handleStartQuizBtnClick(e, setLoading)
+  const startQuiz = (e)=> handleStartQuizBtnClick(e, setLoading, setQuestions)
 
   return (
         <div className='wrapper'>

@@ -1,12 +1,12 @@
-export default function handleStartQuizBtnClick(e, setLoading) {
+export default function handleStartQuizBtnClick(e, setLoading, setQuestions) {
     e.preventDefault()
     const formData = new FormData(e.target)
     const {category, difficulty, type} = Object.fromEntries(formData)
     
-    getQuestions(category, difficulty, type, setLoading)
+    getQuestions(category, difficulty, type, setLoading, setQuestions)
   }
 
-  async function getQuestions(category, difficulty, type, setLoading) {
+  async function getQuestions(category, difficulty, type, setLoading, setQuestions) {
       try {
         setLoading(true)
         const response = await fetch(`https://opentdb.com/api.php?amount=5${category !== 'category' ? `&category=${category}` : ''}${difficulty !== 'difficulty' ? `&difficulty=${difficulty}` : ''}${type !== 'type' ? `&type=${type}` : ''}`)
@@ -14,7 +14,7 @@ export default function handleStartQuizBtnClick(e, setLoading) {
 
         const data = await response.json()
         handleDataError(data)
-        console.log(data)
+        setQuestions(data.results)
       } catch(error) {
         alert(error.message)
       } finally {
