@@ -3,7 +3,6 @@ import quizOptions from "../data/quizOptions"
 
 export default function OptionDropdownMenu(props) {
       const {menuName, MenuOptions, isDarkTheme, isOpen, setIsOpen} = props
-      const [clickedTriggerId, setClickedTriggerId] = useState(null)
 
       const [selectedOption, setSelectedOption] = useState({
         category: 'Random',
@@ -18,13 +17,10 @@ export default function OptionDropdownMenu(props) {
         })
       }
 
-      function handleTriggerClick(e) {
-        const triggerId = e.currentTarget.id
-
+      function handleTriggerClick() {
         setIsOpen(prev=> {
-          return {...prev, [`${triggerId}Dropdown`]: !prev[`${triggerId}Dropdown`]}
+          return {...prev, [`${menuName}Dropdown`]: !prev[`${menuName}Dropdown`]}
         })
-        setClickedTriggerId(triggerId)
       }
 
       function closeDropDownOnKeyPress(e) {
@@ -36,13 +32,11 @@ export default function OptionDropdownMenu(props) {
       }
 
       useEffect(()=> {
-        if(clickedTriggerId) {
-          const dropdown = document.getElementById(`${clickedTriggerId}-dropdown`)
+          const dropdown = document.getElementById(`${menuName}-dropdown`)
 
           if(dropdown.classList.contains('hidden')) return
             const checkedRadiobtn = dropdown.querySelector('input[type=radio]:checked')
             checkedRadiobtn.focus()
-        }
       }, [isOpen])
 
       const DROPDOWN_HIDDEN_CLASS = isOpen[`${menuName}Dropdown`] ? '' : 'hidden'
