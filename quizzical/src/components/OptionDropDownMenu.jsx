@@ -27,6 +27,14 @@ export default function OptionDropdownMenu(props) {
         setClickedTriggerId(triggerId)
       }
 
+      function closeDropDownOnKeyPress(e) {
+        if(isOpen[`${menuName}Dropdown`] && (e.key === 'Tab' || e.key === 'Escape')) {
+          setIsOpen(prev=> {
+            return {...prev, [`${menuName}Dropdown`]: !prev[`${menuName}Dropdown`]}
+          })
+        }
+      }
+
       useEffect(()=> {
         if(clickedTriggerId) {
           const dropdown = document.getElementById(`${clickedTriggerId}-dropdown`)
@@ -41,7 +49,8 @@ export default function OptionDropdownMenu(props) {
       const ROTATE_TRIGGER_ARROW_CLASS = isOpen[`${menuName}Dropdown`] ? 'rotate-arrow' : ''
 
       return (
-          <div className={`options-wrapper ${menuName}-options`}>
+          <div className={`options-wrapper ${menuName}-options`} onKeyDown={closeDropDownOnKeyPress}>
+            
             <button 
               id={menuName}
               className={`info-trigger ${menuName}-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`} 
@@ -55,7 +64,6 @@ export default function OptionDropdownMenu(props) {
               <span id={`${menuName}-trigger-arrow`} className={`${ROTATE_TRIGGER_ARROW_CLASS} expand-arrow material-symbols-outlined`}>
                 expand_more
               </span>
-
             </button>
 
             <ul id={`${menuName}-dropdown`} className={`${DROPDOWN_HIDDEN_CLASS} info-dropdown ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby={`${menuName}-trigger-name`}>
