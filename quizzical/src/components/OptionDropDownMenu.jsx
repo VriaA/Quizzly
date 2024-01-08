@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import quizOptions from "../data/quizOptions"
 
 export default function OptionDropdownMenu(props) {
       const {menuName, MenuOptions, isDarkTheme, isOpen, setIsOpen} = props
+      const [clickedTriggerId, setClickedTriggerId] = useState(null)
 
       const [selectedOption, setSelectedOption] = useState({
         category: 'Random',
@@ -23,7 +24,18 @@ export default function OptionDropdownMenu(props) {
         setIsOpen(prev=> {
           return {...prev, [`${triggerId}Dropdown`]: !prev[`${triggerId}Dropdown`]}
         })
+        setClickedTriggerId(triggerId)
       }
+
+      useEffect(()=> {
+        if(clickedTriggerId) {
+          const dropdown = document.getElementById(`${clickedTriggerId}-dropdown`)
+
+          if(dropdown.classList.contains('hidden')) return
+            const checkedRadiobtn = dropdown.querySelector('input[type=radio]:checked')
+            checkedRadiobtn.focus()
+        }
+      }, [isOpen])
 
       const DROPDOWN_HIDDEN_CLASS = isOpen[`${menuName}Dropdown`] ? '' : 'hidden'
       const ROTATE_TRIGGER_ARROW_CLASS = isOpen[`${menuName}Dropdown`] ? 'rotate-arrow' : ''
