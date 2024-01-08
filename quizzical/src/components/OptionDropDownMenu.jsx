@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import quizOptions from "../data/quizOptions"
 
 export default function OptionDropdownMenu(props) {
-      const {menuName, MenuOptions, isDarkTheme, isOpen, setIsOpen} = props
+      const {menuName, MenuOptions, isDarkTheme, isOpen, setIsOpen, loading, setLoading} = props
 
       const [selectedOption, setSelectedOption] = useState({
         category: 'Category',
@@ -71,6 +71,8 @@ export default function OptionDropdownMenu(props) {
                 options={quizOptions[menuName]}
                 selectedOption={selectedOption} 
                 handleSelectionChange={handleSelectionChange}
+                loading={loading}
+                setLoading={setLoading}
               />
             </ul>
           </div>

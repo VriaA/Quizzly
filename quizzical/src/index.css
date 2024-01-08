@@ -45,6 +45,25 @@ body {
   background-color: #FDFDFD;
 }
 
+.loader-cntr {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #f6f6f6;
+  z-index: 1000;
+}
+
+.loader-cntr svg {
+  width: 100px;
+}
+
+.loader-text {
+  font: 400 1.3rem/1 'Wix Madefor Display', sans-serif;
+}
+
 /*===================== REPEATED STYLES =====================*/
 
 h1, h2 > .quizzical {
@@ -280,7 +299,7 @@ h2 {
 }
 
 /* DARK THEME */
-.body-dark {
+.body-dark, .loader-cntr-dark {
   background: #111;
   color: #f6f6f6;
 }
@@ -308,6 +327,11 @@ h2 {
 /*===================== MEDIA QUERIES =====================*/
 
 @media screen and (min-width: 768px) {
+
+  .loader-cntr svg {
+    width: 150px;
+  }
+
   .wrapper {
     display: flex;
     flex-direction: column;

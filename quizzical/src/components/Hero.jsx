@@ -4,7 +4,7 @@ import CategoryOption from "./CategoryOption"
 import Option from "./Option"
 
 export default function Hero(props) {
-    const {theme, startQuiz} = props
+    const {theme, startQuiz, loading, setLoading} = props
     const isDarkTheme = theme === 'dark'
 
     const [isOpen, setIsOpen] = useState({
@@ -46,6 +46,8 @@ export default function Hero(props) {
               isDarkTheme={isDarkTheme}
               isOpen={isOpen}
               setIsOpen={setIsOpen}
+              loading={loading}
+              setLoading={setLoading}
             />
 
             <OptionDropdownMenu 

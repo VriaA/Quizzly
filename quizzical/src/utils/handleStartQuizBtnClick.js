@@ -18,7 +18,7 @@ export default function handleStartQuizBtnClick(e, setLoading) {
       } catch(error) {
         alert(error.message)
       } finally {
-        setLoading(false)
+        setTimeout(()=> setLoading(false), 1000)
       }
   }
 
