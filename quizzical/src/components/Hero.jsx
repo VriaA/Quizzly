@@ -6,11 +6,6 @@ import Option from "./Option"
 export default function Hero(props) {
     const {theme, startQuiz} = props
     const isDarkTheme = theme === 'dark'
-    const [selectedOption, setSelectedOption] = useState({
-      category: 'Random',
-      difficulty: 'Random',
-      type: 'Random'
-    })
 
     const [isOpen, setIsOpen] = useState({
       categoryDropdown: false,
@@ -48,8 +43,6 @@ export default function Hero(props) {
             <OptionDropdownMenu 
               menuName={'category'} 
               MenuOptions={CategoryOption} 
-              selectedOption={selectedOption}
-              setSelectedOption={setSelectedOption}
               isDarkTheme={isDarkTheme}
               isOpen={isOpen}
               setIsOpen={setIsOpen}
@@ -58,8 +51,6 @@ export default function Hero(props) {
             <OptionDropdownMenu 
               menuName={'difficulty'} 
               MenuOptions={Option} 
-              selectedOption={selectedOption}
-              setSelectedOption={setSelectedOption}
               isDarkTheme={isDarkTheme}
               isOpen={isOpen}
               setIsOpen={setIsOpen}
@@ -68,8 +59,6 @@ export default function Hero(props) {
             <OptionDropdownMenu 
               menuName={'type'} 
               MenuOptions={Option} 
-              selectedOption={selectedOption}
-              setSelectedOption={setSelectedOption}
               isDarkTheme={isDarkTheme}
               isOpen={isOpen}
               setIsOpen={setIsOpen}
