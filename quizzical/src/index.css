@@ -195,7 +195,6 @@ h2 {
 }
 
 .info-option {
-  /* display: none; */
   position: absolute;
   opacity: 0;
 }
