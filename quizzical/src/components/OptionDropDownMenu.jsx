@@ -39,6 +39,11 @@ export default function OptionDropdownMenu(props) {
             checkedRadiobtn.focus()
       }, [isOpen])
 
+      useEffect(()=> {
+        const triggerName = document.getElementById(`${menuName}-trigger-name`)
+        triggerName.textContent = selectedOption[menuName]
+      }, [selectedOption])
+
       const DROPDOWN_HIDDEN_CLASS = isOpen[`${menuName}Dropdown`] ? '' : 'hidden'
       const ROTATE_TRIGGER_ARROW_CLASS = isOpen[`${menuName}Dropdown`] ? 'rotate-arrow' : ''
 
