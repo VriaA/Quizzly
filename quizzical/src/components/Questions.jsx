@@ -56,7 +56,7 @@ export default function Questions(props) {
     }
 
     function removeAPoint(isSelectedCorrectAnswer) {
-        if((score > 0) && (isSelectedCorrectAnswer) ) {
+        if(isSelectedCorrectAnswer) {
             setScore(prevScore=> prevScore - 1)
         }
     }
