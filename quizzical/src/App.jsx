@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import handleStartQuizBtnClick from './utils/handleStartQuizBtnClick'
+import Questions from './components/Questions'
 
 function App() {
   const savedTheme = JSON.parse(localStorage.getItem('theme'))
@@ -9,6 +10,7 @@ function App() {
   const [theme, setTheme] = useState(savedTheme ? savedTheme : prefersDark.matches ? 'dark' : 'light')
   const [loading, setLoading] = useState(false)
   const [questions, setQuestions] = useState([])
+  const [isHomePage, setIsHomePage] = useState(true)
 
   useEffect(()=> {
     prefersDark.addEventListener('change', (event)=> {
@@ -23,8 +25,9 @@ function App() {
   }, [theme])
 
   const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
-  const startQuiz = (e)=> handleStartQuizBtnClick(e, setLoading, setQuestions)
+  const startQuiz = (e)=> handleStartQuizBtnClick(e, setLoading, setQuestions, setIsHomePage)
 
+  console.log(isHomePage)
   return (
         <div className='wrapper'>
           {loading &&
@@ -36,12 +39,16 @@ function App() {
           <Header theme={theme} changeTheme={changeTheme} />
 
           <main>
-            <Hero 
+            {isHomePage ?
+              <Hero 
               theme={theme} 
               startQuiz={startQuiz}
               loading={loading}
               setLoading={setLoading}
-            />
+              />
+              : <Questions questions={questions} />
+            }
+            
           </main>
         </div>
   )

@@ -1,12 +1,12 @@
-export default function handleStartQuizBtnClick(e, setLoading, setQuestions) {
+export default function handleStartQuizBtnClick(e, setLoading, setQuestions, setIsHomePage) {
     e.preventDefault()
     const formData = new FormData(e.target)
     const {category, difficulty, type} = Object.fromEntries(formData)
     
-    getQuestions(category, difficulty, type, setLoading, setQuestions)
+    getQuestions(category, difficulty, type, setLoading, setQuestions, setIsHomePage)
   }
 
-  async function getQuestions(category, difficulty, type, setLoading, setQuestions) {
+  async function getQuestions(category, difficulty, type, setLoading, setQuestions, setIsHomePage) {
       try {
         setLoading(true)
         const response = await fetch(`https://opentdb.com/api.php?amount=5${category !== 'category' ? `&category=${category}` : ''}${difficulty !== 'difficulty' ? `&difficulty=${difficulty}` : ''}${type !== 'type' ? `&type=${type}` : ''}`)
@@ -18,6 +18,7 @@ export default function handleStartQuizBtnClick(e, setLoading, setQuestions) {
       } catch(error) {
         alert(error.message)
       } finally {
+        setIsHomePage(prevPage=> !prevPage)
         setTimeout(()=> setLoading(false), 1000)
       }
   }
