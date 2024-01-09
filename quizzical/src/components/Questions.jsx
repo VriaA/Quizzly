@@ -38,6 +38,27 @@ export default function Questions(props) {
         setselectedAnswers(prev=> {
             return{...prev, [`answer${index}`]: answer}
         })
+        updateScore(answer, correctAnswer, index)
+    }
+
+    function updateScore(answer, correctAnswer, index) {
+        const isAlreadySelected = selectedAnswers[`answer${index}`]
+        const isSelectedCorrectAnswer = isAlreadySelected === correctAnswer
+        if(isAlreadySelected) {
+            answer === correctAnswer ? addAPoint() : removeAPoint(isSelectedCorrectAnswer)
+        } else if((!isAlreadySelected) && (answer === correctAnswer)) {
+            addAPoint()
+        }
+    }
+
+    function addAPoint() {
+        setScore(prevScore=> prevScore + 1)
+    }
+
+    function removeAPoint(isSelectedCorrectAnswer) {
+        if((score > 0) && (isSelectedCorrectAnswer) ) {
+            setScore(prevScore=> prevScore - 1)
+        }
     }
 
     function Question() {
