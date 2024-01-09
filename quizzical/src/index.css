@@ -285,6 +285,7 @@ h2 {
 
 /*===================== QUESTIONS =====================*/
 .questions-cntr {
+  position: relative;
   z-index: 1000;
 }
 
