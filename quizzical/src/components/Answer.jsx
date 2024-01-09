@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 
 export default function Answers(props) {
-    const {answers, correctAnswer, selectedAnswers, handleAnswerClick, index} = props 
-
+    const {answers, correctAnswer, selectedAnswers, handleAnswerClick, questionIndex} = props 
     return answers.map((answer, i)=> {
         return (   
             <li key={i}>
@@ -11,9 +10,9 @@ export default function Answers(props) {
                     className="answer-radio" 
                     type="radio" 
                     value={answer}
-                    name={`question-${index}`}
-                    checked={selectedAnswers[`answer${i + 1}`] === answer}
-                    onChange={(e)=> handleAnswerClick(e, (i + 1))}
+                    name={`question-${questionIndex}`}
+                    checked={selectedAnswers[`answer${questionIndex}`] === answer}
+                    onChange={(e)=> handleAnswerClick(e, questionIndex, correctAnswer)}
                  />
                 <label htmlFor={answer} className="answer-label">{answer}</label>
             </li>

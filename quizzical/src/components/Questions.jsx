@@ -33,7 +33,7 @@ export default function Questions(props) {
         return answers
     }
 
-    function handleAnswerClick(e, index) {
+    function handleAnswerClick(e, index, correctAnswer) {
         const answer = e.target.value
         setselectedAnswers(prev=> {
             return{...prev, [`answer${index}`]: answer}
@@ -53,7 +53,7 @@ export default function Questions(props) {
                             correctAnswer={correctAnswer} 
                             selectedAnswers={selectedAnswers}
                             handleAnswerClick={handleAnswerClick}
-                            index={i + 1}
+                            questionIndex={i + 1}
                         />
                         </ul>
                     </section>
