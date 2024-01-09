@@ -62,9 +62,14 @@ export default function Questions(props) {
         }
     }
 
+    function endQuiz(e) {
+        e.preventDefault()
+    }
+
     return (
-        <div className="questions-cntr">
+        <form className="questions-cntr" onSubmit={endQuiz}>
             <Question />
-        </div>
+            <button className="end-quiz-btn" type="submit">End Quiz</button>
+        </form>
     )
 }
