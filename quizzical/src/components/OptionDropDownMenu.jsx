@@ -29,7 +29,13 @@ export default function OptionDropdownMenu(props) {
           setIsOpen(prev=> {
             return {...prev, [`${menuName}Dropdown`]: !prev[`${menuName}Dropdown`]}
           })
+          focusClosedMenuTrigger()
         }
+      }
+
+      function focusClosedMenuTrigger() {
+        const trigger = document.getElementById(`${menuName}-trigger`)
+        trigger.focus()
       }
 
       useEffect(()=> {
@@ -52,7 +58,7 @@ export default function OptionDropdownMenu(props) {
           <div className={`options-wrapper ${menuName}-options`} onKeyDown={closeDropDownOnKeyPress}>
             
             <button 
-              id={menuName}
+              id={`${menuName}-trigger`}
               className={`info-trigger ${menuName}-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`} 
               type="button"
               aria-haspopup='listbox' 
