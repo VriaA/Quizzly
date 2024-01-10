@@ -5,6 +5,7 @@ import Result from "./Result";
 export default function Questions(props) {
     const {questions, setIsHomePage} = props
     const [isQuizEnd, setIsQuizEnd] = useState(false)
+    const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
     const [selectedAnswers, setselectedAnswers] = useState({
         answer1: null,
@@ -77,6 +78,7 @@ export default function Questions(props) {
                             selectedAnswers={selectedAnswers}
                             handleAnswerClick={handleAnswerClick}
                             questionIndex={i + 1}
+                            isSolution={isSolution}
                         />
                         </ul>
                     </section>
@@ -94,13 +96,24 @@ export default function Questions(props) {
         setIsHomePage(true)
     }
 
+    function showSolution() {
+        setIsQuizEnd(false)
+        setIsSolution(true)
+    }
+
     return (
         <div>
             {isQuizEnd ? 
-                <Result score={score} gotoHomePage={gotoHomePage} /> 
+                <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} /> 
             :   <form className="questions-cntr" onSubmit={endQuiz}>
                     <Question />
-                    <button className="end-quiz-btn" type="submit">End Quiz</button>
+                        {isSolution ?
+                            <div>
+                                <p>{score}/5</p>
+                                <button type="button" onClick={gotoHomePage}>Try Again</button>
+                            </div>
+                        :   <button className="end-quiz-btn" type="submit">End Quiz</button>
+                        }
                 </form>
             }
         </div>
