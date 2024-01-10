@@ -4,7 +4,7 @@ import Result from "./Result";
 
 export default function Questions(props) {
     const {questions, setIsHomePage} = props
-    const [isQuizEnd, setIsQuizEnd] = useState(false)
+    const [isResult, setIsResult] = useState(false)
     const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
     const [selectedAnswers, setselectedAnswers] = useState({
@@ -89,7 +89,7 @@ export default function Questions(props) {
 
     function endQuiz(e) {
         e.preventDefault()
-        setIsQuizEnd(true)
+        setIsResult(true)
     }
 
     function gotoHomePage() {
@@ -97,13 +97,13 @@ export default function Questions(props) {
     }
 
     function showSolution() {
-        setIsQuizEnd(false)
+        setIsResult(false)
         setIsSolution(true)
     }
 
     return (
         <div>
-            {isQuizEnd ? 
+            {isResult ? 
                 <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} /> 
             :   <form className="questions-cntr" onSubmit={endQuiz}>
                     <Question />
