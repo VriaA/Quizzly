@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import handleStartQuizBtnClick from './utils/handleStartQuizBtnClick'
 import Questions from './components/Questions'
+import manageLoader from './utils/manageLoader'
 
 function App() {
   const savedTheme = JSON.parse(localStorage.getItem('theme'))
@@ -24,17 +25,13 @@ function App() {
     localStorage.setItem('theme', JSON.stringify(theme))
   }, [theme])
 
+  useEffect(()=> manageLoader(loading, theme) , [loading, theme])
+
   const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
   const startQuiz = (e)=> handleStartQuizBtnClick(e, setLoading, setQuestions, setIsHomePage)
 
   return (
         <div className='wrapper'>
-          {loading &&
-            <div className={`loader-cntr ${theme === 'dark' && 'loader-cntr-dark'}`}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="none" strokeOpacity="1" stroke="#D02F70" strokeWidth=".5" cx="100" cy="100" r="0"><animate attributeName="r" calcMode="spline" dur="2" values="1;80" keyTimes="0;1" keySplines="0 .2 .5 1" repeatCount="indefinite"></animate><animate attributeName="stroke-width" calcMode="spline" dur="2" values="0;25" keyTimes="0;1" keySplines="0 .2 .5 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" calcMode="spline" dur="2" values="1;0" keyTimes="0;1" keySplines="0 .2 .5 1" repeatCount="indefinite"></animate></circle></svg>
-              <p className='loader-text'>Loading...</p>
-            </div>}
-          
           <Header theme={theme} changeTheme={changeTheme} />
 
           <main>
