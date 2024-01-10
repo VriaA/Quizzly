@@ -9,7 +9,7 @@ function App() {
   const savedTheme = JSON.parse(localStorage.getItem('theme'))
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
   const [theme, setTheme] = useState(savedTheme ? savedTheme : prefersDark.matches ? 'dark' : 'light')
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [questions, setQuestions] = useState([])
   const [isHomePage, setIsHomePage] = useState(true)
 
