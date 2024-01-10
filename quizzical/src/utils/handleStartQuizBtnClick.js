@@ -15,10 +15,11 @@ export default function handleStartQuizBtnClick(e, setLoading, setQuestions, set
         const data = await response.json()
         handleDataError(data)
         setQuestions(data.results)
+        setIsHomePage(false)
       } catch(error) {
+        setIsHomePage(true)
         alert(error.message)
       } finally {
-        setIsHomePage(prevPage=> !prevPage)
         setTimeout(()=> setLoading(false), 1000)
       }
   }
@@ -38,7 +39,7 @@ export default function handleStartQuizBtnClick(e, setLoading, setQuestions, set
     const RESPONSE_CODE_TOO_MANY_REQUESTS = 5;
 
     if (data.response_code === RESPONSE_CODE_NO_RESULTS) {
-      throw new Error('No results found: The server returned no quiz questions.');
+      throw new Error('No results found: The server returned no quiz questions. \nPlease select a different combination.');
     } else if (data.response_code === RESPONSE_CODE_TOO_MANY_REQUESTS) {
       throw new Error('Too many requests: Please refresh the page and try again later.');
     }
