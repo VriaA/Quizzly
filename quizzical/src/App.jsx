@@ -27,7 +27,6 @@ function App() {
   const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
   const startQuiz = (e)=> handleStartQuizBtnClick(e, setLoading, setQuestions, setIsHomePage)
 
-  console.log(isHomePage)
   return (
         <div className='wrapper'>
           {loading &&
