@@ -24,7 +24,8 @@ export default function OptionDropdownMenu(props) {
       }
 
       function closeDropDownOnKeyPress(e) {
-        if(isOpen[`${menuName}Dropdown`] && (e.key === 'Tab' || e.key === 'Escape')) {
+        if(isOpen[`${menuName}Dropdown`] && (e.key === 'Tab' || e.key === 'Escape' || e.key === `Enter`)) {
+          e.preventDefault()
           setIsOpen(prev=> {
             return {...prev, [`${menuName}Dropdown`]: !prev[`${menuName}Dropdown`]}
           })
