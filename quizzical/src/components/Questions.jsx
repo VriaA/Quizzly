@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import Answers from "./Answer";
+import Result from "./Result";
 
 export default function Questions(props) {
-    const {questions} = props
+    const {questions, setIsHomePage} = props
+    const [isQuizEnd, setIsQuizEnd] = useState(false)
     const [score, setScore] = useState(()=> 0)
     const [selectedAnswers, setselectedAnswers] = useState({
         answer1: null,
@@ -85,12 +87,22 @@ export default function Questions(props) {
 
     function endQuiz(e) {
         e.preventDefault()
+        setIsQuizEnd(true)
+    }
+
+    function gotoHomePage() {
+        setIsHomePage(true)
     }
 
     return (
-        <form className="questions-cntr" onSubmit={endQuiz}>
-            <Question />
-            <button className="end-quiz-btn" type="submit">End Quiz</button>
-        </form>
+        <div>
+            {isQuizEnd ? 
+                <Result score={score} gotoHomePage={gotoHomePage} /> 
+            :   <form className="questions-cntr" onSubmit={endQuiz}>
+                    <Question />
+                    <button className="end-quiz-btn" type="submit">End Quiz</button>
+                </form>
+            }
+        </div>
     )
 }

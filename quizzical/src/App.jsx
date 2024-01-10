@@ -46,7 +46,7 @@ function App() {
               loading={loading}
               setLoading={setLoading}
               />
-              : <Questions questions={questions} />
+              : <Questions questions={questions} setIsHomePage={setIsHomePage} />
             }
             
           </main>
