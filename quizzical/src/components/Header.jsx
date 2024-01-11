@@ -7,7 +7,7 @@ export default function Header(props) {
             <button aria-label="Change theme"
                 className={`change-theme-btn ${theme === 'dark' && 'button-dark'}`}
                 onClick={changeTheme}>
-                <span id="theme-icon" className='theme-icon material-symbols-outlined'>
+                <span id="theme-icon" className='theme-icon material-symbols-outlined' aria-hidden='true'>
                     {theme === 'dark' ? 'light_mode' : 'dark_mode'}
                 </span>
                 <span aria-live="polite" aria-label={theme === 'dark' ? 'Theme changed to dark' : 'Theme changed to light'}></span>
