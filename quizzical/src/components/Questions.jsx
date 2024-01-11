@@ -7,6 +7,7 @@ export default function Questions(props) {
     const [isResult, setIsResult] = useState(false)
     const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
+    const [checkedBtnGroupName, setCheckedBtnGroupName] = useState(null)
     const [selectedAnswers, setselectedAnswers] = useState({
         question1: null,
         question2: null,
@@ -36,13 +37,26 @@ export default function Questions(props) {
         return answers
     }
 
-    function handleAnswerClick(e, index, correctAnswer) {
-        const {name, value} = e.target
+    function handleAnswerClick(e, questionIndex, correctAnswer, answerName) {
+        const {name, value} = e.target 
+
         setselectedAnswers(prev=> {
             return{...prev, [name]: value}
         })
-        updateScore(value, correctAnswer, index)
+        updateScore(value, correctAnswer, questionIndex)
+        setCheckedBtnGroupName(answerName)
     }
+
+    useEffect(()=> {
+        if(checkedBtnGroupName) {
+            const groupRadioBtns = document.querySelectorAll(`input[name=${checkedBtnGroupName}]`)
+            groupRadioBtns.forEach(radio=> {
+                if(radio.checked === true) {
+                    radio.focus()
+                }
+            })
+        }
+    }, [setselectedAnswers, updateScore])
 
     function updateScore(answer, correctAnswer, index) {
         const isAlreadySelected = selectedAnswers[`question${index}`]

@@ -10,7 +10,7 @@ export default function Answer(props) {
                         value={answer}
                         name={`question${questionIndex}`}
                         checked={selectedAnswers[`question${questionIndex}`] === answer}
-                        onChange={(e)=> handleAnswerClick(e, questionIndex, correctAnswer)}
+                        onChange={(e)=> handleAnswerClick(e, questionIndex, correctAnswer, `question${questionIndex}`)}
                         disabled={isSolution}
                     />
                     {answer}
