@@ -2,7 +2,7 @@ export default function Header(props) {
     const {theme, changeTheme} = props
     return (
         <header>
-            <h1>Quizzical</h1>
+            <a className="logo" href="index.html" aria-label="Quizzical logo" title="Quizzical Home"><h1>Quizzical</h1></a>
             
             <button aria-label="Change theme"
                 className={`change-theme-btn ${theme === 'dark' && 'button-dark'}`}
