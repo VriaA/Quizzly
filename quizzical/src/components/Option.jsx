@@ -7,7 +7,7 @@ export default function Option(props) {
         const optionNumber = i + 1
 
         return (
-            <li role="option" aria-selected={selectedOption[name] === item} key={i}>
+            <li key={i}>
                 <input 
                     id={`${name}-option-${optionNumber}`} 
                     className='info-option' 
