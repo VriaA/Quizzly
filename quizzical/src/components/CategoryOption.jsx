@@ -28,7 +28,7 @@ export default function CategoryOption(props) {
             const {id, name} = category
 
             return (
-                    <li role='option' key={i}>
+                    <li role='option' aria-selected={selectedOption.category === name} key={i}>
                         <input 
                             id={`category-${name}`} 
                             className='info-option' 
