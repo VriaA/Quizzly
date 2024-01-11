@@ -26,11 +26,11 @@ export default function CategoryOption(props) {
     if(categories.length > 0) {
         return categories.map( (category, i)=> {
             const {id, name} = category
-
+            const optionNumber = i + 1
             return (
                     <li role='option' aria-selected={selectedOption.category === name} key={i}>
                         <input 
-                            id={`category-${name}`} 
+                            id={`category-option-${optionNumber}`} 
                             className='info-option' 
                             type='radio' 
                             name='category' 
@@ -39,7 +39,7 @@ export default function CategoryOption(props) {
                             onChange={handleSelectionChange}
                             data-option={name}
                         />
-                        <label htmlFor={`category-${name}`} className='info-option-label'>
+                        <label htmlFor={`category-option-${optionNumber}`} className='info-option-label'>
                             {name}
                         </label>
                     </li>
