@@ -8,11 +8,11 @@ export default function Questions(props) {
     const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
     const [selectedAnswers, setselectedAnswers] = useState({
-        answer1: null,
-        answer2: null,
-        answer3: null,
-        answer4: null,
-        answer5: null,
+        question1: null,
+        question2: null,
+        question3: null,
+        question4: null,
+        question5: null,
     })
 
     const [questionsToRender, setQuestionsToRender] = useState(()=> {
@@ -37,15 +37,15 @@ export default function Questions(props) {
     }
 
     function handleAnswerClick(e, index, correctAnswer) {
-        const answer = e.target.value
+        const {name, value} = e.target
         setselectedAnswers(prev=> {
-            return{...prev, [`answer${index}`]: answer}
+            return{...prev, [name]: value}
         })
-        updateScore(answer, correctAnswer, index)
+        updateScore(value, correctAnswer, index)
     }
 
     function updateScore(answer, correctAnswer, index) {
-        const isAlreadySelected = selectedAnswers[`answer${index}`]
+        const isAlreadySelected = selectedAnswers[`question${index}`]
         const isSelectedCorrectAnswer = isAlreadySelected === correctAnswer
         if(isAlreadySelected) {
             answer === correctAnswer ? addAPoint() : removeAPoint(isSelectedCorrectAnswer)
@@ -69,10 +69,9 @@ export default function Questions(props) {
         return questionsToRender.map((questionToRender, i)=> {
                 const {question, answers, correctAnswer} = questionToRender
                 return (
-                    <section key={i}>
+                    <fieldset key={i}>
                         <h4>{question}</h4>  
-                        <ul>
-                            <Answers 
+                        <Answers 
                             answers={answers}
                             correctAnswer={correctAnswer} 
                             selectedAnswers={selectedAnswers}
@@ -80,8 +79,7 @@ export default function Questions(props) {
                             questionIndex={i + 1}
                             isSolution={isSolution}
                         />
-                        </ul>
-                    </section>
+                    </fieldset>
                 )
             })
         }
