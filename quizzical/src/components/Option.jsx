@@ -6,7 +6,7 @@ export default function Option(props) {
         const value = item === 'Multiple Choice' ? 'multiple' : item === 'True / False' ? 'boolean' : item.toLowerCase()
 
         return (
-            <li role='option' key={i}>
+            <li role="option" aria-selected={selectedOption[name] === item} key={i}>
                 <input 
                     id={`${name}-${item}`} 
                     className='info-option' 
