@@ -67,7 +67,7 @@ export default function OptionDropdownMenu(props) {
               onClick={handleTriggerClick}>
 
               <span id={`${menuName}-trigger-name`} className={`${menuName}-trigger-name trigger-name`}>{menuName}</span> 
-              <span id={`${menuName}-trigger-arrow`} className={`${ROTATE_TRIGGER_ARROW_CLASS} expand-arrow material-symbols-outlined`}>
+              <span id={`${menuName}-trigger-arrow`} className={`${ROTATE_TRIGGER_ARROW_CLASS} expand-arrow material-symbols-outlined`} aria-hidden='true'>
                 expand_more
               </span>
             </button>
