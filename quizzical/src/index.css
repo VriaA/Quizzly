@@ -29,7 +29,6 @@ button {
   outline: none;
   cursor: pointer;
   border: none;
-  color: #111;
 }
 
 a:focus-visible, button:focus-visible {
@@ -45,7 +44,6 @@ fieldset {
 body {
   position: relative;
   min-height: 100svh;
-  color: #111;
   background-color: #FDFDFD;
 }
 
@@ -69,6 +67,10 @@ body {
 }
 
 /*===================== REPEATED STYLES =====================*/
+
+body, button, a {
+  color: #111;
+}
 
 h1, h2 > .quizzical {
   font-weight: 500;
@@ -104,6 +106,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.logo {
+  text-decoration: none;
 }
 
 h1 {
@@ -325,7 +331,7 @@ h2 {
   color: #f6f6f6;
 }
 
-.button-dark {
+.button-dark, .logo-dark {
   color: #f6f6f6;
 }
 
