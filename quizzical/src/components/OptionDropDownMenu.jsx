@@ -55,7 +55,7 @@ export default function OptionDropdownMenu(props) {
       const ROTATE_TRIGGER_ARROW_CLASS = isOpen[`${menuName}Dropdown`] ? 'rotate-arrow' : ''
 
       return (
-          <div className={`options-wrapper ${menuName}-options`} onKeyDown={closeDropDownOnKeyPress}>
+          <fieldset className={`options-wrapper ${menuName}-options`} onKeyDown={closeDropDownOnKeyPress}>
             
             <button 
               id={`${menuName}-trigger`}
@@ -82,6 +82,6 @@ export default function OptionDropdownMenu(props) {
                 setLoading={setLoading}
               />
             </ul>
-          </div>
+          </fieldset>
       )
 }
