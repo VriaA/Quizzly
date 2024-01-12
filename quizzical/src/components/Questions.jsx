@@ -84,7 +84,7 @@ export default function Questions(props) {
                 const {question, answers, correctAnswer} = questionToRender
                 return (
                     <fieldset key={i}>
-                        <h4>{question}</h4>  
+                        <legend>{question}</legend>  
                         <Answers 
                             answers={answers}
                             correctAnswer={correctAnswer} 
@@ -114,7 +114,7 @@ export default function Questions(props) {
     }
 
     return (
-        <div>
+        <>
             {isResult ? 
                 <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} /> 
             :   <form className="questions-cntr" onSubmit={endQuiz}>
@@ -128,6 +128,6 @@ export default function Questions(props) {
                         }
                 </form>
             }
-        </div>
+        </>
     )
 }
