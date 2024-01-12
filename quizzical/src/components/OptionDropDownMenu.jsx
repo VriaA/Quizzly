@@ -61,7 +61,7 @@ export default function OptionDropdownMenu(props) {
               id={`${menuName}-trigger`}
               className={`info-trigger ${menuName}-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`} 
               type="button"
-              aria-haspopup='true' 
+              aria-haspopup='listbox' 
               aria-expanded={isOpen[`${menuName}Dropdown`]} 
               aria-controls={`${menuName}-dropdown`}
               onClick={handleTriggerClick}>
@@ -72,7 +72,7 @@ export default function OptionDropdownMenu(props) {
               </span>
             </button>
 
-            <ul id={`${menuName}-dropdown`} className={`${DROPDOWN_HIDDEN_CLASS} info-dropdown ${isDarkTheme && 'info-dropdown-dark'}`} aria-labelledby={`${menuName}-trigger-name`}>
+            <ul id={`${menuName}-dropdown`} className={`${DROPDOWN_HIDDEN_CLASS} info-dropdown ${isDarkTheme && 'info-dropdown-dark'}`} role='listbox' aria-labelledby={`${menuName}-trigger-name`}>
               <MenuOptions 
                 name={menuName}
                 options={quizOptions[menuName]}
