@@ -3,7 +3,7 @@ import Answers from "./Answer";
 import Result from "./Result";
 
 export default function Questions(props) {
-    const {questions, setIsHomePage} = props
+    const {questions, setIsHomePage, selectedOption} = props
     const [isResult, setIsResult] = useState(false)
     const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
@@ -113,20 +113,35 @@ export default function Questions(props) {
         setIsSolution(true)
     }
 
+    const quizCategory = selectedOption.category === 'Category' ? 'Random'  : selectedOption.category
+    const quizDifficulty = selectedOption.difficulty === 'Difficulty' ? 'Random'  : selectedOption.difficulty
+    const quizType = selectedOption.type === 'Type' ? 'Random'  : selectedOption.type
+
     return (
         <>
             {isResult ? 
                 <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} /> 
-            :   <form className="questions-cntr" onSubmit={endQuiz}>
-                    <Question />
-                        {isSolution ?
-                            <div>
-                                <p>{score}/5</p>
-                                <button type="button" onClick={gotoHomePage}>Try Again</button>
-                            </div>
-                        :   <button className="end-quiz-btn" type="submit">End Quiz</button>
-                        }
-                </form>
+            :   
+                <div>
+                    <section>
+                        <h2>Quiz</h2>
+                        <div>
+                            <p>Category: {quizCategory}</p>
+                            <p>Difficulty: {quizDifficulty}</p>
+                            <p>Type: {quizType}</p>
+                        </div>
+                    </section>
+                    <form className="questions-cntr" onSubmit={endQuiz}>
+                        <Question />
+                            {isSolution ?
+                                <div>
+                                    <p>{score}/5</p>
+                                    <button type="button" onClick={gotoHomePage}>Try Again</button>
+                                </div>
+                            :   <button className="end-quiz-btn" type="submit">End Quiz</button>
+                            }
+                    </form>
+                </div>
             }
         </>
     )

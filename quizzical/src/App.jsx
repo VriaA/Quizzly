@@ -42,14 +42,18 @@ function App() {
           <main>
             {isHomePage ?
               <Hero 
-              theme={theme} 
-              startQuiz={startQuiz}
-              loading={loading}
-              setLoading={setLoading}
-              selectedOption={selectedOption}
-              setSelectedOption={setSelectedOption}
+                theme={theme} 
+                startQuiz={startQuiz}
+                loading={loading}
+                setLoading={setLoading}
+                selectedOption={selectedOption}
+                setSelectedOption={setSelectedOption}
               />
-              : <Questions questions={questions} setIsHomePage={setIsHomePage} />
+              : <Questions 
+                  questions={questions}
+                  setIsHomePage={setIsHomePage}
+                  selectedOption={selectedOption} 
+                />
             }
             
           </main>
