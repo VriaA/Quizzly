@@ -12,6 +12,11 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [questions, setQuestions] = useState([])
   const [isHomePage, setIsHomePage] = useState(true)
+  const [selectedOption, setSelectedOption] = useState({
+    category: 'Category',
+    difficulty: 'Difficulty',
+    type: 'Type'
+  })
 
   useEffect(()=> {
     prefersDark.addEventListener('change', (event)=> {
@@ -41,6 +46,8 @@ function App() {
               startQuiz={startQuiz}
               loading={loading}
               setLoading={setLoading}
+              selectedOption={selectedOption}
+              setSelectedOption={setSelectedOption}
               />
               : <Questions questions={questions} setIsHomePage={setIsHomePage} />
             }

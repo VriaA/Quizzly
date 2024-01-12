@@ -2,13 +2,7 @@ import { useEffect, useState } from "react"
 import quizOptions from "../data/quizOptions"
 
 export default function OptionDropdownMenu(props) {
-      const {menuName, MenuOptions, isDarkTheme, isOpen, setIsOpen, loading, setLoading} = props
-
-      const [selectedOption, setSelectedOption] = useState({
-        category: 'Category',
-        difficulty: 'Difficulty',
-        type: 'Type'
-      })
+      const {menuName, MenuOptions, isDarkTheme, isOpen, setIsOpen, loading, setLoading, selectedOption, setSelectedOption} = props
 
       function handleSelectionChange(e) {
         const optionRadioInput = e.target
