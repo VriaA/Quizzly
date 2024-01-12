@@ -37,6 +37,10 @@ a:focus-visible, button:focus-visible {
   outline-offset: 1px;
 }
 
+fieldset {
+  border: none;
+}
+
 /*===================== BODY =====================*/
 body {
   position: relative;
