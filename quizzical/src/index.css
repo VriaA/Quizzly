@@ -99,7 +99,8 @@ h1, h2 > .quizzical {
 
 .info-trigger, .start-quiz-btn,
 .info-dropdown, ::-webkit-scrollbar-thumb, 
-.change-theme-btn, .answer-label, .end-quiz-btn {
+.change-theme-btn, .answer-label, 
+.end-quiz-btn, .try-again-btn {
   border-radius: 5px;
 }
 
@@ -251,7 +252,7 @@ h2 {
 
 
 /* START BTN */
-.start-quiz-btn, .end-quiz-btn {
+.start-quiz-btn, .end-quiz-btn, .try-again-btn {
   grid-area: start-btn;
   color: #f6f6f6;
   background: linear-gradient(125deg, #3710D6, #3710D6, #D02F70);
@@ -260,12 +261,18 @@ h2 {
   transition: .1s transform ease-in-out;
 }
 
-.start-quiz-btn:hover, .end-quiz-btn:hover {
+.start-quiz-btn:hover, .end-quiz-btn:hover, .try-again-btn:hover {
   background: linear-gradient(to bottom right, #4213fc, #3710D6, #290c9c, #190763, #190763);
 }
 
-.start-quiz-btn:active, .end-quiz-btn:active {
+.start-quiz-btn:active, .end-quiz-btn:active, .try-again-btn:active {
   transform: translateY(3px);
+}
+
+.end-quiz-btn, .try-again-btn {
+  align-self: flex-end;
+  padding: 1.2rem 2rem;
+  font: 400 1.25rem/0 'Wix Madefor Display', sans-serif;
 }
 
 /*===================== RIGHT COL =====================*/
@@ -300,8 +307,8 @@ h2 {
 .quiz-form {
   position: relative;
   z-index: 1000;
-  width: 100%;
-  max-width: 850px;
+  width: fit-content;
+  max-width: 800px;
 }
 
 .question-fieldset {
@@ -346,7 +353,7 @@ h2 {
   cursor: pointer;
 }
 
-.answer-label:has(.answer-radio:checked ) {
+.answer-label:has(.answer-radio:checked) {
   background: #D02F70;
   color: #f6f6f6;
   border-color: #D02F70;
@@ -356,8 +363,19 @@ h2 {
 .end-quiz-btn {
   align-self: flex-end;
   margin-top: 1rem;
-  padding: 1.2rem 2rem;
-  font: 400 1.25rem/0 'Wix Madefor Display', sans-serif;
+}
+
+.solution-score-cntr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.solution-score {
+  color: #D02F70;
+  text-shadow: 2px 2px 0 #f6f6f6;
+  font: 700 2rem/0 'Wix Madefor Display', sans-serif;
 }
 
 .gradient {
@@ -366,7 +384,6 @@ h2 {
   left: -190px;
   background: transparent url(assets/gradient.png) center/cover no-repeat;
   z-index: 1;
-  border: 1px solid #000;
 }
 
 /*===================== BLOBS =====================*/
@@ -393,6 +410,20 @@ h2 {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.right-answer, .wrong-answer {
+  color: #f6f6f6;
+}
+
+.right-answer {
+  background-color: #2b5343 !important;
+  border: 1px solid #2b5343 !important;
+}
+
+.wrong-answer {
+  background-color: #a72637 !important;
+  border: 1px solid #a72637 !important;
 }
 
 /* DARK THEME */

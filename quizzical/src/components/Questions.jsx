@@ -124,9 +124,9 @@ export default function Questions(props) {
                     <form className="quiz-form" onSubmit={endQuiz}>
                         <Question />
                             {isSolution ?
-                                <div>
-                                    <p>{score}/5</p>
-                                    <button type="button" onClick={gotoHomePage}>Try Again</button>
+                                <div className="solution-score-cntr">
+                                    <p className="solution-score">Your score: {score}/5</p>
+                                    <button className="try-again-btn" type="button" onClick={gotoHomePage}>Try Again</button>
                                 </div>
                             :   <button className="end-quiz-btn" type="submit">End Quiz</button>
                             }
