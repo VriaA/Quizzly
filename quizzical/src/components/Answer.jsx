@@ -1,8 +1,8 @@
 export default function Answer(props) {
-    const {answers, correctAnswer, selectedAnswers, handleAnswerClick, questionIndex, isSolution} = props 
+    const {answers, correctAnswer, selectedAnswers, handleAnswerClick, questionIndex, isSolution, isDarkTheme} = props 
     return answers.map((answer, i)=> {
         return (   
-                <label key={i} htmlFor={`question-${questionIndex}-option-${i + 1}`} className="answer-label">
+                <label key={i} htmlFor={`question-${questionIndex}-option-${i + 1}`} className={`answer-label ${isDarkTheme && 'form-dark'}`}>
                     <input
                         id={`question-${questionIndex}-option-${i + 1}`} 
                         className="answer-radio" 

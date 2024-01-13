@@ -3,7 +3,7 @@ import Answers from "./Answer";
 import Result from "./Result";
 
 export default function Questions(props) {
-    const {questions, setIsHomePage, selectedOption} = props
+    const {questions, setIsHomePage, selectedOption, theme} = props
     const [isResult, setIsResult] = useState(false)
     const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
@@ -15,6 +15,7 @@ export default function Questions(props) {
         question4: null,
         question5: null,
     })
+    const isDarkTheme = theme === 'dark'
 
     const [questionsToRender, setQuestionsToRender] = useState(()=> {
         return questions.map((questionObj)=> {
@@ -83,8 +84,8 @@ export default function Questions(props) {
         return questionsToRender.map((questionToRender, i)=> {
                 const {question, answers, correctAnswer} = questionToRender
                 return (
-                    <fieldset key={i}>
-                        <legend>{question}</legend>  
+                    <fieldset className="question-fieldset" key={i}>
+                        <legend><span>{`${i + 1}).`}</span><span className={isDarkTheme && 'form-dark'}>{question}</span></legend>  
                         <Answers 
                             answers={answers}
                             correctAnswer={correctAnswer} 
@@ -92,6 +93,7 @@ export default function Questions(props) {
                             handleAnswerClick={handleAnswerClick}
                             questionIndex={i + 1}
                             isSolution={isSolution}
+                            isDarkTheme={isDarkTheme}
                         />
                     </fieldset>
                 )
@@ -113,25 +115,13 @@ export default function Questions(props) {
         setIsSolution(true)
     }
 
-    const quizCategory = selectedOption.category === 'Category' ? 'Random'  : selectedOption.category
-    const quizDifficulty = selectedOption.difficulty === 'Difficulty' ? 'Random'  : selectedOption.difficulty
-    const quizType = selectedOption.type === 'Type' ? 'Random'  : selectedOption.type
-
     return (
         <>
             {isResult ? 
                 <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} /> 
             :   
-                <div>
-                    <section>
-                        <h2>Quiz</h2>
-                        <div>
-                            <p>Category: {quizCategory}</p>
-                            <p>Difficulty: {quizDifficulty}</p>
-                            <p>Type: {quizType}</p>
-                        </div>
-                    </section>
-                    <form className="questions-cntr" onSubmit={endQuiz}>
+                <div className="quiz-wrapper">
+                    <form className="quiz-form" onSubmit={endQuiz}>
                         <Question />
                             {isSolution ?
                                 <div>
@@ -141,6 +131,7 @@ export default function Questions(props) {
                             :   <button className="end-quiz-btn" type="submit">End Quiz</button>
                             }
                     </form>
+                    <div className="gradient"></div>
                 </div>
             }
         </>

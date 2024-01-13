@@ -50,6 +50,7 @@ function App() {
                 setSelectedOption={setSelectedOption}
               />
               : <Questions 
+                  theme={theme} 
                   questions={questions}
                   setIsHomePage={setIsHomePage}
                   selectedOption={selectedOption} 
