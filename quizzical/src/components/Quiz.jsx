@@ -93,6 +93,7 @@ export default function Questions(props) {
                             handleAnswerClick={handleAnswerClick}
                             questionIndex={i + 1}
                             isSolution={isSolution}
+                            isResult={isResult}
                             isDarkTheme={isDarkTheme}
                         />
                     </fieldset>

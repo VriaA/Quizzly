@@ -1,5 +1,5 @@
 export default function Answer(props) {
-    const {answers, correctAnswer, selectedAnswers, handleAnswerClick, questionIndex, isSolution, isDarkTheme} = props 
+    const {answers, correctAnswer, selectedAnswers, handleAnswerClick, questionIndex, isSolution, isResult, isDarkTheme} = props 
 
     function styleAnswerInSolution(isSelected, isCorrect) {
         if (isSolution && isSelected && !isCorrect) {
@@ -11,7 +11,6 @@ export default function Answer(props) {
 
     return answers.map((answer, i)=> {
         const isSelected = selectedAnswers[`question${questionIndex}`] === answer
-        console.log(answer, isSelected)
         const isCorrect = answer === correctAnswer
         return (   
                 <label 
@@ -26,7 +25,7 @@ export default function Answer(props) {
                         name={`question${questionIndex}`}
                         checked={isSelected}
                         onChange={(e)=> handleAnswerClick(e, questionIndex, correctAnswer, `question${questionIndex}`)}
-                        disabled={isSolution}
+                        disabled={isSolution || isResult}
                     />
                     {answer}
                 </label>
