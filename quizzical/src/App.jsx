@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import handleStartQuizBtnClick from './utils/handleStartQuizBtnClick'
-import Questions from './components/Questions'
+import Quiz from './components/Quiz'
 import manageLoader from './utils/manageLoader'
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
                 selectedOption={selectedOption}
                 setSelectedOption={setSelectedOption}
               />
-              : <Questions 
+              : <Quiz 
                   theme={theme} 
                   questions={questions}
                   setIsHomePage={setIsHomePage}

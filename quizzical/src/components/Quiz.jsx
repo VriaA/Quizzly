@@ -115,25 +115,21 @@ export default function Questions(props) {
         setIsSolution(true)
     }
 
-    return (
-        <>
-            {isResult ? 
-                <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} /> 
-            :   
-                <div className="quiz-wrapper">
-                    <form className="quiz-form" onSubmit={endQuiz}>
-                        <Question />
-                            {isSolution ?
-                                <div className="solution-score-cntr">
-                                    <p className="solution-score">Your score: {score}/5</p>
-                                    <button className="try-again-btn" type="button" onClick={gotoHomePage}>Try Again</button>
-                                </div>
-                            :   <button className="end-quiz-btn" type="submit">End Quiz</button>
-                            }
-                    </form>
-                    <div className="gradient"></div>
-                </div>
-            }
-        </>
+    return ( 
+            <div className="quiz-wrapper">
+                <form className="quiz-form" onSubmit={endQuiz}>
+                    <Question />
+                        {isSolution ?
+                            <div className="solution-score-cntr">
+                                <p className="solution-score">Your score: {score}/5</p>
+                                <button className="try-again-btn" type="button" onClick={gotoHomePage}>Try Again</button>
+                            </div>
+                        :   <button className="end-quiz-btn" type="submit">End Quiz</button>
+                        }
+                </form>
+
+                {isResult && <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} /> }
+                <div className="gradient"></div>
+            </div>
     )
 }
