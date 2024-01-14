@@ -9,6 +9,7 @@ export default function Answer(props) {
         }
     }
 
+    const isRadioDisabled = isSolution || isResult
     return answers.map((answer, i)=> {
         const isSelected = selectedAnswers[`question${questionIndex}`] === answer
         const isCorrect = answer === correctAnswer
@@ -16,7 +17,7 @@ export default function Answer(props) {
                 <label 
                     key={i} 
                     htmlFor={`question-${questionIndex}-option-${i + 1}`} 
-                    className={`answer-label ${isDarkTheme && 'form-dark'} ${styleAnswerInSolution(isSelected, isCorrect)}`}>
+                    className={`answer-label ${isDarkTheme && 'form-dark'} ${isRadioDisabled && 'disabled-option'} ${styleAnswerInSolution(isSelected, isCorrect)}`}>
                     <input
                         id={`question-${questionIndex}-option-${i + 1}`} 
                         className="answer-radio" 
@@ -25,7 +26,7 @@ export default function Answer(props) {
                         name={`question${questionIndex}`}
                         checked={isSelected}
                         onChange={(e)=> handleAnswerClick(e, questionIndex, correctAnswer, `question${questionIndex}`)}
-                        disabled={isSolution || isResult}
+                        disabled={isRadioDisabled}
                     />
                     {answer}
                 </label>

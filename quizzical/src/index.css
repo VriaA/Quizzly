@@ -353,6 +353,11 @@ h2 {
   cursor: pointer;
 }
 
+.disabled-option {
+  color: #555;
+  border-color: #555;
+}
+
 .answer-label:has(.answer-radio:checked) {
   background: #D02F70;
   color: #f6f6f6;
