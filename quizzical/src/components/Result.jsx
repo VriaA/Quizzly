@@ -3,6 +3,7 @@ import trophy from '../assets/trophy.png'
 import medal from '../assets/medal.png'
 import thumbsUp from '../assets/thumbs_up.png'
 import crying from '../assets/crying_emoji.png'
+import celebration from '../assets/celebration.mp3'
 
 export default function Result(props) {
     const {score, gotoHomePage, showSolution} = props
@@ -13,6 +14,11 @@ export default function Result(props) {
     return (
         <div className="result-cntr">
             {score === 5 && <Confetti width={width} height={height}/>}
+            { score === 5 &&
+                <audio autoPlay={true} loop>
+                    <source src={celebration} type='audio/mp3' />
+                </audio>
+            }
             <section className="result">
                 <div className="result-message-cntr">
                     <h2 className="result-message">{resultMessage}</h2>
