@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Answers from "./Answer";
 import Result from "./Result";
+import {decode} from 'html-entities';
 
 export default function Questions(props) {
     const {questions, setIsHomePage, selectedOption, theme} = props
@@ -29,7 +30,24 @@ export default function Questions(props) {
             }
         })
     })
-        
+
+    useEffect(()=>{
+        setQuestionsToRender(prevQuestions=> {
+            const decodedQuestions = [...prevQuestions].map((questionObj)=> {
+                const decodedQuestion = decode(questionObj.question)
+                const decodedAnswers = questionObj.answers.map(answer=> decode(answer))
+                const decodedCorrectAnswer = decode(questionObj.correctAnswer)
+
+                return {
+                    question: decodedQuestion,
+                    answers: decodedAnswers,
+                    correctAnswer: decodedCorrectAnswer
+                }
+            })
+            return decodedQuestions
+        })
+    }, [])
+
     function shuffleAnswers(answers) {
         for (let i = answers.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i));
