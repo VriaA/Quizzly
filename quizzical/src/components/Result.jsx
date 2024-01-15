@@ -13,7 +13,7 @@ export default function Result(props) {
 
     return (
         <div className="result-cntr">
-            {score === 5 && <Confetti width={width} height={height}/>}
+            {score === 5 && <Confetti width={width} height={height} gravity={.3}/>}
             { score === 5 &&
                 <audio autoPlay={true} loop>
                     <source src={celebration} type='audio/mp3' />
