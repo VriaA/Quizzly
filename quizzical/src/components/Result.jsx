@@ -1,14 +1,31 @@
+import Confetti from 'react-confetti'
+import trophy from '../assets/trophy.png'
+import medal from '../assets/medal.png'
+import thumbsUp from '../assets/thumbs_up.png'
+import crying from '../assets/crying_emoji.png'
+
 export default function Result(props) {
     const {score, gotoHomePage, showSolution} = props
-    const resultMessage = score > 4 ? 'Amazing! You got a perfect Score!' : score > 3 ? 'You did great!' : score > 0 ? 'Well done!' : 'You can do better'
+    const resultMessage = score > 4 ? 'Amazing! You got a perfect Score!' : score > 3 ? 'You did great!' : score > 0 ? 'Well done!' : 'You can do better.'
+    const width = window.innerWidth
+    const height = window.innerHeight
 
     return (
-        <section>
-            <h2>{resultMessage}</h2>
-            {score === 5 ? <p>🏆</p> : score === 0 ? <p>😢</p> : <p>🏅</p>}
-            <p><span>{score}</span>/5</p>
-            <button type="button" onClick={gotoHomePage}>Try Again</button>
-            <button type="button" onClick={showSolution}>Show Solution</button>
-        </section>
+        <div className="result-cntr">
+            {score === 5 && <Confetti width={width} height={height}/>}
+            <section className="result">
+                <div className="result-message-cntr">
+                    <h2 className="result-message">{resultMessage}</h2>
+                    <div className="result-img-cntr">
+                        <img className="result-img" src={score === 5 ? trophy : score > 3 ? medal :  score > 0 ? thumbsUp : crying} />
+                    </div>
+                </div>
+                <p className="result-score">{score}/5</p>
+                <div className="result-btns">
+                    <button className="result-btn" type="button" onClick={gotoHomePage}>Try Again</button>
+                    <button className="result-btn" type="button" onClick={showSolution}>Solution</button>
+                </div>
+            </section>
+        </div>
     )
 }

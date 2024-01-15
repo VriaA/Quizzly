@@ -252,7 +252,7 @@ h2 {
 
 
 /* START BTN */
-.start-quiz-btn, .end-quiz-btn, .try-again-btn {
+.start-quiz-btn, .end-quiz-btn, .try-again-btn, .result-btn {
   grid-area: start-btn;
   color: #f6f6f6;
   background: linear-gradient(125deg, #3710D6, #3710D6, #D02F70);
@@ -265,7 +265,7 @@ h2 {
   background: linear-gradient(to bottom right, #4213fc, #3710D6, #290c9c, #190763, #190763);
 }
 
-.start-quiz-btn:active, .end-quiz-btn:active, .try-again-btn:active {
+.start-quiz-btn:active, .end-quiz-btn:active, .try-again-btn:active, .result-btn:active {
   transform: translateY(3px);
 }
 
@@ -381,6 +381,94 @@ h2 {
   color: #D02F70;
   text-shadow: 2px 2px 0 #f6f6f6;
   font: 700 2rem/0 'Wix Madefor Display', sans-serif;
+}
+
+/* RESULTS */
+.result-cntr {
+  position: fixed;
+  inset: 0;
+  padding: 2rem 0;
+  display: grid;
+  place-items: center;
+  background: #3710D671;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  height: 400px;
+  background: #f6f6f6;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.result-message-cntr {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  background: #3710D6 url(assets/quiz_bg.png) left/cover no-repeat;
+}
+
+.result-message {
+  width: 100%;
+  padding: 0 5% 2% 5%;
+  color: #f6f6f6;
+  text-shadow: 0 0 1px #000;
+  font: 500 1.5rem/1.2 'Quicksand', sans-serif;
+  text-align: center;
+}
+
+.result-img-cntr {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  width: fit-content;
+  height: fit-content;
+  margin: auto auto -10% auto;
+  background: #f6f6f6;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: -1px -1px 50px #fdf3bb inset;
+}
+
+.result-img {
+  width: 60px;
+  aspect-ratio: 1/1;
+}
+
+.result-score {
+  margin-block: 20% 10%;
+  color: #D02F70;
+  font: 700 2rem/1 'Wix Madefor Display', sans-serif;
+}
+
+.result-btns {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.result-btn {
+  padding: 1.1rem 2.1rem;
+  font: 500 1rem/0 'Wix Madefor Display', sans-serif;
+  border-radius: 5px;
+}
+
+.result-btn:hover {
+  color: #3710D6;
+  background: #f6f6f6;
+  box-shadow: -2px -2px 0 #D02F70 inset;
 }
 
 .gradient {
@@ -516,6 +604,34 @@ h2 {
   .info-trigger, .start-quiz-btn,
   .info-dropdown {
     width: 200px;
+  }
+
+  .result {
+    width: 500px;
+    height: 450px;
+  }
+
+  .result-message-cntr {
+    height: 50%;
+  }
+  
+  .result-message {
+    padding: 0 5% 10% 5%;
+    font-size: 2.2rem;
+  }
+
+  .result-img {
+    width: 80px;
+  }
+  
+  .result-score {
+    margin-block: 14% 8%;
+    font-size: 3rem;
+  }
+  
+  .result-btn {
+    padding: 1.3rem 2.3rem;
+    font-size: 1.3rem;
   }
 }
 
