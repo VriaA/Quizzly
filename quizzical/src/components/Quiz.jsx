@@ -33,7 +33,7 @@ export default function Questions(props) {
 
     useEffect(()=>{
         setQuestionsToRender(prevQuestions=> {
-            const decodedQuestions = [...prevQuestions].map((questionObj)=> {
+            return [...prevQuestions].map((questionObj)=> {
                 const decodedQuestion = decode(questionObj.question)
                 const decodedAnswers = questionObj.answers.map(answer=> decode(answer))
                 const decodedCorrectAnswer = decode(questionObj.correctAnswer)
@@ -44,7 +44,7 @@ export default function Questions(props) {
                     correctAnswer: decodedCorrectAnswer
                 }
             })
-            return decodedQuestions
+            
         })
     }, [])
 
