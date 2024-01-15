@@ -525,6 +525,14 @@ h2 {
   color: #f6f6f6;
 }
 
+.result-img-cntr-dark, .result-dark {
+  background: #111;
+}
+
+.result-img-cntr-dark {
+  box-shadow: -1px -1px 50px #ffb6c171 inset;
+}
+
 .button-dark, .logo-dark, .form-dark {
   color: #f6f6f6;
 }

@@ -7,7 +7,7 @@ import celebration from '../assets/celebration.mp3'
 import fail from '../assets/fail.mp3'
 
 export default function Result(props) {
-    const {score, gotoHomePage, showSolution} = props
+    const {score, gotoHomePage, showSolution, isDarkTheme} = props
     const resultMessage = score > 4 ? 'Amazing! You got a perfect Score!' : score > 3 ? 'You did great!' : score > 0 ? 'Well done!' : 'You can do better.'
     const width = window.innerWidth
     const height = window.innerHeight
@@ -25,10 +25,11 @@ export default function Result(props) {
                     <source src={fail} type='audio/mp3' />
                 </audio>
             }
-            <section className="result">
+            
+            <section className={`result ${isDarkTheme && 'result-dark'}`}>
                 <div className="result-message-cntr">
                     <h2 className="result-message">{resultMessage}</h2>
-                    <div className="result-img-cntr">
+                    <div className={`result-img-cntr ${isDarkTheme && 'result-img-cntr-dark'}`}>
                         <img className="result-img" src={score === 5 ? trophy : score > 3 ? medal :  score > 0 ? thumbsUp : crying} />
                     </div>
                 </div>
