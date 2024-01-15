@@ -4,6 +4,7 @@ import medal from '../assets/medal.png'
 import thumbsUp from '../assets/thumbs_up.png'
 import crying from '../assets/crying_emoji.png'
 import celebration from '../assets/celebration.mp3'
+import fail from '../assets/fail.mp3'
 
 export default function Result(props) {
     const {score, gotoHomePage, showSolution} = props
@@ -17,6 +18,11 @@ export default function Result(props) {
             { score === 5 &&
                 <audio autoPlay={true} loop>
                     <source src={celebration} type='audio/mp3' />
+                </audio>
+            }
+            { score === 0 &&
+                <audio autoPlay={true}>
+                    <source src={fail} type='audio/mp3' />
                 </audio>
             }
             <section className="result">
