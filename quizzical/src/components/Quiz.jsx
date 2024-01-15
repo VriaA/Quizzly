@@ -116,6 +116,9 @@ export default function Questions(props) {
         setIsSolution(true)
     }
 
+    const gradientStyles = {
+        backgroundSize: isDarkTheme ? '70%' : 'cover',
+    } 
     return ( 
             <div className="quiz-wrapper">
                 <form className="quiz-form" onSubmit={endQuiz}>
@@ -130,7 +133,7 @@ export default function Questions(props) {
                 </form>
 
                 {isResult && <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} /> }
-                <div className="gradient"></div>
+                <div className="gradient" style={gradientStyles}></div>
             </div>
     )
 }

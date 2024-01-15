@@ -475,7 +475,7 @@ h2 {
   position: absolute;
   inset: 0;
   left: -190px;
-  background: transparent url(assets/gradient.png) center/cover no-repeat;
+  background: transparent url(assets/gradient.png) center/70% no-repeat;
   z-index: 1;
 }
 
