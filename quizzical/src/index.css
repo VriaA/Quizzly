@@ -130,8 +130,6 @@ h1 {
 
 /*===================== HERO =====================*/
 .hero-wrapper {
-  justify-content: space-evenly;
-  align-items: center;
   padding: 1rem 1.5rem;
   padding-bottom: 6rem;
   text-align: center;
