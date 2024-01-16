@@ -4,7 +4,7 @@ import Result from "./Result";
 import {decode} from 'html-entities';
 
 export default function Questions(props) {
-    const {questions, setIsHomePage, selectedOption, theme} = props
+    const {questions, setIsHomePage, selectedOption, theme, setDialog} = props
     const [isResult, setIsResult] = useState(false)
     const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
@@ -122,7 +122,13 @@ export default function Questions(props) {
 
     function endQuiz(e) {
         e.preventDefault()
-        setIsResult(true)
+        const selectedAnswersArr = Object.values(selectedAnswers)
+        
+        if(selectedAnswersArr.includes(null)) {
+            setDialog( {['textContent']: 'Please answer all questions.', ['isOpen']: true} )
+        } else {
+            setIsResult(true)
+        }
     }
 
     function gotoHomePage() {
