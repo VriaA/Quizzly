@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 export default function CategoryOption(props) {
 
-    const {selectedOption, handleSelectionChange, loading, setLoading} = props
+    const {selectedOption, handleSelectionChange, setLoading, setDialog} = props
     const [categories, setCategories] = useState(()=> [])
 
     useEffect(()=> {
@@ -12,10 +12,12 @@ export default function CategoryOption(props) {
                 const response = await fetch('https://opentdb.com/api_category.php')
                 const categories = await response.json()
                 setCategories([{id: 'category', name: 'Category'}, ...categories.trivia_categories])
-            } catch (error) {
-                alert('Error:' + error.message)
-            } finally {
                 setTimeout(()=> setLoading(false), 1000)
+            } catch (error) {
+                setDialog( {
+                    ['textContent']: 'Unable to load the page. Please verify your internet connection and try refreshing the page.', 
+                    ['isOpen']: true} 
+                    )
             }
         }
         if(categories.length === 0) {

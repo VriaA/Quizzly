@@ -58,6 +58,7 @@ function App() {
                 setLoading={setLoading}
                 selectedOption={selectedOption}
                 setSelectedOption={setSelectedOption}
+                setDialog={setDialog}
               />
               : <Quiz 
                   theme={theme} 

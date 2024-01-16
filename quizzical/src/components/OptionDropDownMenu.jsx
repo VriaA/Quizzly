@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import quizOptions from "../data/quizOptions"
 
 export default function OptionDropdownMenu(props) {
-      const {menuName, MenuOptions, isDarkTheme, isOpen, setIsOpen, loading, setLoading, selectedOption, setSelectedOption} = props
+      const {menuName, MenuOptions, isDarkTheme, isOpen, setIsOpen, loading, setLoading, selectedOption, setSelectedOption, setDialog} = props
 
       function handleSelectionChange(e) {
         const optionRadioInput = e.target
@@ -74,6 +74,7 @@ export default function OptionDropdownMenu(props) {
                 handleSelectionChange={handleSelectionChange}
                 loading={loading}
                 setLoading={setLoading}
+                setDialog={setDialog}
               />
             </ul>
           </fieldset>
