@@ -103,7 +103,7 @@ export default function Questions(props) {
                 const {question, answers, correctAnswer} = questionToRender
                 return (
                     <fieldset className="question-fieldset" key={i}>
-                        <legend><span>{`${i + 1}).`}</span><span className={isDarkTheme && 'form-dark'}>{question}</span></legend>  
+                        <p className="question"><span>{`${i + 1}).`}</span><span className={isDarkTheme && 'form-dark'}>{question}</span></p>  
                         <Answers 
                             answers={answers}
                             correctAnswer={correctAnswer} 
@@ -149,7 +149,7 @@ export default function Questions(props) {
                     <Question />
                         {isSolution ?
                             <div className="solution-score-cntr">
-                                <p className="solution-score">Your score: {score}/5</p>
+                                <p className={`solution-score ${isDarkTheme && 'solution-score-dark'}`}>Your score: {score}/5</p>
                                 <button className="try-again-btn" type="button" onClick={gotoHomePage}>Try Again</button>
                             </div>
                         :   <button className="end-quiz-btn" type="submit">End Quiz</button>
