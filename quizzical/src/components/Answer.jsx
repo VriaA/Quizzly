@@ -17,7 +17,7 @@ export default function Answer(props) {
                 <label 
                     key={i} 
                     htmlFor={`question-${questionIndex}-option-${i + 1}`} 
-                    className={`answer-label ${isDarkTheme && 'form-dark'} ${isRadioDisabled && 'disabled-option'} ${styleAnswerInSolution(isSelected, isCorrect)}`}>
+                    className={`answer-label${isDarkTheme ? ' quiz-form-dark' : ''}${isRadioDisabled ? ' disabled-option' : ''}${ styleAnswerInSolution(isSelected, isCorrect) || ''}`}>
                     <input
                         id={`question-${questionIndex}-option-${i + 1}`} 
                         className="answer-radio" 

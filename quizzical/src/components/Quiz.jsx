@@ -103,7 +103,7 @@ export default function Questions(props) {
                 const {question, answers, correctAnswer} = questionToRender
                 return (
                     <fieldset className="question-fieldset" key={i}>
-                        <p className="question"><span>{`${i + 1}).`}</span><span className={isDarkTheme && 'form-dark'}>{question}</span></p>  
+                        <p className="question"><span>{`${i + 1}).`}</span><span className={`${isDarkTheme && 'quiz-form-dark'}`}>{question}</span></p>  
                         <Answers 
                             answers={answers}
                             correctAnswer={correctAnswer} 
