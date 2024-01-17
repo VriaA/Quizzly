@@ -371,6 +371,16 @@ h2 {
   border-color: #D02F70;
 }
 
+.answer-label:has(.answer-radio:focus) {
+  outline: 2px solid #3710D6;
+  outline-offset: 2px;
+}
+
+.answer-label:has(.answer-radio:focus:not(.answer-radio:checked)) {
+  background: #3810d62c;
+  outline: none;
+}
+
 .end-quiz-btn {
   width: calc(100% - 2rem);
   margin: 2rem 0 0 2rem;
