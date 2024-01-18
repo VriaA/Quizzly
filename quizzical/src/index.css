@@ -104,6 +104,10 @@ h1, h2 > .quizzical {
   border-radius: 5px;
 }
 
+.dialog-modal, .result {
+  border-radius: 10px;
+}
+
 .start-quiz-btn, .end-quiz-btn, .try-again-btn, .result-btn {
   color: #f6f6f6;
   background: linear-gradient(125deg, #3710D6, #3710D6, #D02F70);
@@ -123,6 +127,14 @@ h1, h2 > .quizzical {
 .end-quiz-btn, .try-again-btn {
   padding: 1.3rem 2.2rem;
   font: 400 1.1rem/0 'Wix Madefor Display', sans-serif;
+}
+
+.result-cntr, .dialog-modal::backdrop {
+  background: #3710D671;
+}
+
+.result, .dialog-modal {
+  background: #f6f6f6;
 }
 
 /*===================== HEADER =====================*/
@@ -413,7 +425,6 @@ h2 {
   padding: 2rem 0;
   display: grid;
   place-items: center;
-  background: #3710D671;
   z-index: 1000;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -425,8 +436,6 @@ h2 {
   align-items: center;
   width: 85%;
   height: 400px;
-  background: #f6f6f6;
-  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -494,6 +503,50 @@ h2 {
   box-shadow: -2px -2px 0 #D02F70 inset;
 }
 
+/* DIALOG */
+.dialog-modal {
+  position: fixed;
+  margin: auto;
+  text-align: center;
+  width: 300px;
+  padding: 2.65rem 1.5rem 4.85rem 1.5rem;
+  border: none;
+  overflow: hidden;
+}
+
+.dialog-modal > p, .close-dialog-modal-btn {
+  font: 400 1rem/1 'Wix Madefor Display', sans-serif;
+}
+
+.dialog-modal > p {
+  line-height: 1.5;
+}
+
+.warning-icon {
+  margin-block-end: 1rem;
+  font-size: 2.5rem;
+  color: #ff9100;
+  font-variation-settings:
+  'FILL' 1
+}
+
+.close-dialog-modal-btn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  align-self: flex-end;
+  padding: 1rem 0;
+  font-size: .85rem;
+  font-weight: 700;
+  color: #f6f6f6;
+  background: #D02F70;
+}
+
+.close-dialog-modal-btn:is(:focus-visible, :hover) {
+  background: #fc3d89;
+}
+
 .gradient {
   position: absolute;
   inset: 0;
@@ -548,7 +601,7 @@ h2 {
 }
 
 /* DARK THEME */
-.body-dark, .loader-cntr-dark {
+.body-dark, .loader-cntr-dark, .dialog-modal-dark {
   background: #111;
   color: #f6f6f6;
 }

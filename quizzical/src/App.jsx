@@ -69,7 +69,7 @@ function App() {
                 />
             }
 
-            <Dialog dialog={dialog} setDialog={setDialog} />
+            <Dialog dialog={dialog} setDialog={setDialog} isDarkTheme={theme === 'dark'}/>
           </main>
         </div>
   )
