@@ -488,6 +488,7 @@ h2 {
 .result-btns {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -495,6 +496,7 @@ h2 {
   padding: 1.1rem 2.1rem;
   font: 500 1rem/0 'Wix Madefor Display', sans-serif;
   border-radius: 5px;
+  margin-bottom: .5rem;
 }
 
 .result-btn:hover {
