@@ -76,6 +76,7 @@ function App() {
                   setIsHomePage={setIsHomePage}
                   selectedOption={selectedOption} 
                   setDialog={setDialog}
+                  setLoading={setLoading}
                 />
             }
 

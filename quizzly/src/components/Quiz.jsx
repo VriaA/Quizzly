@@ -4,7 +4,7 @@ import Result from "./Result";
 import {decode} from 'html-entities';
 
 export default function Questions(props) {
-    const {questions, setIsHomePage, selectedOption, theme, setDialog} = props
+    const {questions, setIsHomePage, theme, setDialog, setLoading} = props
     const [isResult, setIsResult] = useState(false)
     const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
@@ -132,6 +132,7 @@ export default function Questions(props) {
     }
 
     function gotoHomePage() {
+        setLoading(true)
         setIsHomePage(true)
     }
 
