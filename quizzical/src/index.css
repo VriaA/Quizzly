@@ -555,6 +555,12 @@ h2 {
   z-index: 1;
 }
 
+@media screen and (max-width: 500px) {
+  .gradient {
+    background: transparent url(assets/gradient.png) center/200% no-repeat !important;
+  }
+}
+
 /*===================== BLOBS =====================*/
 .blob1 {
   position: absolute;
