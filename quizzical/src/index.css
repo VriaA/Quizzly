@@ -70,7 +70,7 @@ body, button, a {
   color: #111;
 }
 
-h1, h2 > .quizzical {
+h1, h2 > .quizzly {
   font-weight: 500;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -178,7 +178,7 @@ h2 {
   text-decoration: underline wavy #3710D6;
 }
 
-.quizzical {
+.quizzly {
   color: transparent;
   background: linear-gradient(45deg, #3710D6 30%, #D02F70);
   -webkit-background-clip: text;

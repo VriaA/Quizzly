@@ -36,7 +36,7 @@ export default function Hero(props) {
         <div className='hero-wrapper'>
         <section className='left-col'>
           
-          <h2>Dive into the ultimate <span className='trivia'>trivia</span> experience with <span className='quizzical'>Quizzical</span>.</h2>
+          <h2>Dive into the ultimate <span className='trivia'>trivia</span> experience with <span className='quizzly'>Quizzly</span>.</h2>
           <p className='hero-subtext'>Let the quest for knowledge begin!</p>
 
           <form className='quiz-info-cntr' onSubmit={startQuiz}>
