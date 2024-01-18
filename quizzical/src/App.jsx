@@ -61,8 +61,8 @@ function App() {
                   setSelectedOption={setSelectedOption}
                   setDialog={setDialog}
                 />
-                <div class="gradient gradient-home1"></div>   
-                <div class="gradient gradient-home2"></div>
+                <div className="gradient gradient-home1"></div>   
+                <div className="gradient gradient-home2"></div>
               </>
               : <Quiz 
                   theme={theme} 
