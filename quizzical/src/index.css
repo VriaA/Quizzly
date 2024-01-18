@@ -590,6 +590,7 @@ h2 {
 .disabled-option {
   color: #555;
   border-color: #555;
+  cursor: not-allowed;
 }
 
 .right-answer, .wrong-answer {
