@@ -118,7 +118,6 @@ h1, h2 > .quizzly {
 }
 
 .start-quiz-btn:is(:focus-visible, :hover), .end-quiz-btn:is(:focus-visible, :hover), .try-again-btn:is(:focus-visible, :hover) {
-  box-shadow: 0 2px 5px #3710D6;
   animation: .3s bgGradient ease forwards;
 }
 
@@ -171,8 +170,8 @@ h1 {
 }
 
 .theme-icon:hover {
-  color: #504385;
-  text-shadow: 0 0 10px #c2b3fa;
+  color: #053db6;
+  text-shadow: 0 0 20px #c2b3fa;
   font-variation-settings: 
   'FILL' 1
 }
