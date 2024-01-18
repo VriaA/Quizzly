@@ -31,9 +31,10 @@ button {
   border: none;
 }
 
-a:focus-visible, button:focus-visible {
+a:focus-visible, button:focus-visible,
+.answer-label:has(.answer-radio:focus-visible)  {
   outline: 2px solid #3710D6;
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
 
 fieldset {
@@ -97,7 +98,7 @@ h1, h2 > .quizzly {
   font: 400 1rem/1 'Wix Madefor Display', sans-serif;
 }
 
-.info-trigger, .start-quiz-btn,
+.logo, .info-trigger, .start-quiz-btn,
 .info-dropdown, ::-webkit-scrollbar-thumb, 
 .change-theme-btn, .answer-label, 
 .end-quiz-btn, .try-again-btn {
@@ -130,6 +131,10 @@ h1, h2 > .quizzly {
   font: 400 1.1rem/0 'Wix Madefor Display', sans-serif;
 }
 
+.answer-label, .close-dialog-modal-btn {
+  transition: .5s background ease-in-out;
+}
+
 .result-cntr, .dialog-modal::backdrop {
   background: #3710D671;
 }
@@ -158,10 +163,18 @@ h1 {
 
 .theme-icon {
   font-size: 1.7rem;
+  transition: .1s all ease-in-out;
   font-variation-settings: 
   'wght' 400,
   'FILL' 0,
   'opsz' 24
+}
+
+.theme-icon:hover {
+  color: #504385;
+  text-shadow: 0 0 10px #c2b3fa;
+  font-variation-settings: 
+  'FILL' 1
 }
 
 /*===================== HERO =====================*/
@@ -249,10 +262,6 @@ h2 {
 
 .info-dropdown > li * {
   cursor: pointer;
-}
-
-.info-dropdown > li:focus-visible {
-  outline: 2px solid #D02F70;
 }
 
 .info-option {
@@ -384,13 +393,12 @@ h2 {
   border-color: #D02F70;
 }
 
-.answer-label:has(.answer-radio:focus-visible) {
-  outline: 2px solid #3710D6;
-  outline-offset: 2px;
+.answer-label:hover {  
+  background: #3710D655;
 }
 
 .answer-label:has(.answer-radio:focus-visible:not(.answer-radio:checked)) {
-  background: #3810d62c;
+  background: #3710D655;
   outline: none;
 }
 
@@ -546,8 +554,12 @@ h2 {
   background: #D02F70;
 }
 
-.close-dialog-modal-btn:is(:focus-visible, :hover) {
+.close-dialog-modal-btn:is(:focus, :focus-visible, :hover) {
   background: #fc3d89;
+}
+
+.close-dialog-modal-btn:focus {
+  outline: none;
 }
 
 /*===================== KEYFRAMES =====================*/
@@ -639,6 +651,11 @@ h2 {
 .body-dark, .loader-cntr-dark, .dialog-modal-dark {
   background: #111;
   color: #f6f6f6;
+}
+
+.theme-icon-dark:hover {
+  color: #fafa40;
+  text-shadow: 0 0 10px #fafa40;
 }
 
 .result-img-cntr-dark, .result-dark {
