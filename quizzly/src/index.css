@@ -116,8 +116,9 @@ h1, h2 > .quizzly {
   transition: .1s transform ease-in-out;
 }
 
-.start-quiz-btn:hover, .end-quiz-btn:hover, .try-again-btn:hover {
-  background: linear-gradient(to bottom right, #4213fc, #3710D6, #290c9c, #190763, #190763);
+.start-quiz-btn:is(:focus-visible, :hover), .end-quiz-btn:is(:focus-visible, :hover), .try-again-btn:is(:focus-visible, :hover) {
+  box-shadow: 0 2px 5px #3710D6;
+  animation: .3s bgGradient ease forwards;
 }
 
 .start-quiz-btn:active, .end-quiz-btn:active, .try-again-btn:active, .result-btn:active {
@@ -547,6 +548,19 @@ h2 {
 
 .close-dialog-modal-btn:is(:focus-visible, :hover) {
   background: #fc3d89;
+}
+
+/*===================== KEYFRAMES =====================*/
+@keyframes bgGradient {
+  0% {
+    background: linear-gradient(125deg, #3710D6, #3710D6, #D02F70);
+  }
+  50% {
+    background: linear-gradient(125deg, #3710D6, #3710D6, #3710D6, #3710D6, #D02F70 2%, #3710D6);
+  }
+  100% {
+    background: linear-gradient(125deg, #D02F70 2%, #D02F70 2%, #D02F70 2%, #D02F70 2%, #3710D6, #3710D6);
+  }
 }
 
 /*===================== GRADIENTS =====================*/
