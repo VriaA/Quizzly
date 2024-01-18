@@ -5,8 +5,10 @@ import Dialog from './components/Dialog'
 import handleStartQuizBtnClick from './utils/handleStartQuizBtnClick'
 import Quiz from './components/Quiz'
 import manageLoader from './utils/manageLoader'
+import switchEffect from './assets/light_switch.mp3'
 
 function App() {
+  const lightSwitchSound = new Audio(`${switchEffect}`)
   const savedTheme = JSON.parse(localStorage.getItem('theme'))
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
   const [theme, setTheme] = useState(savedTheme ? savedTheme : prefersDark.matches ? 'dark' : 'light')
@@ -42,7 +44,11 @@ function App() {
     dialog.isOpen ? dialogEl.showModal() : dialogEl.close()
   }, [dialog])
 
-  const changeTheme = _=> setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
+  const changeTheme = _=> {
+    lightSwitchSound.play()
+    setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
+    lightSwitchSound.currentTime = 0
+  }
   const startQuiz = (e)=> handleStartQuizBtnClick({e, setLoading, setQuestions, setIsHomePage, setDialog})
 
   return (
