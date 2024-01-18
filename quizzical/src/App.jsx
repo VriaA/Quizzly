@@ -51,15 +51,19 @@ function App() {
 
           <main>
             {isHomePage ?
-              <Hero 
-                theme={theme} 
-                startQuiz={startQuiz}
-                loading={loading}
-                setLoading={setLoading}
-                selectedOption={selectedOption}
-                setSelectedOption={setSelectedOption}
-                setDialog={setDialog}
-              />
+              <>
+                <Hero 
+                  theme={theme} 
+                  startQuiz={startQuiz}
+                  loading={loading}
+                  setLoading={setLoading}
+                  selectedOption={selectedOption}
+                  setSelectedOption={setSelectedOption}
+                  setDialog={setDialog}
+                />
+                <div class="gradient gradient-home1"></div>   
+                <div class="gradient gradient-home2"></div>
+              </>
               : <Quiz 
                   theme={theme} 
                   questions={questions}

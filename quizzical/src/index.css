@@ -547,28 +547,40 @@ h2 {
   background: #fc3d89;
 }
 
+/*===================== GRADIENTS =====================*/
 .gradient {
   position: absolute;
+  z-index: 0;
+  background-image: url(assets/gradient.png);
+}
+
+.gradient-quiz {
   inset: 0;
   left: -190px;
   background: transparent url(assets/gradient.png) center/70% no-repeat;
-  z-index: 1;
+}
+
+.gradient-home1 {
+  display: none;
+  top: 0;
+  right: 0;
+  width: 500px;
+  aspect-ratio: 1/1;
+  background: transparent url(assets/gradient.png) -10% 110%/170% no-repeat;
+}
+
+.gradient-home2 {
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 500px;
+  background: transparent url(assets/gradient.png) -150px 900%/150% no-repeat;
 }
 
 @media screen and (max-width: 500px) {
-  .gradient {
+  .gradient-quiz {
     background: transparent url(assets/gradient.png) center/200% no-repeat !important;
   }
-}
-
-/*===================== BLOBS =====================*/
-.blob1 {
-  position: absolute;
-  left: -14%;
-  bottom: 0px;
-  z-index: 1;
-  width: 300px;
-  height: 200px;
 }
 
 /*===================== MODIFIERS =====================*/
@@ -686,9 +698,8 @@ h2 {
     padding-bottom: 0;
   }
 
-  .blob1 {
-    width: 450px;
-    height: 300px;
+  .gradient-home1 {
+    display: block;
   }
 
   .quiz-info-cntr {
@@ -839,10 +850,5 @@ h2 {
   .right-col {
     width: 450px;
     height: 450px;
-  }
-
-  .blob1 {
-    width: 600px;
-    height: 400px;
   }
 }

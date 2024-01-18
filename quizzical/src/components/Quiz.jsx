@@ -157,7 +157,7 @@ export default function Questions(props) {
                 </form>
 
                 {isResult && <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} isDarkTheme={theme === 'dark'} /> }
-                <div className="gradient" style={gradientStyles}></div>
+                <div className="gradient gradient-quiz" style={gradientStyles}></div>
             </div>
     )
 }
