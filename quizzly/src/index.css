@@ -261,7 +261,7 @@ a:focus-visible, button:focus-visible,
 }
 
 /* === CURSOR === */
-.button, info-dropdown > li *, .answer-label {
+button, info-dropdown > li *, .answer-label {
   cursor: pointer;
 }
 
