@@ -53,6 +53,7 @@ body {
   inset: 0;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   background: #f6f6f6;
   z-index: 1000;
 }
@@ -62,7 +63,7 @@ body {
 }
 
 .loader-text {
-  font: 400 1.3rem/1 'Wix Madefor Display', sans-serif;
+  font: 500 1rem/1 'Wix Madefor Display', sans-serif;
 }
 
 /*===================== REPEATED STYLES =====================*/
@@ -169,7 +170,8 @@ h1 {
   'opsz' 24
 }
 
-.theme-icon:hover {
+.theme-icon:hover, 
+.change-theme-btn:focus-visible .theme-icon {
   color: #053db6;
   text-shadow: 0 0 20px #c2b3fa;
   font-variation-settings: 
@@ -507,7 +509,7 @@ h2 {
   margin-bottom: .5rem;
 }
 
-.result-btn:hover {
+.result-btn:is(:focus-visible, :hover) {
   color: #3710D6;
   background: #f6f6f6;
   box-shadow: -2px -2px 0 #D02F70 inset;
@@ -555,10 +557,6 @@ h2 {
 
 .close-dialog-modal-btn:is(:focus, :focus-visible, :hover) {
   background: #fc3d89;
-}
-
-.close-dialog-modal-btn:focus {
-  outline: none;
 }
 
 /*===================== KEYFRAMES =====================*/
@@ -632,6 +630,10 @@ h2 {
   cursor: not-allowed;
 }
 
+.disabled-option:hover {
+  background: none;
+}
+
 .right-answer, .wrong-answer {
   color: #f6f6f6;
 }
@@ -652,9 +654,10 @@ h2 {
   color: #f6f6f6;
 }
 
-.theme-icon-dark:hover {
-  color: #fafa40;
-  text-shadow: 0 0 10px #fafa40;
+.theme-icon-dark:hover, 
+.change-theme-btn:focus-visible .theme-icon-dark {
+  color: #fafa40 !important;
+  text-shadow: 0 0 10px #fafa40 !important;
 }
 
 .result-img-cntr-dark, .result-dark {
@@ -727,7 +730,6 @@ h2 {
 
   .hero-wrapper {
     width: 100%;
-    padding-bottom: 0;
   }
 
   .gradient-home1 {
@@ -837,6 +839,7 @@ h2 {
   .hero-wrapper {
     flex-direction: row;
     justify-content: space-evenly;
+    padding-block: 0;
     text-align: start;
   }
 
