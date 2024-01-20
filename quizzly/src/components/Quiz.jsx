@@ -147,6 +147,13 @@ export default function Questions(props) {
     return ( 
             <div className="quiz-wrapper">
                 <form className="quiz-form" onSubmit={endQuiz}>
+                    <section className="quiz-preferences">
+                        <h2>Science: Computers</h2>
+                        <div className="quiz-preferences-inner">
+                            <progress className={`countdown ${isDarkTheme && 'countdown-dark'}`} value={10} min={0} max={90}>80</progress>
+                            <p className="preferred-difficulty-and-type"><span>Any category</span>|<span>Any type</span></p>
+                        </div>
+                    </section>
                     <Question />
                         {isSolution ?
                             <div className="solution-score-cntr">
