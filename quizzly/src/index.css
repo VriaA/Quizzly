@@ -562,7 +562,7 @@ h2 {
 }
 
 .countdown, .countdown::-webkit-progress-bar {
-  background-color: #dddddd;
+  background-color: #F5DEEB;
 } 
 
 .countdown::-webkit-progress-value {
