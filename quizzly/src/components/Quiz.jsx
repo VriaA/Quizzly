@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import Answers from "./Answer";
 import Result from "./Result";
 import {decode} from 'html-entities';
+import QuizDetails from "./QuizDetails";
 
 export default function Questions(props) {
-    const {questions, setIsHomePage, theme, setDialog, setLoading} = props
+    const {questions, selectedOption, setIsHomePage, theme, setDialog, setLoading, loading} = props
+    const isDarkTheme = theme === 'dark'
     const [isResult, setIsResult] = useState(false)
     const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
@@ -16,7 +18,6 @@ export default function Questions(props) {
         question4: null,
         question5: null,
     })
-    const isDarkTheme = theme === 'dark'
 
     const [questionsToRender, setQuestionsToRender] = useState(()=> {
         return questions.map((questionObj)=> {
@@ -147,13 +148,7 @@ export default function Questions(props) {
     return ( 
             <div className="quiz-wrapper">
                 <form className="quiz-form" onSubmit={endQuiz}>
-                    <section className="quiz-preferences">
-                        <h2>Science: Computers</h2>
-                        <div className="quiz-preferences-inner">
-                            <progress className={`countdown ${isDarkTheme && 'countdown-dark'}`} value={10} min={0} max={90}>80</progress>
-                            <p className="preferred-difficulty-and-type"><span>Any category</span>|<span>Any type</span></p>
-                        </div>
-                    </section>
+                    <QuizDetails loading={loading} isResult={isResult} setIsResult={setIsResult} isSolution={isSolution} isDarkTheme={isDarkTheme} selectedOption={selectedOption}/>
                     <Question />
                         {isSolution ?
                             <div className="solution-score-cntr">

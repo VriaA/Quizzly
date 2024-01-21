@@ -77,6 +77,7 @@ function App() {
                   selectedOption={selectedOption} 
                   setDialog={setDialog}
                   setLoading={setLoading}
+                  loading={loading}
                 />
             }
 

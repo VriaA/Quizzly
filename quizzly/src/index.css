@@ -73,8 +73,8 @@ header, .hero-wrapper, .left-col,
 .answer-label, .solution-score-cntr,
 .result, .result-message-cntr, 
 .result-img-cntr, .result-btns,
-.quiz-preferences, .quiz-preferences-inner, 
-.quiz-preferences-inner div, 
+.quiz-details, .quiz-details-inner, 
+.quiz-details-inner div, 
 .preferred-difficulty-and-type {
   display: flex;
 }
@@ -83,12 +83,12 @@ header, .hero-wrapper, .left-col,
 .quiz-info-cntr, .info-dropdown,  
 .loader-cntr, .quiz-wrapper, .quiz-form,
 .solution-score-cntr, .result, 
-.quiz-preferences {
+.quiz-details {
   flex-direction: column;
 }
 
 header, .info-trigger, 
-.solution-score-cntr, .quiz-preferences-inner {
+.solution-score-cntr, .quiz-details-inner {
   justify-content: space-between;
 }
 
@@ -100,7 +100,7 @@ header, .info-trigger,
 .loader-cntr, header, .hero-wrapper, 
 .left-col, .info-trigger, .quiz-wrapper, 
 .answer-label, .solution-score-cntr, .result, 
-.result-message-cntr, .result-img-cntr, .quiz-preferences-inner {
+.result-message-cntr, .result-img-cntr, .quiz-details-inner {
   align-items: center;
 }
 
@@ -127,7 +127,7 @@ header, .info-trigger,
 .quiz-wrapper, .try-again-btn, .result-message-cntr, 
 .result-message, .result-btns, .close-dialog-modal-btn, 
 .info-trigger, .start-quiz-btn, .info-dropdown,
-.quiz-preferences  {
+.quiz-details  {
   width: 100%;
 }
 
@@ -534,20 +534,20 @@ h2 {
   box-shadow: -2px -2px 0 #D02F70 inset;
 }
 
-.quiz-preferences {
+.quiz-details {
   gap: 1.5rem;
   padding: 0 0 2rem 1.7rem;
 }
 
-.quiz-preferences h2 {
+.quiz-details h2 {
   font: 500 1.85rem/1 'Quicksand', sans-serif;
 }
 
-.quiz-preferences-inner {
-  font: 500 .85rem/1 'Quicksand', sans-serif;
+.quiz-details-inner {
+  font: 500 .85rem/1 'Wix Madefor Display', sans-serif;
 }
 
-.quiz-preferences-inner, 
+.quiz-details-inner, 
 .preferred-difficulty-and-type {
   gap: .25rem;
 }
@@ -558,7 +558,7 @@ h2 {
 
 .countdown {
   width: 50%;
-  height: 6px;
+  height: 8px;
 }
 
 .countdown, .countdown::-webkit-progress-bar {
@@ -567,10 +567,17 @@ h2 {
 
 .countdown::-webkit-progress-value {
   background-color: #D02F70;
+  transition: 1s all ease;
 }   
 .countdown::-moz-progress-bar {
   background-color: #D02F70;
+  transition: 1s all ease;
 } 
+
+.time-spent {
+  font-weight: 700;
+  color: #D02F70;
+}
 
 /*===================== DIALOG =====================*/
 .dialog-modal {
@@ -699,7 +706,7 @@ h2 {
 /* === DARK THEME === */
 .button-dark, .logo-dark, .quiz-form-dark, 
 .body-dark, .loader-cntr-dark, 
-.dialog-modal-dark, .solution-score-dark {
+.dialog-modal-dark, .solution-score-dark, .time-spent-dark, .time-spent-dark {
   color: #f6f6f6;
 }
 
@@ -734,7 +741,7 @@ h2 {
   transform: rotate(180deg);
 }
 
-.solution-score-dark {
+.solution-score-dark, .time-spent-dark {
   text-shadow: 1px 1px 0 #D02F70;
 }
 
@@ -833,11 +840,11 @@ h2 {
     font-size: 1.23rem;
   }
 
-  .quiz-preferences h2 {
+  .quiz-details h2 {
     font-size: 2.23rem;
   }
 
-  .answer-label, .quiz-preferences-inner {
+  .answer-label, .quiz-details-inner {
     font-size: 1rem;
   }
 
