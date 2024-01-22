@@ -103,7 +103,7 @@ header, .info-trigger,
 }
 
 .loader-cntr, header, .hero-wrapper, 
-.left-col, .info-trigger, .quiz-wrapper, 
+.left-col, .quiz-info-cntr, .info-trigger, .quiz-wrapper, 
 .answer-label, .solution-score-cntr, .result, 
 .result-message-cntr, .result-img-cntr, .quiz-details-inner {
   align-items: center;
@@ -466,7 +466,8 @@ h2 {
 }
 
 .question span:last-of-type {
-  max-width: 335px;
+  max-width: 98%;
+  padding-right: 1rem;
   overflow-wrap: break-word;
 }
 
@@ -824,6 +825,7 @@ h2 {
     grid-template-areas: "category-options difficulty-options"
                          "type-options start-btn";
     justify-content: center;
+    align-items: unset;
     width: 80%;
   }
 
@@ -862,10 +864,6 @@ h2 {
 
   .question {
     font-size: 1.23rem;
-  }
-
-  .question span:last-of-type {
-    max-width: 100%;
   }
 
   .quiz-details h2 {
