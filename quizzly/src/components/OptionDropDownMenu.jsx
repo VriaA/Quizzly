@@ -55,9 +55,10 @@ export default function OptionDropdownMenu(props) {
               id={`${menuName}-trigger`}
               className={`info-trigger ${menuName}-trigger ${isDarkTheme && 'button-dark info-trigger-dark'}`} 
               type="button"
-              aria-haspopup='listbox' 
+              aria-haspopup='true' 
               aria-expanded={isOpen[`${menuName}Dropdown`]} 
               aria-controls={`${menuName}-dropdown`}
+              aria-label={`Select quiz ${menuName}`}
               onClick={handleTriggerClick}>
 
               <span id={`${menuName}-trigger-name`} className={`${menuName}-trigger-name trigger-name`}>{menuName}</span> 

@@ -136,6 +136,7 @@ header, .info-trigger,
   width: 100%;
 }
 
+.info-trigger, .info-dropdown, 
 .right-col, .dialog-modal, .gradient-home2 {
   width: 300px;
 }
