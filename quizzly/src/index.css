@@ -295,6 +295,11 @@ button, info-dropdown > li *, .answer-label {
   overflow: hidden;
 }
 
+/* === USER SELECT === */
+.theme-icon, .logo, 
+.right-col, .expand-arrow, .result-img {
+  user-select: none;
+}
 
 /*===================== BODY =====================*/
 body {
