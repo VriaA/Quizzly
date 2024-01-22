@@ -9,6 +9,13 @@ export default function Answer(props) {
         }
     }
 
+    function selectAnswerOnEnter(e) {
+        if(!isSolution && e.key === 'Enter') {
+            e.preventDefault()
+            handleAnswerClick(e, questionIndex, correctAnswer, `question${questionIndex}`)
+        }
+    }
+
     const isRadioDisabled = isSolution || isResult
     return answers.map((answer, i)=> {
         const isSelected = selectedAnswers[`question${questionIndex}`] === answer
@@ -26,6 +33,7 @@ export default function Answer(props) {
                         name={`question${questionIndex}`}
                         checked={isSelected}
                         onChange={(e)=> handleAnswerClick(e, questionIndex, correctAnswer, `question${questionIndex}`)}
+                        onKeyDown={(e)=> selectAnswerOnEnter(e, questionIndex, correctAnswer, `question${questionIndex}`)}
                         disabled={isRadioDisabled}
                     />
                     {answer}
