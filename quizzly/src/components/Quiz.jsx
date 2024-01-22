@@ -5,8 +5,7 @@ import {decode} from 'html-entities';
 import QuizDetails from "./QuizDetails";
 
 export default function Questions(props) {
-    const {questions, selectedOption, setIsHomePage, theme, setDialog, setLoading, loading} = props
-    const isDarkTheme = theme === 'dark'
+    const {questions, selectedOption, setIsHomePage, isDarkTheme, setDialog, setLoading, loading} = props
     const [isResult, setIsResult] = useState(false)
     const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
@@ -159,7 +158,7 @@ export default function Questions(props) {
                         }
                 </form>
 
-                {isResult && <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} isDarkTheme={theme === 'dark'} /> }
+                {isResult && <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} isDarkTheme={isDarkTheme} /> }
                 <div className="gradient gradient-quiz" style={gradientStyles}></div>
             </div>
     )

@@ -4,9 +4,7 @@ import CategoryOption from "./CategoryOption"
 import Option from "./Option"
 
 export default function Hero(props) {
-    const {theme, startQuiz, loading, setLoading, selectedOption, setSelectedOption, setDialog} = props
-    
-    const isDarkTheme = theme === 'dark'
+    const {isDarkTheme, startQuiz, loading, setLoading, selectedOption, setSelectedOption, setDialog} = props
 
     const [isOpen, setIsOpen] = useState({
       categoryDropdown: false,

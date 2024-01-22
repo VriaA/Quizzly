@@ -1,17 +1,26 @@
+import switchEffect from '../assets/music/light_switch.mp3'
+
 export default function Header(props) {
-    const {theme, changeTheme} = props
-    const isDarktheme = theme === 'dark'
+    const lightSwitchSound = new Audio(`${switchEffect}`)
+    const {isDarkTheme, setTheme} = props
+
+    const changeTheme = _=> {
+        lightSwitchSound.play()
+        setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
+        lightSwitchSound.currentTime = 0
+      }
+
     return (
         <header>
-            <a className={`logo ${isDarktheme && 'logo-dark'}`} href="/" aria-label="Quizzly logo" title="Quizzly Home"><h1>Quizzly</h1></a>
+            <a className={`logo ${isDarkTheme && 'logo-dark'}`} href="/" aria-label="Quizzly logo" title="Quizzly Home"><h1>Quizzly</h1></a>
             
             <button aria-label="Change theme"
-                className={`change-theme-btn ${theme === 'dark' && 'button-dark'}`}
+                className={`change-theme-btn ${isDarkTheme && 'button-dark'}`}
                 onClick={changeTheme}>
-                <span id="theme-icon" className={`theme-icon ${isDarktheme && 'theme-icon-dark'} material-symbols-outlined`} aria-hidden='true'>
-                    {theme === 'dark' ? 'light_mode' : 'dark_mode'}
+                <span id="theme-icon" className={`theme-icon ${isDarkTheme && 'theme-icon-dark'} material-symbols-outlined`} aria-hidden='true'>
+                    {isDarkTheme ? 'light_mode' : 'dark_mode'}
                 </span>
-                <span className="sr-only" aria-live='assertive'>{theme === 'dark' ? 'Theme changed to dark' : 'Theme changed to light'}</span>
+                <span className="sr-only" aria-live='assertive'>{isDarkTheme ? 'Theme changed to dark' : 'Theme changed to light'}</span>
             </button>
         </header>
     )
