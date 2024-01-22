@@ -131,12 +131,11 @@ header, .info-trigger,
 /* === SIZE === */
 .quiz-wrapper, .try-again-btn, .result-message-cntr, 
 .result-message, .result-btns, .close-dialog-modal-btn, 
-.info-trigger, .start-quiz-btn, .info-dropdown,
 .quiz-details  {
   width: 100%;
 }
 
-.info-trigger, .info-dropdown, 
+.info-trigger, .info-dropdown, .start-quiz-btn,
 .right-col, .dialog-modal, .gradient-home2 {
   width: 300px;
 }
