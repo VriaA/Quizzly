@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import beepSoundEffect from '../assets/beep_beep.mp3'
+import beepSoundEffect from '../assets/music/beep_beep.mp3'
 
 export default function QuizDetails(props) {
     const beepSound = new Audio(beepSoundEffect)

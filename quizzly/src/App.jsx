@@ -5,7 +5,7 @@ import Dialog from './components/Dialog'
 import handleStartQuizBtnClick from './utils/handleStartQuizBtnClick'
 import Quiz from './components/Quiz'
 import manageLoader from './utils/manageLoader'
-import switchEffect from './assets/light_switch.mp3'
+import switchEffect from './assets/music/light_switch.mp3'
 
 function App() {
   const lightSwitchSound = new Audio(`${switchEffect}`)

@@ -430,7 +430,7 @@ h2 {
 /*===================== RIGHT COL =====================*/
 .right-col {
   order: -1;
-  background: transparent url(assets/hero_img_black.png) center/cover no-repeat;
+  background: transparent url(assets/images/hero_img_black.png) center/cover no-repeat;
   height: 300px;
   margin: 1.5rem 0;
   animation: 1.5s bounce alternate infinite;
@@ -507,7 +507,7 @@ h2 {
 
 .result-message-cntr {
   height: 50%;
-  background: #3710D6 url(assets/quiz_bg.png) left/cover no-repeat;
+  background: #3710D6 url(assets/images/quiz_bg.png) left/cover no-repeat;
 }
 
 .result-message {
@@ -647,12 +647,12 @@ h2 {
 /*===================== GRADIENT BACKGROUNDS =====================*/
 .gradient {
   z-index: 0;
-  background-image: url(assets/gradient.png);
+  background-image: url(assets/images/gradient.png);
 }
 
 .gradient-quiz {
   left: -190px;
-  background: transparent url(assets/gradient.png) center/70% no-repeat;
+  background: transparent url(assets/images/gradient.png) center/70% no-repeat;
 }
 
 .gradient-home1 {
@@ -660,17 +660,17 @@ h2 {
   top: 0;
   right: 0;
   width: 500px;
-  background: transparent url(assets/gradient.png) -10% 110%/170% no-repeat;
+  background: transparent url(assets/images/gradient.png) -10% 110%/170% no-repeat;
 }
 
 .gradient-home2 {
   height: 500px;
-  background: transparent url(assets/gradient.png) -150px 900%/150% no-repeat;
+  background: transparent url(assets/images/gradient.png) -150px 900%/150% no-repeat;
 }
 
 @media screen and (max-width: 500px) {
   .gradient-quiz {
-    background: transparent url(assets/gradient.png) center/200% no-repeat !important;
+    background: transparent url(assets/images/gradient.png) center/200% no-repeat !important;
   }
 }
 
@@ -748,7 +748,7 @@ h2 {
 }
 
 .right-col-dark {
-  background: transparent url(assets/hero_img_white.png) center/cover no-repeat;
+  background: transparent url(assets/images/hero_img_white.png) center/cover no-repeat;
 }
 
 .rotate-arrow {

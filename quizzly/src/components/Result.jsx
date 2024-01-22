@@ -1,10 +1,10 @@
 import Confetti from 'react-confetti'
-import trophy from '../assets/trophy.png'
-import medal from '../assets/medal.png'
-import thumbsUp from '../assets/thumbs_up.png'
-import crying from '../assets/crying_emoji.png'
-import celebration from '../assets/celebration.mp3'
-import fail from '../assets/fail.mp3'
+import trophy from '../assets/images/trophy.png'
+import medal from '../assets/images/medal.png'
+import thumbsUp from '../assets/images/thumbs_up.png'
+import crying from '../assets/images/crying_emoji.png'
+import celebration from '../assets/music/celebration.mp3'
+import fail from '../assets/music/fail.mp3'
 
 export default function Result(props) {
     const {score, gotoHomePage, showSolution, isDarkTheme} = props
