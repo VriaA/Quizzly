@@ -465,6 +465,11 @@ h2 {
   font: 700 1.1rem/1.5 'Quicksand', sans-serif;
 }
 
+.question span:last-of-type {
+  max-width: 335px;
+  overflow-wrap: break-word;
+}
+
 .answer-label:first-of-type, .answer-label:nth-of-type(3) {
   grid-column: 2/4;
 }
