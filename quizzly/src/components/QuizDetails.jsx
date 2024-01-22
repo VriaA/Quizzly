@@ -68,6 +68,7 @@ export default function QuizDetails(props) {
                 }
                 <p className="preferred-difficulty-and-type"><span>{preferredDifficulty}</span> | <span>{preferredType}</span></p>
                 <p className={`time-up-message ${isTimeUpMessageVisible && 'show-time-up-message'} ${isDarkTheme && 'time-up-message-dark'}`}>Time's up!</p>
+                <p className="sr-only" aria-live="assertive">{isTimeUp && "Time's up!"}</p>
             </div>
         </section>
     )
