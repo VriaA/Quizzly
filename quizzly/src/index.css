@@ -864,6 +864,10 @@ h2 {
     font-size: 1.23rem;
   }
 
+  .question span:last-of-type {
+    max-width: 100%;
+  }
+
   .quiz-details h2 {
     font-size: 2.23rem;
   }
