@@ -1,19 +1,21 @@
 import switchEffect from '../assets/music/light_switch.mp3'
 
 export default function Header(props) {
-    const lightSwitchSound = new Audio(`${switchEffect}`)
+    const switchToggleSound = new Audio(`${switchEffect}`)
     const {isDarkTheme, setTheme} = props
 
+    // CHANGES APP THEME WHEN CALLED AND PLAYS A SWITCH TOGGLE SOUND EFFECT
     const changeTheme = _=> {
-        lightSwitchSound.play()
+        switchToggleSound.play()
         setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
-        lightSwitchSound.currentTime = 0
+        switchToggleSound.currentTime = 0
       }
 
     return (
         <header>
             <a className={`logo ${isDarkTheme && 'logo-dark'}`} href="/" aria-label="Quizzly logo" title="Quizzly Home"><h1>Quizzly</h1></a>
             
+            {/* CALLS 'changeTheme' ON CLICK */}
             <button aria-label="Change theme"
                 className={`change-theme-btn ${isDarkTheme && 'button-dark'}`}
                 onClick={changeTheme}>
