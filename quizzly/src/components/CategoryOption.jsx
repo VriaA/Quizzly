@@ -5,6 +5,7 @@ export default function CategoryOption(props) {
     const {selectedOption, handleSelectionChange, setLoading, setDialog} = props
     const [categories, setCategories] = useState(()=> [])
 
+    // GETS QUIZ CATEGORIES FROM THE OPEN TRIVIA DATABASE
     useEffect(()=> {
         async function getCategories() {
             try {
@@ -33,7 +34,7 @@ export default function CategoryOption(props) {
                     <li role='option' aria-selected={selectedOption.category === name} key={i}>
                         <input 
                             id={`category-option-${optionNumber}`} 
-                            className='info-option' 
+                            className='quiz-customization-option' 
                             type='radio' 
                             name='category' 
                             value={id}
@@ -41,7 +42,7 @@ export default function CategoryOption(props) {
                             onChange={handleSelectionChange}
                             data-option={name}
                         />
-                        <label htmlFor={`category-option-${optionNumber}`} className='info-option-label'>
+                        <label htmlFor={`category-option-${optionNumber}`} className='quiz-customization-option-label'>
                             {name}
                         </label>
                     </li>

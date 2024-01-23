@@ -10,7 +10,7 @@ export default function Option(props) {
             <li role="option" aria-selected={selectedOption[name] === item} key={i}>
                 <input 
                     id={`${name}-option-${optionNumber}`} 
-                    className='info-option' 
+                    className='quiz-customization-option' 
                     type='radio' 
                     name={name} 
                     value={value}
@@ -19,7 +19,7 @@ export default function Option(props) {
                     data-option={item}
                 />
 
-                <label htmlFor={`${name}-option-${optionNumber}`} className='info-option-label'>
+                <label htmlFor={`${name}-option-${optionNumber}`} className='quiz-customization-option-label'>
                     {item}
                 </label>
             </li>
