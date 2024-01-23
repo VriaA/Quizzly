@@ -11,6 +11,8 @@ export default function Dialog(props) {
                     warning
                 </span>
                 <p>{dialog.textContent}</p>
+
+                {/* CLOSES DIALOG MODAL ON CLICK */}
                 <button 
                     className="close-dialog-modal-btn" 
                     type="button"
