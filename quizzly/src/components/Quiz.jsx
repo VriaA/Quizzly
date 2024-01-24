@@ -89,9 +89,9 @@ export default function Questions(props) {
                         {isSolution ?
                             <div className="solution-score-cntr">
                                 <p className={`solution-score ${isDarkTheme && 'solution-score-dark'}`}>Your score: {score}/5</p>
-                                <button className="try-again-btn" type="button" onClick={gotoHomePage}>Try Again</button>
+                                <button className="btn-group-1 try-again-btn" type="button" onClick={gotoHomePage}>Try Again</button>
                             </div>
-                        :   <button className="end-quiz-btn" type="submit">End Quiz</button>
+                        :   <button className="btn-group-1 end-quiz-btn" type="submit">End Quiz</button>
                         }
                 </form>
 

@@ -73,7 +73,7 @@ export default function Hero(props) {
               setSelectedOption={setSelectedOption}
             />
 
-            <button className='start-quiz-btn' type='submit'>Start Quiz</button>
+            <button className='btn-group-1 start-quiz-btn' type='submit'>Start Quiz</button>
           </form>
 
         </section>

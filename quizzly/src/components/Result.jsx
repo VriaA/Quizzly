@@ -42,8 +42,8 @@ export default function Result(props) {
                 </div>
                 <p className="result-score">{score}/5</p>
                 <div className="result-btns">
-                    <button className="result-btn" type="button" onClick={gotoHomePage}>Try Again</button>
-                    <button className="result-btn" type="button" onClick={showSolution}>Solution</button>
+                    <button className="btn-group-1 result-btn" type="button" onClick={gotoHomePage}>Try Again</button>
+                    <button className="result-btn result-solution-btn" type="button" onClick={showSolution}>Check Solution</button>
                 </div>
             </section>
         </div>
