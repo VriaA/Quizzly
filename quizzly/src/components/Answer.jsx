@@ -1,6 +1,8 @@
 export default function Answer(props) {
-    const {answers, correctAnswer, selectedAnswers, handleAnswerClick, questionIndex, isSolution, isResult, isDarkTheme} = props 
+    const {answers, correctAnswer, selectedAnswers, selectAnswer, questionIndex, isSolution, isResult, isDarkTheme} = props 
 
+    /*RETURNS A CLASS FOR STYLING AN ANSWER WHEN RENDERING THE QUIZ SOLUTION, BASED ON 
+    WHETHER THE ANSWER IS CORRECT OR NOT */
     function styleAnswerInSolution(isSelected, isCorrect) {
         if (isSolution && isSelected && !isCorrect) {
             return ' wrong-answer'
@@ -9,10 +11,11 @@ export default function Answer(props) {
         }
     }
 
+    // ALLOWS USERS TO SELECT AN ANSWER BY PRESSING THE ENTER KEY WITHOUT SUBMITTING THE QUIZ.
     function selectAnswerOnEnter(e) {
         if(!isSolution && e.key === 'Enter') {
             e.preventDefault()
-            handleAnswerClick(e, questionIndex, correctAnswer, `question${questionIndex}`)
+            selectAnswer(e, questionIndex, correctAnswer, `question${questionIndex}`)
         }
     }
 
@@ -32,7 +35,7 @@ export default function Answer(props) {
                         value={answer}
                         name={`question${questionIndex}`}
                         checked={isSelected}
-                        onChange={(e)=> handleAnswerClick(e, questionIndex, correctAnswer, `question${questionIndex}`)}
+                        onChange={(e)=> selectAnswer(e, questionIndex, correctAnswer, `question${questionIndex}`)}
                         onKeyDown={(e)=> selectAnswerOnEnter(e, questionIndex, correctAnswer, `question${questionIndex}`)}
                         disabled={isRadioDisabled}
                     />
