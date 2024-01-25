@@ -114,10 +114,10 @@ export default function QuizDetails(props) {
                         <span className="timer-icon material-symbols-outlined">
                             timer
                         </span>
-                        <progress id="countdown" className={`countdown ${isDarkTheme && 'countdown-dark'}`} value={timeLeft} min={0} max={75}>{timeLeft}</progress>
+                        <progress id="countdown" className={`countdown ${isDarkTheme && 'countdown-dark'}`} value={timeLeft} min={0} max={75}>{timeLeft} seconds</progress>
                      </div>
                 }
-                <p className="preferred-difficulty-and-type"><span>{preferredDifficulty}</span> | <span>{preferredType}</span></p>
+                <div className="preferred-difficulty-and-type"><h3>{preferredDifficulty}</h3> | <h3>{preferredType}</h3></div>
                 <p className={`time-up-message ${isTimeUpMessageVisible && 'show-time-up-message'} ${isDarkTheme && 'time-up-message-dark'}`}>Time's up!</p>
                 <p className="sr-only" aria-live="assertive">{isTimeUp && "Time's up!"}</p>
             </div>
