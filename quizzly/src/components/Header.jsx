@@ -22,8 +22,8 @@ export default function Header(props) {
                 <span id="theme-icon" className={`theme-icon ${isDarkTheme && 'theme-icon-dark'} material-symbols-outlined`} aria-hidden='true'>
                     {isDarkTheme ? 'light_mode' : 'dark_mode'}
                 </span>
-                <span className="sr-only" aria-live='assertive'>{isDarkTheme ? 'Theme changed to dark' : 'Theme changed to light'}</span>
             </button>
+            <span className="sr-only" aria-live='assertive'>{isDarkTheme ? 'Theme changed to dark' : 'Theme changed to light'}</span>
         </header>
     )
 }
