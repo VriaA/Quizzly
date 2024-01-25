@@ -650,6 +650,7 @@ h2 {
 }
 
 .show-time-up-message {
+  display: grid;
   transform: scale(1);
 }
 
@@ -928,6 +929,10 @@ h2 {
   .result-btn {
     padding: 1.3rem 2.3rem;
     font-size: 1.3rem;
+  }
+
+  .quiz-form {
+    min-width: 750px;
   }
 
   .question {
