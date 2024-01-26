@@ -109,7 +109,7 @@ export default function QuizDetails(props) {
                 {/* SHOWS THE TIME SPENT IF THE QUIZ SOLUTION IS BEING DISPLAYED.
                     SHOWS THE QUIZ COUNTDOWN TIMER IF THE QUIZ IS STILL ONGOING */}
                 {isSolution ? 
-                    <p className={`time-spent ${isDarkTheme && 'time-spent-dark'}`}>Time spent {`${timeSpent.minutesSpent}:${timeSpent.secondsSpent}`}</p> 
+                    <p className={`time-spent ${isDarkTheme && 'time-spent-dark'}`}>{`${timeSpent.minutesSpent} : ${timeSpent.secondsSpent}`}</p> 
                     :<div id="countdown-wrapper" className="countdown-wrapper">
                         <span className="timer-icon material-symbols-outlined">
                             timer

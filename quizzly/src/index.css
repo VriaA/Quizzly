@@ -229,6 +229,11 @@ body, button, a,
   background: #f6f6f6;
 }
 
+/* === TEXT SHADOW === */
+.solution-score, .time-spent {
+  text-shadow: 1px 1px 0 #f6f6f6;
+}
+
 /* === BORDER === */
 button, fieldset, 
 .dialog-modal, .countdown {
@@ -499,10 +504,8 @@ h2 {
 
 /* === SOLUTION SCORE === */
 .solution-score {
-  text-shadow: 1px 1px 0 #f6f6f6;
   font: 700 1.25rem/1.5 'Wix Madefor Display', sans-serif;
 }
-
 
 /*===================== RESULT =====================*/
 .result-cntr {
@@ -564,7 +567,7 @@ h2 {
 }
 
 .quiz-details {
-  gap: 1.5rem;
+  gap: 2rem;
   padding: 0 0 2rem 1.7rem;
 }
 
