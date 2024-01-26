@@ -15,13 +15,13 @@ export default function QuizDetails(props) {
             const quizDetailsRect = document.getElementById("quiz-details").getBoundingClientRect()
             const isAtTop = quizDetailsRect.top <= 0
 
-            if(countdownWrapper && isAtTop) {
+            if(countdownWrapper && isAtTop && !isSolution) {
                 countdownWrapper.classList.add("fixed-countdown")
             } else {
                 countdownWrapper.classList.remove("fixed-countdown")
             }
         })
-    }, [])
+    }, [isSolution])
 
     // KEEPS TRACK OF THE TIME LEFT AND TIME SPENT EVERY SECOND DURING A QUIZ
     useEffect(()=>{
@@ -108,15 +108,16 @@ export default function QuizDetails(props) {
             <div className="quiz-details-inner">
                 {/* SHOWS THE TIME SPENT IF THE QUIZ SOLUTION IS BEING DISPLAYED.
                     SHOWS THE QUIZ COUNTDOWN TIMER IF THE QUIZ IS STILL ONGOING */}
-                {isSolution ? 
-                    <p className={`time-spent ${isDarkTheme && 'time-spent-dark'}`}>{`${timeSpent.minutesSpent} : ${timeSpent.secondsSpent}`}</p> 
-                    :<div id="countdown-wrapper" className="countdown-wrapper">
+                <div id="countdown-wrapper" className="countdown-wrapper">
                         <span className="timer-icon material-symbols-outlined">
                             timer
                         </span>
-                        <progress id="countdown" className={`countdown ${isDarkTheme && 'countdown-dark'}`} value={timeLeft} min={0} max={75}>{timeLeft} seconds</progress>
-                     </div>
-                }
+                        { isSolution ? 
+                        <p className={`time-spent ${isDarkTheme && 'time-spent-dark'}`}>{`${timeSpent.minutesSpent} : ${timeSpent.secondsSpent}`}</p> 
+                        : <progress id="countdown" className={`countdown ${isDarkTheme && 'countdown-dark'}`} value={timeLeft} min={0} max={75}>{timeLeft} seconds</progress>
+                        }
+                </div>
+                
                 <div className="preferred-difficulty-and-type"><h3>{preferredDifficulty}</h3> | <h3>{preferredType}</h3></div>
                 <p className={`time-up-message ${isTimeUpMessageVisible && 'show-time-up-message'} ${isDarkTheme && 'time-up-message-dark'}`}>Time's up!</p>
                 <p className="sr-only" aria-live="assertive">{isTimeUp && "Time's up!"}</p>
