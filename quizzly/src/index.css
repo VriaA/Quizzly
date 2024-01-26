@@ -369,7 +369,7 @@ h2 {
   content: url(assets/images/circle1.svg);
 }
 
-.trivia:hover:after {
+.trivia:hover::after {
   content: url(assets/images/circle2.svg);
 }
 
