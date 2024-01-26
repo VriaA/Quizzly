@@ -466,7 +466,7 @@ h2 {
   font: 700 1.1rem/1.5 'Quicksand', sans-serif;
 }
 
-.question span:last-of-type {
+.question h4 {
   max-width: 98%;
   padding-right: 1rem;
   overflow-wrap: break-word;
