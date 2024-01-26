@@ -16,7 +16,7 @@ export default function Header(props) {
             <a className={`logo ${isDarkTheme && 'logo-dark'}`} href="/" aria-label="Quizzly logo" title="Quizzly Home"><h1>Quizzly</h1></a>
             
             {/* CALLS 'changeTheme' ON CLICK */}
-            <button aria-label="Change theme"
+            <button aria-label="Change app theme"
                 className={`change-theme-btn ${isDarkTheme && 'button-dark'}`}
                 onClick={changeTheme}>
                 <span id="theme-icon" className={`theme-icon ${isDarkTheme && 'theme-icon-dark'} material-symbols-outlined`} aria-hidden='true'>
