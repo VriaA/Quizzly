@@ -39,12 +39,14 @@ button {
 
 body, header, .quiz-customization-form, 
 .options-wrapper,  .customization-dropdown-menu, 
-.customization-dropdown-menu > li,  .result-message-cntr {
+.customization-dropdown-menu > li,  
+.result-message-cntr, .trivia {
   position: relative;
 }
 
 .quiz-customization-option, .answer-radio, .result-img-cntr, 
-.close-dialog-modal-btn, .gradient, .sr-only {
+.close-dialog-modal-btn, .gradient, .sr-only,
+.trivia::after {
   position: absolute;
 }
 
@@ -359,13 +361,28 @@ h2 {
   font: 500 1.9rem/1.2 'Quicksand', sans-serif;
 }
 
-.trivia {
-  text-decoration:4px  underline wavy #3710D6;
+.trivia::after {
+  display: inline-block;
+  left: -22%;
+  width: 145%;
+  bottom: -36%;
+  content: url(assets/images/circle1.svg);
+}
+
+.trivia:hover:after {
+  content: url(assets/images/circle2.svg);
 }
 
 .quizzly {
   color: transparent;
   background: linear-gradient(45deg, #3710D6 30%, #ca1a7b);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+.quizzly:hover {
+  background: linear-gradient(45deg, #ca1a7b, #3710d6 70%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -868,14 +885,14 @@ h2 {
     flex: 1;
   }
 
-  .hero-content {
-    max-width: 580px;
-  }
-
   .hero-wrapper {
     width: 100%;
   }
-
+  
+  .hero-content {
+    max-width: 580px;
+  }
+  
   .gradient-home1 {
     display: block;
   }
