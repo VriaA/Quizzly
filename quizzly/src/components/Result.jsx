@@ -8,7 +8,7 @@ import fail from '../assets/music/fail.mp3'
 
 export default function Result(props) {
     const {score, gotoHomePage, showSolution, isDarkTheme} = props
-    const resultMessage = score > 4 ? 'Amazing! You got a perfect Score!' : score > 3 ? 'You did great!' : score > 0 ? 'Well done!' : 'You can do better.'
+    const resultMessage = score > 4 ? 'Amazing! You got a perfect Score!' : score > 3 ? 'You did great!' : score > 0 ? 'Not bad!' : 'You can do better.'
     
     // CONFETTI CONTAINER SIZE
     const width = window.innerWidth
