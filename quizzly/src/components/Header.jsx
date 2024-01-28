@@ -2,12 +2,14 @@ import switchEffect from '../assets/music/light_switch.mp3'
 
 export default function Header(props) {
     const switchToggleSound = new Audio(`${switchEffect}`)
-    const {isDarkTheme, setTheme} = props
+    const {isDarkTheme, setTheme, theme} = props
 
-    // CHANGES APP THEME WHEN CALLED AND PLAYS A SWITCH TOGGLE SOUND EFFECT
-    const changeTheme = _=> {
+    /* CHANGES APP THEME WHEN CALLED, SAVES THE NEW THEME TO LOCAL STORAGE
+     AND PLAYS A SWITCH TOGGLE SOUND EFFECT */
+    function changeTheme () {
         switchToggleSound.play()
         setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
+        localStorage.setItem('theme', JSON.stringify(theme === 'dark' ? 'light' : 'dark'))
         switchToggleSound.currentTime = 0
       }
 

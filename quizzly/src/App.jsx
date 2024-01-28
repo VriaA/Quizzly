@@ -35,7 +35,6 @@ export default function App() {
     SAVES THE NEW THEME TO LOCALSTORAGE SO THAT IT PERSISTS ACROSS REFRESHES */
   useEffect(()=>{
     theme === 'dark' ? document.body.classList.add('body-dark') : document.body.classList.remove('body-dark')
-    localStorage.setItem('theme', JSON.stringify(theme))
   }, [theme])
 
   // CALLS THE 'manageLoader' FUNCTION WHEN THE LOADING STATE OR APP'S THEME CHANGES
@@ -52,7 +51,7 @@ export default function App() {
   
   return (
         <div className='wrapper'>
-          <Header isDarkTheme={theme === 'dark'} setTheme={setTheme} />
+          <Header isDarkTheme={theme === 'dark'} setTheme={setTheme} theme={theme}/>
 
           <main>
             {/* RENDERS THE HERO OR QUIZ COMPONENT DEPENDING ON THE 'isHomePage' STATE */}
