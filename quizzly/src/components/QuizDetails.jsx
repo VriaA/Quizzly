@@ -10,18 +10,21 @@ export default function QuizDetails(props) {
 
     // CHANGES THE POSITION OF THE COUNTDOWN TIMER TO FIXED WHEN THE QUIZ DETAILS SECTION IS AT THE TOP OF THE SCREEN OR NO LONGER IN VIEW.
     useEffect(()=> {
-        window.addEventListener('scroll', _=> {
-            const countdownWrapper = document.getElementById("countdown-wrapper")
-            const quizDetailsRect = document.getElementById("quiz-details").getBoundingClientRect()
-            const isAtTop = quizDetailsRect.top <= 0
-
-            if(countdownWrapper && isAtTop && !isSolution) {
-                countdownWrapper.classList.add("fixed-countdown")
-            } else {
-                countdownWrapper.classList.remove("fixed-countdown")
-            }
-        })
+        window.addEventListener('scroll', changeTimerPosition)
+        return ()=> window.removeEventListener('scroll', changeTimerPosition)
     }, [isSolution])
+
+    function changeTimerPosition() {
+        const countdownWrapper = document.getElementById("countdown-wrapper")
+        const quizDetailsRect = document.getElementById("quiz-details").getBoundingClientRect()
+        const isAtTop = quizDetailsRect.top <= 0
+
+        if(countdownWrapper && isAtTop && !isSolution) {
+            countdownWrapper.classList.add("fixed-countdown")
+        } else {
+            countdownWrapper.classList.remove("fixed-countdown")
+        }
+    }
 
     // KEEPS TRACK OF THE TIME LEFT AND TIME SPENT EVERY SECOND DURING A QUIZ
     useEffect(()=>{

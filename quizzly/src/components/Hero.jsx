@@ -15,20 +15,23 @@ export default function Hero(props) {
 
     // CLOSES THE QUIZ CUSTOMIZATION DROPDOWN MENU THAT IS OPEN ON CLICK OUTSIDE
     useEffect(()=>{
-      document.addEventListener('click', e=> {
-        const customizationMenuWrappers = document.querySelectorAll('.customization-menu-wrapper')
-
-        customizationMenuWrappers.forEach(wrapper=> {
-          const isWrapperClicked = wrapper.contains(e.target)
-          const customizationDropdownMenu = wrapper.querySelector('.customization-dropdown-menu')
-          const isDropdownHidden = customizationDropdownMenu.classList.contains('hidden')
-
-          if(!isWrapperClicked && !isDropdownHidden) {
-            setIsOpen(prev=> ( {...prev, [`${customizationDropdownMenu.id.split('-')[0]}Dropdown`]: !prev[`${customizationDropdownMenu.id.split('-')[0]}Dropdown`]} ) )
-          }
-        })
-      })
+      document.addEventListener('click', closeQuizCustomizationMenuOnClickOutside)
+      document.removeEventListener('click', closeQuizCustomizationMenuOnClickOutside)
     }, [])
+
+    function closeQuizCustomizationMenuOnClickOutside(e) {
+      const customizationMenuWrappers = document.querySelectorAll('.customization-menu-wrapper')
+
+      customizationMenuWrappers.forEach(wrapper=> {
+        const isWrapperClicked = wrapper.contains(e.target)
+        const customizationDropdownMenu = wrapper.querySelector('.customization-dropdown-menu')
+        const isDropdownHidden = customizationDropdownMenu.classList.contains('hidden')
+
+        if(!isWrapperClicked && !isDropdownHidden) {
+          setIsOpen(prev=> ( {...prev, [`${customizationDropdownMenu.id.split('-')[0]}Dropdown`]: !prev[`${customizationDropdownMenu.id.split('-')[0]}Dropdown`]} ) )
+        }
+      })
+    }
  
     return (
         <div className='hero-wrapper'>
