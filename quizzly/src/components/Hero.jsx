@@ -16,7 +16,7 @@ export default function Hero(props) {
     // CLOSES THE QUIZ CUSTOMIZATION DROPDOWN MENU THAT IS OPEN ON CLICK OUTSIDE
     useEffect(()=>{
       document.addEventListener('click', closeQuizCustomizationMenuOnClickOutside)
-      document.removeEventListener('click', closeQuizCustomizationMenuOnClickOutside)
+      return ()=> document.removeEventListener('click', closeQuizCustomizationMenuOnClickOutside)
     }, [])
 
     function closeQuizCustomizationMenuOnClickOutside(e) {
