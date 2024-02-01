@@ -63,6 +63,7 @@ export default function Questions(props) {
     // RENDERS THE HERO COMPONENT BY SETTING 'isHomePage' TO TRUE
     // SETS 'isLoading' TO TRUE TO ENSURE THAT REQUIRED DATA HAS BEEN FETCHED SUCCESSFULLY BEFORE DISPLAYING THE HERO COMPONENT
     function gotoHomePage() {
+        window.scroll(0, 0)
         setLoading(true)
         setIsHomePage(true)
     }
