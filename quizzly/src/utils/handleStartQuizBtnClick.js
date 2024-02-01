@@ -21,6 +21,7 @@ export default function handleStartQuizBtnClick(params) {
         handleDataError(data)
         setQuestions(data.results)
         setIsHomePage(false)
+        window.scroll(0, 0)
       } catch(error) {
         setIsHomePage(true)
         setDialog( {['textContent']: error.message, ['isOpen']: true} )
