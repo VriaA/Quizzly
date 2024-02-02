@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import beepSoundEffect from '../assets/music/beep_beep.mp3'
 
 export default function QuizDetails(props) {
@@ -7,6 +7,7 @@ export default function QuizDetails(props) {
     const [timeLeft, setTimeLeft] = useState(0)
     const [timeSpent, setTimeSpent] = useState({secondsSpent: "00", minutesSpent: "00"})
     const [isTimeUp, setIsTimeUp] = useState(false)    
+    const countdownTimer = useRef(null)
 
     // CHANGES THE POSITION OF THE COUNTDOWN TIMER TO FIXED WHEN THE QUIZ DETAILS SECTION IS AT THE TOP OF THE SCREEN OR NO LONGER IN VIEW.
     useEffect(()=> {
@@ -41,7 +42,7 @@ export default function QuizDetails(props) {
       - ENDS THE QUIZ WHEN THE TIME IS UP
       - STYLE THE ENDING COUNTDOWN*/
     useEffect(()=> {
-        const countdown = document.getElementById('countdown')
+        const countdown = countdownTimer.current
         if(!countdown) return
         countdown.value = timeLeft
 
@@ -67,15 +68,20 @@ export default function QuizDetails(props) {
     // SHOWS THE QUIZ RESULTS WHEN THE TIME FOR A QUIZ IS UP BY SETTING 'isResult' TO TRUE
     // REMOVES 'countdown-ending-soon' FROM TIMER COUNTDOWN
     useEffect(()=> {
-        const countdown = document.getElementById("countdown")
         if(isTimeUp) {
             setTimeout(()=> {
                 setIsResult(true)
                 beepSound.currentTime = 0
             }, 2500)
-            countdown.classList.remove("countdown-ending-soon")
         }
     }, [isTimeUp])
+
+    /* REMOVE "countdown-ending-soon" CLASS FROM THE COUNTDOWN TIMER WHEN THE
+       QUIZ RESULT IS BEING DISPLAYED */
+    useEffect(()=> {
+        if(!isResult)return
+        countdownTimer.current.classList.remove("countdown-ending-soon")
+    }, [isResult])
 
     /* UPDATES THE TIME SPENT WHEN CALLED
         - INCREASES THE SECONDS SPENT BY ONE
@@ -117,7 +123,14 @@ export default function QuizDetails(props) {
                         </span>
                         { isSolution ? 
                         <p className={`time-spent ${isDarkTheme && 'time-spent-dark'}`}>{`${timeSpent.minutesSpent} : ${timeSpent.secondsSpent}`}</p> 
-                        : <progress id="countdown" className={`countdown ${isDarkTheme && 'countdown-dark'}`} value={timeLeft} min={0} max={75}>{timeLeft} seconds</progress>
+                        : <progress 
+                        id="countdown" 
+                        className={`countdown ${isDarkTheme && 'countdown-dark'}`} 
+                        value={timeLeft} 
+                        min={0} 
+                        max={75}
+                        ref={countdownTimer}> 
+                        {timeLeft} seconds</progress>
                         }
                 </div>
                 
