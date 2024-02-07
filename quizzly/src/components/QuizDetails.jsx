@@ -69,10 +69,11 @@ export default function QuizDetails(props) {
     // REMOVES 'countdown-ending-soon' FROM TIMER COUNTDOWN
     useEffect(()=> {
         if(isTimeUp) {
-            setTimeout(()=> {
+            const showResultWhenTimeIsUp = setTimeout(()=> {
                 setIsResult(true)
                 beepSound.currentTime = 0
             }, 2500)
+            return ()=> clearTimeout(showResultWhenTimeIsUp)
         }
     }, [isTimeUp])
 
