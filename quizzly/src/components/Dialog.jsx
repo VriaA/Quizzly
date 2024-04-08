@@ -1,5 +1,8 @@
-export default function Dialog(props) {
-    const {dialog, setDialog, isDarkTheme} = props
+import { useContext } from "react"
+import { appContext } from "../App"
+
+export default function Dialog() {
+    const { isDarkTheme, dialog, setDialog } = useContext(appContext)
 
     function closeDialogModal() {
         setDialog(prev=> ({...prev, ['isOpen']: false}))

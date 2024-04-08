@@ -1,9 +1,10 @@
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import quizCustomizationOptions from "../data/quizCustomizationOptions"
+import { appContext } from "../App"
 
 export default function CustomizationMenu(props) {
-      const {menuName, MenuOptions, isDarkTheme, isOpen, setIsOpen, loading, setLoading, selectedOption, setSelectedOption, setDialog} = props
-
+      const {menuName, MenuOptions, isOpen, setIsOpen} = props
+      const { isDarkTheme, selectedOption, setSelectedOption } = useContext(appContext)
       /* FOCUSES ON THE CHECKED RADIO BUTTON WHEN A DROPDOWN MENU IS OPEN.
         ENSURES THAT OPTIONS CAN BE NAVIGATED USING ARROW KEYS.*/
       useEffect(()=> {
@@ -78,11 +79,7 @@ export default function CustomizationMenu(props) {
               <MenuOptions 
                 name={menuName}
                 options={quizCustomizationOptions[menuName]}
-                selectedOption={selectedOption} 
                 handleSelectionChange={handleSelectionChange}
-                loading={loading}
-                setLoading={setLoading}
-                setDialog={setDialog}
               />
             </ul>
           </fieldset>

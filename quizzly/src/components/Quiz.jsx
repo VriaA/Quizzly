@@ -1,10 +1,13 @@
-import {useState } from "react";
+import {useState, useContext, createContext } from "react";
 import Result from "./Result";
 import QuizDetails from "./QuizDetails";
 import Question from "./Question";
+import { appContext } from "../App";
 
-export default function Questions(props) {
-    const {questions, selectedOption, setIsHomePage, isDarkTheme, setDialog, setLoading, loading} = props
+export const quizContext = createContext(null)
+
+export default function Questions() {
+    const { isDarkTheme, setLoading, setDialog, setIsHomePage } = useContext(appContext)
     const [isResult, setIsResult] = useState(false)
     const [isSolution, setIsSolution] = useState(false)
     const [score, setScore] = useState(()=> 0)
@@ -83,8 +86,11 @@ export default function Questions(props) {
     return ( 
             <div className="quiz-wrapper">
                 <form className="quiz-form" onSubmit={endQuiz}>
-                    <QuizDetails loading={loading} isResult={isResult} setIsResult={setIsResult} isSolution={isSolution} isDarkTheme={isDarkTheme} selectedOption={selectedOption}/>
-                    <Question selectedAnswers={selectedAnswers} setselectedAnswers={setselectedAnswers} updateScore={updateScore} questions={questions} isDarkTheme={isDarkTheme} isSolution={isSolution} isResult={isResult}/>
+                    <quizContext.Provider value={{isResult, isSolution}}>
+                        <QuizDetails setIsResult={setIsResult}/>
+                        <Question selectedAnswers={selectedAnswers} setselectedAnswers={setselectedAnswers} updateScore={updateScore}/>
+                    </quizContext.Provider>
+
                         {/* SHOWS THE USER'S SCORE AND TRY AGAIN BTN IF THE QUIZ SOLUTION IS BEING DISPLAYED.
                             SHOWS THE END QUIZ BUTTON IF THE QUIZ IS ONGOING.*/}
                         {isSolution ?
@@ -97,7 +103,7 @@ export default function Questions(props) {
                 </form>
 
                 {/* DISPLAYS QUIZ RESULT WHEN 'isResult' IS TRUE */}
-                {isResult && <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} isDarkTheme={isDarkTheme} /> }
+                {isResult && <Result score={score} gotoHomePage={gotoHomePage} showSolution={showSolution} /> }
 
                 {/* GRADIENT BACKGROUND */}
                 <div className="gradient gradient-quiz" style={gradientStyles}></div>

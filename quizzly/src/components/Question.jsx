@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {decode} from 'html-entities';
 import Answers from "./Answer";
+import { appContext } from "../App";
 
 export default function Question(props) {
-    const {selectedAnswers, setselectedAnswers, updateScore, questions, isDarkTheme, isSolution, isResult} = props
+    const {selectedAnswers, setselectedAnswers, updateScore} = props
+    const { isDarkTheme, questions } = useContext(appContext)
 
     // STORES AN ARRAY OF OBJECTS THAT CONTAIN THE QUIZ QUESTION, SHUFFLED ANSWERS AND CORRECT ANSWER
     const [questionsToRender, setQuestionsToRender] = useState(()=> {
@@ -66,13 +68,10 @@ export default function Question(props) {
                     <div className="question"><span>{`${i + 1}).`}</span><h4 className={`${isDarkTheme && 'quiz-form-dark'}`}>{question}</h4></div>  
                     <Answers 
                         answers={answers}
-                        correctAnswer={correctAnswer} 
-                        selectedAnswers={selectedAnswers}
+                        correctAnswer={correctAnswer}
                         selectAnswer={selectAnswer}
+                        selectedAnswers={selectedAnswers}
                         questionIndex={i + 1}
-                        isSolution={isSolution}
-                        isResult={isResult}
-                        isDarkTheme={isDarkTheme}
                     />
                 </fieldset>
             )

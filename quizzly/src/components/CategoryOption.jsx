@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { appContext } from "../App"
 
 export default function CategoryOption(props) {
 
-    const {selectedOption, handleSelectionChange, setLoading, setDialog} = props
+    const {handleSelectionChange} = props
+    const { setLoading, selectedOption, setDialog } = useContext(appContext)
     const [categories, setCategories] = useState(()=> [])
 
     // GETS QUIZ CATEGORIES FROM THE OPEN TRIVIA DATABASE

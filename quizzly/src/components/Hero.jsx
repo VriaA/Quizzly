@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import CustomizationMenu from "./CustomizationMenu"
 import CategoryOption from "./CategoryOption"
 import Option from "./Option"
+import handleStartQuizBtnClick from "../utils/handleStartQuizBtnClick"
+import { appContext } from "../App"
 
-export default function Hero(props) {
-    const {isDarkTheme, startQuiz, loading, setLoading, selectedOption, setSelectedOption, setDialog} = props
+export default function Hero() {
+    const { isDarkTheme, setLoading, setQuestions, setIsHomePage, setDialog } = useContext(appContext)
 
     // STORES THE OPEN STATUS OF ALL QUIZ CUSTOMIZATION MENUS IN STATE
     const [isOpen, setIsOpen] = useState({
@@ -32,6 +34,9 @@ export default function Hero(props) {
         }
       })
     }
+
+    // STARTS THE QUIZ WHEN CALLED
+    const startQuiz = (e)=> handleStartQuizBtnClick({e, setLoading, setQuestions, setIsHomePage, setDialog})
  
     return (
         <div className='hero-wrapper'>
@@ -46,34 +51,22 @@ export default function Hero(props) {
             <CustomizationMenu 
               menuName={'category'} 
               MenuOptions={CategoryOption} 
-              isDarkTheme={isDarkTheme}
               isOpen={isOpen}
               setIsOpen={setIsOpen}
-              loading={loading}
-              setLoading={setLoading}
-              selectedOption={selectedOption}
-              setSelectedOption={setSelectedOption}
-              setDialog={setDialog}
             />
 
             <CustomizationMenu 
               menuName={'difficulty'} 
               MenuOptions={Option} 
-              isDarkTheme={isDarkTheme}
               isOpen={isOpen}
               setIsOpen={setIsOpen}
-              selectedOption={selectedOption}
-              setSelectedOption={setSelectedOption}
             />
 
             <CustomizationMenu 
               menuName={'type'} 
               MenuOptions={Option} 
-              isDarkTheme={isDarkTheme}
               isOpen={isOpen}
               setIsOpen={setIsOpen}
-              selectedOption={selectedOption}
-              setSelectedOption={setSelectedOption}
             />
 
             <button className='btn-group-1 start-quiz-btn' type='submit'>Start Quiz</button>

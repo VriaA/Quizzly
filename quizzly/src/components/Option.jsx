@@ -1,6 +1,9 @@
+import { useContext } from "react"
+import { appContext } from "../App"
 
 export default function Option(props) {
-    const {options, name, selectedOption, handleSelectionChange} = props
+    const {options, name, handleSelectionChange} = props
+    const { selectedOption } = useContext(appContext)
 
     return options.map((item, i)=> {
         const value = item === 'Multiple Choice' ? 'multiple' : item === 'True / False' ? 'boolean' : item.toLowerCase()

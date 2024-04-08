@@ -1,6 +1,11 @@
-export default function Answer(props) {
-    const {answers, correctAnswer, selectedAnswers, selectAnswer, questionIndex, isSolution, isResult, isDarkTheme} = props 
+import { useContext } from "react"
+import { appContext } from "../App"
+import { quizContext } from "./Quiz"
 
+export default function Answer(props) {
+    const {answers, correctAnswer, selectAnswer, questionIndex, selectedAnswers} = props 
+    const { isDarkTheme } = useContext(appContext)
+    const { isResult, isSolution } = useContext(quizContext)
     /*RETURNS A CLASS FOR STYLING AN ANSWER WHEN RENDERING THE QUIZ SOLUTION, BASED ON 
     WHETHER THE ANSWER IS CORRECT OR NOT */
     function styleAnswerInSolution(isSelected, isCorrect) {

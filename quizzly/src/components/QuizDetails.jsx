@@ -1,9 +1,14 @@
 import { useEffect, useRef, useState } from "react"
 import beepSoundEffect from '../assets/music/beep_beep.mp3'
+import { useContext } from "react"
+import { appContext } from "../App"
+import { quizContext } from "./Quiz"
 
 export default function QuizDetails(props) {
     const beepSound = new Audio(beepSoundEffect)
-    const {loading, isResult, setIsResult, isSolution, isDarkTheme, selectedOption} = props
+    const {setIsResult} = props
+    const {isResult, isSolution} = useContext(quizContext)
+    const { isDarkTheme, loading, selectedOption } = useContext(appContext)
     const [timeLeft, setTimeLeft] = useState(0)
     const [timeSpent, setTimeSpent] = useState({secondsSpent: "00", minutesSpent: "00"})
     const [isTimeUp, setIsTimeUp] = useState(false)    

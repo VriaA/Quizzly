@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, createContext } from 'react'
 import Dialog from './components/Dialog'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Quiz from './components/Quiz'
-import handleStartQuizBtnClick from './utils/handleStartQuizBtnClick'
 import manageLoader from './utils/manageLoader'
+
+export const appContext = createContext()
 
 export default function App() {
   const savedTheme = JSON.parse(localStorage.getItem('theme'))
@@ -22,6 +23,7 @@ export default function App() {
     difficulty: 'Difficulty',
     type: 'Type'
   })
+
 
   // CHANGES THE APP THEME WHEN THERE IS NO SAVED THEME IN LOCAL STORAGE AND A USER CHANGES THEIR DEVICE THEME
   useEffect(()=> {
@@ -46,43 +48,40 @@ export default function App() {
     dialog.isOpen ? dialogEl.showModal() : dialogEl.close()
   }, [dialog])
 
-  // STARTS THE QUIZ WHEN CALLED
-  const startQuiz = (e)=> handleStartQuizBtnClick({e, setLoading, setQuestions, setIsHomePage, setDialog})
+  const appContextValues = {
+    theme, 
+    setTheme, 
+    isDarkTheme: theme === 'dark', 
+    loading, 
+    setLoading, 
+    selectedOption, 
+    setSelectedOption, 
+    dialog, 
+    setDialog,
+    questions,
+    setQuestions, 
+    setIsHomePage,
+  }
   
   return (
+      <appContext.Provider value={appContextValues}>
         <div className='wrapper'>
-          <Header isDarkTheme={theme === 'dark'} setTheme={setTheme} theme={theme}/>
-
+          <Header />
           <main>
             {/* RENDERS THE HERO OR QUIZ COMPONENT DEPENDING ON THE 'isHomePage' STATE */}
-            {isHomePage ?
+            {isHomePage ? 
               <>
-                <Hero 
-                  isDarkTheme={theme === 'dark'} 
-                  startQuiz={startQuiz}
-                  loading={loading}
-                  setLoading={setLoading}
-                  selectedOption={selectedOption}
-                  setSelectedOption={setSelectedOption}
-                  setDialog={setDialog}
-                />
-                <div className="gradient gradient-home1"></div>   
+                <div className="gradient gradient-home1"></div>
+                  <Hero />   
                 <div className="gradient gradient-home2"></div>
               </>
-              : <Quiz 
-                  isDarkTheme={theme === 'dark'} 
-                  questions={questions}
-                  setIsHomePage={setIsHomePage}
-                  selectedOption={selectedOption} 
-                  setDialog={setDialog}
-                  setLoading={setLoading}
-                  loading={loading}
-                />
+              : <Quiz />
             }
 
             {/* USED FOR RENDERING ERROR MESSAGES OR WARNINGS */}
-            <Dialog dialog={dialog} setDialog={setDialog} isDarkTheme={theme === 'dark'}/>
+            <Dialog />
           </main>
         </div>
+      </appContext.Provider>
   )
 }

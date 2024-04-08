@@ -5,9 +5,12 @@ import thumbsUp from '../assets/images/thumbs_up.png'
 import crying from '../assets/images/crying_emoji.png'
 import celebration from '../assets/music/celebration.mp3'
 import fail from '../assets/music/fail.mp3'
+import { useContext } from 'react'
+import { appContext } from '../App'
 
 export default function Result(props) {
-    const {score, gotoHomePage, showSolution, isDarkTheme} = props
+    const {score, gotoHomePage, showSolution} = props
+    const { isDarkTheme } = useContext(appContext)
     const resultMessage = score > 4 ? 'Amazing! You got a perfect Score!' : score > 3 ? 'You did great!' : score > 0 ? 'Not bad!' : 'You can do better.'
     
     // CONFETTI CONTAINER SIZE
