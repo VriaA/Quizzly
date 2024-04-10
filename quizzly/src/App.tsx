@@ -4,26 +4,26 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Quiz from './components/Quiz'
 import manageLoader from './utils/manageLoader'
+import { TDialog, TSelectedOption, TQuestions, TAppContext } from './types/appTypes'
 
-export const appContext = createContext()
+export const appContext = createContext<TAppContext | null>(null)
 
-export default function App() {
-  const savedTheme = JSON.parse(localStorage.getItem('theme'))
+export default function App() : JSX.Element {
+  const savedTheme = JSON.parse(localStorage.getItem('theme') as string)
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
-  const [theme, setTheme] = useState(savedTheme ? savedTheme : prefersDark.matches ? 'dark' : 'light')
-  const [loading, setLoading] = useState(true)
-  const [dialog, setDialog] = useState({
+  const [theme, setTheme] = useState<string>(savedTheme ? savedTheme : prefersDark.matches ? 'dark' : 'light')
+  const [loading, setLoading] = useState<boolean>(true)
+  const [dialog, setDialog] = useState<TDialog>({
     textContent: '',
     isOpen: false
   })
-  const [isHomePage, setIsHomePage] = useState(true)
-  const [questions, setQuestions] = useState([])
-  const [selectedOption, setSelectedOption] = useState({
+  const [isHomePage, setIsHomePage] = useState<boolean>(true)
+  const [questions, setQuestions] = useState<TQuestions | []>([])
+  const [selectedOption, setSelectedOption] = useState<TSelectedOption>({
     category: 'Category',
     difficulty: 'Difficulty',
     type: 'Type'
   })
-
 
   // CHANGES THE APP THEME WHEN THERE IS NO SAVED THEME IN LOCAL STORAGE AND A USER CHANGES THEIR DEVICE THEME
   useEffect(()=> {
@@ -44,11 +44,11 @@ export default function App() {
 
   // HIDES OR CLOSES THE DIALOG MODAL ANYTIME THERE IS A CHANGE IN THE 'dialog' STATE
   useEffect(()=> {
-    const dialogEl = document.getElementById('dialog-modal')
+    const dialogEl = document.getElementById('dialog-modal') as HTMLDialogElement
     dialog.isOpen ? dialogEl.showModal() : dialogEl.close()
   }, [dialog])
 
-  const appContextValues = {
+  const appContextValues: TAppContext = {
     theme, 
     setTheme, 
     isDarkTheme: theme === 'dark', 
@@ -61,7 +61,7 @@ export default function App() {
     questions,
     setQuestions, 
     setIsHomePage,
-  }
+  } 
   
   return (
       <appContext.Provider value={appContextValues}>
@@ -70,7 +70,7 @@ export default function App() {
           <main>
             {/* RENDERS THE HERO OR QUIZ COMPONENT DEPENDING ON THE 'isHomePage' STATE */}
             {isHomePage ? 
-              <>
+               <>
                 <div className="gradient gradient-home1"></div>
                   <Hero />   
                 <div className="gradient gradient-home2"></div>

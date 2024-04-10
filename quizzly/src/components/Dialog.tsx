@@ -1,11 +1,12 @@
 import { useContext } from "react"
 import { appContext } from "../App"
+import { TDialog, TAppContext } from "../types/appTypes"
 
-export default function Dialog() {
-    const { isDarkTheme, dialog, setDialog } = useContext(appContext)
+export default function Dialog(): JSX.Element {
+    const {isDarkTheme, dialog, setDialog} = useContext(appContext) as TAppContext
 
     function closeDialogModal() {
-        setDialog(prev=> ({...prev, ['isOpen']: false}))
+        setDialog((prev: TDialog)=> ({...prev, ['isOpen']: false}))
     }
 
     return (

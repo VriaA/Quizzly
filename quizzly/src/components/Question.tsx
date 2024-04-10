@@ -1,18 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import {decode} from 'html-entities';
-import Answers from "./Answer";
+import Answers from "./Answers";
 import { appContext } from "../App";
+import { TAppContext } from "../types/appTypes";
+import { TQuestion, TQuestionsToRender } from "../types/quizTypes";
 
-export default function Question(props) {
-    const {selectedAnswers, setselectedAnswers, updateScore} = props
-    const { isDarkTheme, questions } = useContext(appContext)
+export default function Question(): JSX.Element[] | undefined {
+    const { isDarkTheme, questions } = useContext(appContext) as TAppContext
 
     // STORES AN ARRAY OF OBJECTS THAT CONTAIN THE QUIZ QUESTION, SHUFFLED ANSWERS AND CORRECT ANSWER
-    const [questionsToRender, setQuestionsToRender] = useState(()=> {
-        return questions.map((questionObj)=> {
+    const [questionsToRender, setQuestionsToRender] = useState<TQuestionsToRender>(()=> {
+        return questions.map((questionObj: TQuestion)=> {
             const {correct_answer, incorrect_answers, question} = questionObj
-            const allAnswers = [correct_answer, ...incorrect_answers]
-            const shuffledAnswers = shuffleAnswers([...allAnswers])
+            const allAnswers: string[] = [correct_answer, ...incorrect_answers]
+            const shuffledAnswers: string[] = shuffleAnswers([...allAnswers])
             return {
                 question: question,
                 answers: shuffledAnswers,
@@ -22,9 +23,9 @@ export default function Question(props) {
     })
 
     // SHUFFLES ANSWERS TO ENSURE THAT THE CORRECT ANSWER DOES NOT REMAIN IN THE SAME POSITION FOR EVERY QUESTION
-    function shuffleAnswers(answers) {
+    function shuffleAnswers(answers: string[]): string[] {
         for (let i = answers.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
+            const j: number = Math.floor(Math.random() * (i + 1));
             [answers[i], answers[j]] = [answers[j], answers[i]];
         }
         return answers
@@ -44,24 +45,12 @@ export default function Question(props) {
                     correctAnswer: decodedCorrectAnswer
                 }
             })
-            
         })
     }, [])
 
-    // STORES THE SELECTED ANSWER IN THE 'selectedAnswers' STATE, THEN UPDATES THE USER'S SCORE 
-    function selectAnswer(e, questionIndex, correctAnswer) {
-        const {name, value} = e.target 
-
-        if(selectedAnswers[name] === value) return /* PREVENTS THE SELECTION OF AN ALREADY SELECTED ANSWER */
-            setselectedAnswers(prev=> {
-                return{...prev, [name]: value}
-            })
-            updateScore(value, correctAnswer, questionIndex)
-    }
-
     // RETURNS A FIELDSET WITH A QUESTION AND ITS ASSOCIATED ANSWERS
     if(questionsToRender.length > 0) {
-    return questionsToRender.map((questionToRender, i)=> {
+        const questions: JSX.Element[] = questionsToRender.map((questionToRender, i)=> {
             const {question, answers, correctAnswer} = questionToRender
             return (
                 <fieldset className="question-fieldset" key={i}>
@@ -69,12 +58,11 @@ export default function Question(props) {
                     <Answers 
                         answers={answers}
                         correctAnswer={correctAnswer}
-                        selectAnswer={selectAnswer}
-                        selectedAnswers={selectedAnswers}
                         questionIndex={i + 1}
                     />
                 </fieldset>
             )
         })
+        return questions
     }
 }

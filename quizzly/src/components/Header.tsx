@@ -1,16 +1,17 @@
-import switchEffect from '../assets/music/light_switch.mp3'
-import { appContext } from '../App'
+import switchEffect from '../assets/music/light_switch.mp3';
+import { appContext } from "../App"
 import { useContext } from 'react'
+import { TAppContext } from '../types/appTypes'
 
-export default function Header() {
-    const switchToggleSound = new Audio(`${switchEffect}`)
-    const {isDarkTheme, setTheme} = useContext(appContext)
+export default function Header(): JSX.Element {
+    const switchToggleSound: HTMLAudioElement = new Audio(`${switchEffect}`)
+    const {isDarkTheme, setTheme} = useContext(appContext) as TAppContext
 
     /* CHANGES APP THEME WHEN CALLED, SAVES THE NEW THEME TO LOCAL STORAGE
      AND PLAYS A SWITCH TOGGLE SOUND EFFECT */
-    function changeTheme () {
+    function changeTheme():void {
         switchToggleSound.play()
-        setTheme(prevTheme=> prevTheme === 'light' ? 'dark' : 'light')
+        setTheme((prevTheme: string)=> prevTheme === 'light' ? 'dark' : 'light')
         localStorage.setItem('theme', JSON.stringify(isDarkTheme ? 'light' : 'dark'))
         switchToggleSound.currentTime = 0
       }

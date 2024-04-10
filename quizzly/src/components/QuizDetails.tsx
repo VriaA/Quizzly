@@ -3,16 +3,17 @@ import beepSoundEffect from '../assets/music/beep_beep.mp3'
 import { useContext } from "react"
 import { appContext } from "../App"
 import { quizContext } from "./Quiz"
+import { TquizContext, TTimeSpent } from "../types/quizTypes"
+import { TAppContext } from "../types/appTypes"
 
-export default function QuizDetails(props) {
-    const beepSound = new Audio(beepSoundEffect)
-    const {setIsResult} = props
-    const {isResult, isSolution} = useContext(quizContext)
-    const { isDarkTheme, loading, selectedOption } = useContext(appContext)
-    const [timeLeft, setTimeLeft] = useState(0)
-    const [timeSpent, setTimeSpent] = useState({secondsSpent: "00", minutesSpent: "00"})
-    const [isTimeUp, setIsTimeUp] = useState(false)    
-    const countdownTimer = useRef(null)
+export default function QuizDetails(): JSX.Element {
+    const beepSound: HTMLAudioElement = new Audio(beepSoundEffect)
+    const {isResult, isSolution, setIsResult} = useContext(quizContext) as TquizContext
+    const { isDarkTheme, loading, selectedOption } = useContext(appContext) as TAppContext
+    const [timeLeft, setTimeLeft] = useState<number>(0)
+    const [timeSpent, setTimeSpent] = useState<TTimeSpent>({secondsSpent: "00", minutesSpent: "00"})
+    const [isTimeUp, setIsTimeUp] = useState<boolean>(false)    
+    const countdownTimer = useRef<HTMLProgressElement>(null)
 
     // CHANGES THE POSITION OF THE COUNTDOWN TIMER TO FIXED WHEN THE QUIZ DETAILS SECTION IS AT THE TOP OF THE SCREEN OR NO LONGER IN VIEW.
     useEffect(()=> {
@@ -20,10 +21,10 @@ export default function QuizDetails(props) {
         return ()=> window.removeEventListener('scroll', changeTimerPosition)
     }, [isSolution])
 
-    function changeTimerPosition() {
-        const countdownWrapper = document.getElementById("countdown-wrapper")
-        const quizDetailsRect = document.getElementById("quiz-details").getBoundingClientRect()
-        const isAtTop = quizDetailsRect.top <= 0
+    function changeTimerPosition(): void {
+        const countdownWrapper = document.getElementById("countdown-wrapper") as HTMLElement
+        const quizDetailsRect = (document.getElementById("quiz-details") as HTMLElement).getBoundingClientRect()
+        const isAtTop: boolean = quizDetailsRect.top <= 0
 
         if(countdownWrapper && isAtTop && !isSolution) {
             countdownWrapper.classList.add("fixed-countdown")
@@ -31,10 +32,10 @@ export default function QuizDetails(props) {
             countdownWrapper.classList.remove("fixed-countdown")
         }
     }
-
+    
     // KEEPS TRACK OF THE TIME LEFT AND TIME SPENT EVERY SECOND DURING A QUIZ
     useEffect(()=>{
-        const updateTimeLeft = setInterval(_=> {
+        const updateTimeLeft = setInterval(()=> {
             if(!loading && !isResult && !isSolution && !isTimeUp) {
                 setTimeLeft(prevTimeLeft=> prevTimeLeft + 1)
                 updateTimeSpent()   
@@ -52,19 +53,19 @@ export default function QuizDetails(props) {
         countdown.value = timeLeft
 
         endQuizAtTimeUp()
-        styleEndingCountdown()
+        styleEndingCountdown(countdown)
     }, [timeLeft])
 
     // SETS 'isTimeUp' TO TRUE ONCE THE TIME LEFT FOR A QUIZ IS GREATER THAN OR EQUAL TO 75
     // PLAYS A BEEP SOUND WHEN THE TIME IS UP
-    function endQuizAtTimeUp() {
+    function endQuizAtTimeUp(): void {
         if(timeLeft >= 75) {
             setIsTimeUp(true)
             beepSound.play()
         }
     }
 
-    function styleEndingCountdown() {
+    function styleEndingCountdown(countdown: HTMLProgressElement): void {
         if(timeLeft >= 65) {
             countdown.classList.add("countdown-ending-soon")
         }
@@ -85,14 +86,14 @@ export default function QuizDetails(props) {
     /* REMOVE "countdown-ending-soon" CLASS FROM THE COUNTDOWN TIMER WHEN THE
        QUIZ RESULT IS BEING DISPLAYED */
     useEffect(()=> {
-        if(!isResult)return
+        if(!isResult || !countdownTimer.current )return
         countdownTimer.current.classList.remove("countdown-ending-soon")
     }, [isResult])
 
     /* UPDATES THE TIME SPENT WHEN CALLED
         - INCREASES THE SECONDS SPENT BY ONE
         - INCREASES THE MINUTE SPENT BY ONE IF THE SECONDS SPENT IS 60 */
-    function updateTimeSpent() {
+    function updateTimeSpent(): void {
         setTimeSpent((prevTime) => {
             let newSeconds = Number(prevTime.secondsSpent) + 1
             let newMinutes = Number(prevTime.minutesSpent)
@@ -103,20 +104,20 @@ export default function QuizDetails(props) {
             }
     
             return {
-                    secondsSpent: newSeconds < 10 ? `0${newSeconds}` : newSeconds,
-                    minutesSpent: newMinutes < 10 ? `0${newMinutes}` : newMinutes
+                    secondsSpent: newSeconds < 10 ? `0${newSeconds}` : `${newSeconds}`,
+                    minutesSpent: newMinutes < 10 ? `0${newMinutes}` : `${newMinutes}`
                 }
         })
     }
 
     // USER QUIZ PREFERENCE VALUES
     const {category, difficulty, type} = selectedOption
-    const preferredCategory = category === 'Category' ? 'Any Category' : category
-    const preferredDifficulty = difficulty === 'Difficulty' ? 'Any Difficulty' : difficulty
-    const preferredType = type === 'Type' ? 'Any Type' : type
+    const preferredCategory: string = category === 'Category' ? 'Any Category' : category
+    const preferredDifficulty: string = difficulty === 'Difficulty' ? 'Any Difficulty' : difficulty
+    const preferredType: string = type === 'Type' ? 'Any Type' : type
 
     // USED TO RENDER A MESSAGE WHEN THE TIME FOR A QUIZ IS UP
-    const isTimeUpMessageVisible = isTimeUp && !isSolution && !isResult
+    const isTimeUpMessageVisible: boolean = isTimeUp && !isSolution && !isResult
     return (
         <section id="quiz-details" className="quiz-details">
             <h2>{preferredCategory}</h2>
@@ -133,7 +134,6 @@ export default function QuizDetails(props) {
                         id="countdown" 
                         className={`countdown ${isDarkTheme && 'countdown-dark'}`} 
                         value={timeLeft} 
-                        min={0} 
                         max={75}
                         ref={countdownTimer}> 
                         {timeLeft} seconds</progress>
