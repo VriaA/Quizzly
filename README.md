@@ -1,8 +1,17 @@
-# <p align="center">Quizzly Trivia App</p>
+# <p align="center">Quizzly</p>
+<p align="center">A trivia app featuring 4,146 questions across 24 categories.</p>
 
-### View live application: https://quizzlytrivia.netlify.app
+<h3 align="center">
+  <a href="https://quizzlytrivia.netlify.app">Live</a> | <a href="https://github.com/VriaA/Quizzly">Repository</a>
+</h3>
 
-## HOW TO USE
+## Technologies Used
+* HTML
+* CSS
+* TypeScript
+* React
+
+## How To Use
 ### 1.  Select your preferred quiz category, difficulty and type.
 
   ![Screenshot 2024-04-12 at 11-41-52 Quizzly Test Your Trivia Knowledge with 4 000 Questions](https://github.com/VriaA/Quizzly/assets/123843734/dcf845c5-3c3d-48e9-927f-311278d3b539)
@@ -21,16 +30,10 @@
     
   ![Screenshot 2024-04-12 at 11-39-04 Quizzly Test Your Trivia Knowledge with 4 000 Questions](https://github.com/VriaA/Quizzly/assets/123843734/8becae4d-77a3-4bd2-ad47-782fe9b52fc1)
 
-# PREVIEW
-
-## Mobile View
-
-![Quizzly mobile - light](https://github.com/VriaA/Quizzly/assets/123843734/ff075bc1-0942-422a-894a-7b0667922bc8)  ![Quizzly mobile - dark](https://github.com/VriaA/Quizzly/assets/123843734/e43547d4-8631-4396-a3ff-79d316c20fe1)
-
-## Tablet View
-
-![Quizzly tab - light](https://github.com/VriaA/Quizzly/assets/123843734/83174b56-1141-4285-987a-540cace11ed5)  ![Quizzly tab - dark](https://github.com/VriaA/Quizzly/assets/123843734/5bab6911-8237-4695-b340-f111fd616e2f)
-
-## Desktop View
-![Quizzly PC - Light](https://github.com/VriaA/Quizzly/assets/123843734/d7187231-8edc-4370-a349-4e34360625c6)  ![Quizzly PC - Dark](https://github.com/VriaA/Quizzly/assets/123843734/5d77c514-8f59-4df0-8e7e-c3daa6f6d9fb)
-
+<!-- ## INSTALLATION
+1. Download the code as zip
+```
+cd quizzly
+npm install
+npm run dev
+``` -->
