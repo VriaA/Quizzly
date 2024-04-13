@@ -87,7 +87,3 @@ Quizzly aims to provide users with an engaging platform to test their knowledge 
     npm run build
 
    Once the build process completes, you can deploy the built files located in the `dist` directory to your hosting environment.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
