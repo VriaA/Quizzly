@@ -20,7 +20,7 @@ Quizzly aims to provide users with an engaging platform to test their knowledge 
  
 ## How To Use
 
-### 1.  Select your preferred quiz category, difficulty and type.
+### 1.  Select your preferred quiz category, difficulty, and type.
 
   ![Screenshot 2024-04-12 at 11-41-52 Quizzly Test Your Trivia Knowledge with 4 000 Questions](https://github.com/VriaA/Quizzly/assets/123843734/dcf845c5-3c3d-48e9-927f-311278d3b539)
 
@@ -38,12 +38,20 @@ Quizzly aims to provide users with an engaging platform to test their knowledge 
     
   ![Screenshot 2024-04-12 at 11-39-04 Quizzly Test Your Trivia Knowledge with 4 000 Questions](https://github.com/VriaA/Quizzly/assets/123843734/8becae4d-77a3-4bd2-ad47-782fe9b52fc1)
 
+## Technologies Used
+
+- **HTML:** Used for structuring the web pages.
+- **CSS:** Used for styling the user interface.
+- **TypeScript:** Used for adding static typing and enhancing code readability.
+- **React:** Used for building the user interface components.
+- **Open Trivia Database API:** Used for fetching trivia questions and categories.
+
 ## Dependencies
 
 - React 18.2.0
-- HTML Entities Library: Used for decoding HTML entities.
-  - [HTML Entities Library Documentation](https://www.npmjs.com/package/html-entities)
-- React Confetti Library: Used for confetti animation.
+- html-entities library: Used for decoding HTML entities.
+  - [html-entities library documentation](https://www.npmjs.com/package/html-entities)
+- react-confetti library: Used for confetti animation.
   - [react-confetti library documentation](https://www.npmjs.com/package/react-confetti)
 
 ## Installation
@@ -58,7 +66,7 @@ Quizzly aims to provide users with an engaging platform to test their knowledge 
 
   3. Install dependencies:
 
-    npm Install
+    npm install
 
   4. Start the development server
 
@@ -72,7 +80,7 @@ Quizzly aims to provide users with an engaging platform to test their knowledge 
 
   2. Install dependencies:
 
-    npm Install
+    npm install
     
   3. Build the Project for Deployment:
      
