@@ -48,7 +48,7 @@ Quizzly aims to provide users with an engaging platform to test their knowledge 
 
 ## Dependencies
 
-- React 18.2.0
+- React ^18.2.0
 - html-entities library: Used for decoding HTML entities.
   - [html-entities library documentation](https://www.npmjs.com/package/html-entities)
 - react-confetti library: Used for confetti animation.
