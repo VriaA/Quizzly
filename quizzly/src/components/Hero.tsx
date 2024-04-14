@@ -67,6 +67,7 @@ export default function Hero(): JSX.Element {
 
         </section>
 
+        {/* THE HERO IMAGE IS SET AS A BACKGROUND IMAGE FOR THE DIV USING CSS CLASSES */}
         <div className={`hero-image ${isDarkTheme && 'hero-image-dark'}`}></div>
       </div>
     )
