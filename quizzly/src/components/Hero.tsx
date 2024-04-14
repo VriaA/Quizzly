@@ -50,7 +50,6 @@ export default function Hero(): JSX.Element {
 
           <form className='quiz-customization-form' onSubmit={startQuiz}>
 
-            {/* RENDERS QUIZ CUSTOMIZATION MENU */}
             <CustomizationMenu  menuName={'category'}  isOpen={isOpen} setIsOpen={setIsOpen}>
               <CategoryOptions />
              </CustomizationMenu> 
