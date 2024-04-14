@@ -28,6 +28,8 @@ export default function Header(): JSX.Element {
                     {isDarkTheme ? 'light_mode' : 'dark_mode'}
                 </span>
             </button>
+            
+            {/* ALERTS SCREEN READER USERS WHEN THE APP'S THEME IS CHANGED */}
             <span className="sr-only" aria-live='assertive'>{isDarkTheme ? 'Theme changed to dark' : 'Theme changed to light'}</span>
         </header>
     )
