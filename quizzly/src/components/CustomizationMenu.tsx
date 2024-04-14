@@ -31,7 +31,8 @@ export default function CustomizationMenu({children, menuName, isOpen, setIsOpen
 
       // CLOSES AN OPEN MENU WHEN THE 'Tab', 'Escape' or 'Enter' KEY IS PRESSED
       function closeDropDownOnKeyPress(e: KeyboardEvent): void {
-        if(isOpen[`${menuName}Dropdown` as keyof typeof isOpen] && (e.key === 'Tab' || e.key === 'Escape' || e.key === `Enter`)) {
+        const isMenuOpen: boolean = isOpen[`${menuName}Dropdown` as keyof typeof isOpen]
+        if(isMenuOpen && (e.key === 'Tab' || e.key === 'Escape' || e.key === `Enter`)) {
           e.preventDefault()
           setIsOpen(prev=> {
             return {...prev, [`${menuName}Dropdown`]: !prev[`${menuName}Dropdown` as keyof typeof prev]}
