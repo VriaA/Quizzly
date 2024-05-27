@@ -6,7 +6,7 @@ export default function Dialog(): JSX.Element {
     const {isDarkTheme, dialog, setDialog} = useContext(appContext) as TAppContext
 
     function closeDialogModal() {
-        setDialog((prev: TDialog)=> ({...prev, ['isOpen']: false}))
+        setDialog((prev: TDialog)=> ({...prev, isOpen: false}))
     }
 
     return (
